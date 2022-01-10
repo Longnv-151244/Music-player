@@ -1,0 +1,12 @@
+// Import Css
+@import "/css/bootstrap.min.css";
+@import "/css/fontawesome.min.css";
+@import "/css/animate.css/animate.css";
+
+// Import base Scss
+@import "base/base.scss";
+@import "base/variables.scss";
+@import "base/responsive.scss";
+
+// Import base Scss
+@import "components/nav";
