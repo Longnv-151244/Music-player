@@ -1,12 +1,25 @@
 // Import Css
-@import "/css/bootstrap.min.css";
-@import "/css/fontawesome.min.css";
-@import "/css/animate.css/animate.css";
+// @import "./css/bootstrap.min.css";
+// @import "./css/fontawesome.css";
+@import "./css/animate.css/animate.css";
 
 // Import base Scss
-@import "base/base.scss";
-@import "base/variables.scss";
-@import "base/responsive.scss";
+@import "./base/variables.scss";
+@import "./base/base.scss";
+@import "./base/responsive.scss";
+
+// import Fonts
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&display=swap");
+
+// Mixins
+// *************
+@import "./mixins/flex";
+@import "./mixins/miscellaneous"; // **************
 
 // Import base Scss
-@import "components/nav";
+@import "./components/resetCss";
+@import "./components/buttons";
+@import "./components/player";
+@import "./components/header";
+@import "./components/slider";
+@import "./components/recommend";

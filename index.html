@@ -5,7 +5,111 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="scss/app.scss">
+    <link rel="stylesheet" href="css/app.css">
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
   </head>
-  <body> </body>
+  <body> 
+    <section id="header">
+      <div class="header__container container-fluid">
+        <div class="header__content"> 
+          <div class="header__logo"><a class="header-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a></div>
+          <div class="header__menu"> 
+            <ul class="header__nav">
+              <li><a class="current" href="#">Home </a></li>
+              <li><a href="#">Nhạc Việt Nam </a></li>
+              <li><a href="#">Nhạc Quốc Tế </a></li>
+              <li><a href="#">Lofi </a></li>
+              <li><a href="#">Contact </a></li>
+            </ul>
+            <div class="header__search"> 
+              <form action="" method="post">
+                <input type="text" name="header-search" placeholder="Search and hit enter...">
+                <button class="btn" type="submit"> <i class="fa fa-search"> </i></button>
+              </form>
+            </div>
+            <ul class="header__social"> 
+              <li><a class="fab fa-facebook" href="#"> </a></li>
+              <li><a class="fab fa-twitter" href="#"> </a></li>
+              <li><a class="fab fa-pinterest" href="#"> </a></li>
+              <li><a class="fab fa-instagram" href="#"> </a></li>
+              <li><a class="fab fa-youtube" href="#"> </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="header__background"></div>
+      </div>
+    </section>
+    <section class="bg-overlay bg-img" id="slider" style="background-image: url('img/bg-img/1.jpg');">
+      <div class="container slider__content"> 
+        <div class="slider__wellcome"> 
+          <h1 class="slider__heading">Listen Now</h1>
+          <p class="slider__text">Please schedule a podcast post, to make it visible here </p>
+          <div class="slider__group--btn">
+            <div class="btn poca-btn">Subscribe with iTunes</div>
+            <div class="btn poca-btn btn-2">Subscribe with RSS</div>
+          </div>
+        </div>
+        <div class="slider__player player"><img class="player__img" src="./img/bg-img/4.jpg" alt="">
+          <div class="player__content">
+            <div class="player__info">
+              <p class="player__date">December 7, 2018</p>
+              <h1 class="player__name">Episode 201 - The Last Blockbuster</h1>
+              <p class="player__text"><span class="player__author">Admin | </span><span class="player__category">Tutorials | </span><span class="player_duration">00:02:56</span></p>
+            </div>
+            <div class="player__control"> 
+              <div class="play"> <i class="fas fa-play"></i></div><span class="currenTime">00:00</span>
+              <div class="sidebarTime"> </div><span class="duration">02:56</span>
+              <div class="volume">
+                <div class="volume__icon"> <i class="mute fas fa-volume-slash active"></i><i class="fas fa-volume"></i><i class="fas fa-volume-up"></i></div>
+              </div>
+              <div class="volume__silebar"></div>
+            </div>
+            <div class="like-share-download">
+              <div class="like"><i class="fas fa-heart"> <span>Like(29)</span></i></div>
+              <div class="div">
+                <div class="share"> <i class="fas fa-share-alt"> <span>Share(04)</span></i></div>
+                <div class="download"><i class="fas fa-download"> <span>Download(12)</span></i></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="recommend">
+      <div class="container">
+        <h1>Lựa chọn của Poca</h1>
+        <div class="line"> </div>
+        <div class="group-tab"> 
+          <div class="vpop-tab">
+            <div class="tab__heading"> 
+              <h1>Bài Hát</h1>
+              <div class="btn-group"> 
+                <div class="btn-addList">Thêm hết vào PlayList </div>
+                <div class="btn-playAll">Phát tất cả</div>
+              </div>
+            </div>
+            <div class="tab__content">
+              <div class="tab__slider"> </div>
+              <div class="tab__list-song"> 
+                <div class="song-content">
+                  <div class="song-img"><img src="./img/bg-img/4.jpg" alt=""></div>
+                  <div class="song-info"> 
+                    <div class="song-name">The Last Blockbuster</div>
+                    <div class="song-author">Admin</div>
+                  </div>
+                </div>
+                <div class="duration">02:56</div>
+                <div class="song-option"> 
+                  <div class="addList"> <i class="fas fa-plus"></i></div>
+                  <div class="like"> <i class="far fa-heart"></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="edm-tab"></div>
+          <div class="lofi-tab"> </div>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

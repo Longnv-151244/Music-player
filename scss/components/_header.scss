@@ -1,0 +1,90 @@
+#header {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  left: 0;
+  top: 0;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  .header__container {
+    height: 96px;
+    .header__background {
+      background: $dark;
+      top: 0px;
+      position: absolute;
+      opacity: 1;
+      z-index: -1;
+      width: 100%;
+      height: inherit;
+    }
+    .header__content {
+      z-index: 1;
+      margin-left: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 1.6rem;
+      align-content: center;
+      height: inherit;
+      padding: 0 15px;
+      .header__menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header__nav {
+          display: inline-flex;
+        }
+
+        .current {
+          border-bottom: 3px $primary solid;
+          @include filter($primary);
+        }
+
+        .header__search {
+          margin-right: 2rem;
+
+          form {
+            button,
+            input {
+              padding: 10px;
+              color: $white;
+              background: none;
+              border: $border 2px;
+              font-size: 1.4rem;
+              margin-right: 1.5rem;
+              outline: none;
+            }
+            border-right: 2px solid rgba(255, 255, 255, 0.2);
+          }
+        }
+
+        .header__social {
+          display: inline-flex;
+          // justify-content: space-between;
+          // align-items: center;
+          margin-left: 1rem;
+          font-size: 1.4rem;
+        }
+      }
+
+      li {
+        a {
+          position: relative;
+          z-index: 1;
+          font-weight: $base-font-weight;
+          text-transform: capitalize;
+          color: $white;
+          margin: 2rem;
+        }
+      }
+      button i,
+      li a {
+        &:focus,
+        &:hover {
+          color: $primary;
+          @include filter($primary);
+        }
+      }
+    }
+  }
+}
