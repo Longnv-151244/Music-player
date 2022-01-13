@@ -29,3 +29,10 @@ $secondary: #a6a6a6;
 $fonts: "Space Grotesk", sans-serif;
 $base-font-size: 18px;
 $base-font-weight: 600;
+
+$scale-rate-second: calc(240 / 300);
+$scale-rate-third: calc(210 / 300);
+$offset-x-second: calc(
+  0px - ((300px - (300px * $scale-rate-second)) / 2 + 20px)
+);
+$offset-x-third: calc(0px - ((300px - (300px * $scale-rate-third)) / 2 + 40px));

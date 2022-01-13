@@ -42,6 +42,24 @@ html {
   margin-left: auto;
 }
 
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
 /* :: 1.0 Reboot CSS */
 * {
   margin: 0;
@@ -415,6 +433,184 @@ ul li {
 #recommend {
   margin-top: 15rem;
   padding-bottom: 30rem;
+}
+#recommend .line {
+  width: 10rem;
+  border-bottom: 5px solid #f55656;
+}
+#recommend .group-tab__name {
+  text-align: center;
+}
+#recommend .group-tab__name h3 {
+  display: inline-block;
+  margin: 0 6rem;
+}
+#recommend .group-tab__content .tab__container {
+  width: 100%;
+  height: 300px;
+}
+#recommend .group-tab__content .tab__container .tab__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#recommend .group-tab__content .tab__container .tab__heading .btn-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+#recommend .group-tab__content .tab__container .tab__content {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide {
+  width: 350px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  justify-content: flex-end;
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-show {
+  width: 387px;
+  height: 324px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform-style: preserve-3d;
+  position: relative;
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-item {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  transition: all 0.9s;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  transform: perspective(1px) translateZ(0);
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-img {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 5px;
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-item.first {
+  opacity: 1;
+  transform: translate3d(0, 0, 80px) scale(1, 1);
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-item.second {
+  opacity: 0.7;
+  transform: translate3d(-50px, 0, 60px) scale(0.8, 0.8);
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-item.third {
+  opacity: 0.9;
+  transform: translate3d(-85px, 0, 20px) scale(0.7, 0.7);
+}
+#recommend .group-tab__content .tab__container .tab__content .container__slide-item.fourth {
+  opacity: 0.1;
+  transform: translate3d(-85px, 0, 0) scale(0.7, 0.7);
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list {
+  flex-grow: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 6rem;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list {
+  flex: 1;
+  display: flex;
+  font-weight: 500;
+  flex-direction: column;
+  overflow: hidden overlay;
+  scroll-behavior: smooth;
+  justify-content: flex-start;
+  will-change: scroll-position;
+  /* Handle */
+  /* Handle on hover */
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list::-webkit-scrollbar {
+  display: none;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list:hover::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: transparent;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #888;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  font-size: 1.2rem !important;
+  border-bottom: 3px solid #ebebeb;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active {
+  grid-template-columns: 2fr 3fr 1fr;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active .song-duration {
+  display: none;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active .player__content {
+  display: block;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-content {
+  display: flex;
+  align-items: center;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-content .song-img {
+  width: 7rem;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-content .song-img img {
+  border-radius: 10px;
+  object-fit: cover;
+  max-height: 100%;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-content .song-info {
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-content .song-info .song-name {
+  font-size: 1.5rem;
+  color: #f55656;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .player__content {
+  padding: 1rem 0;
+  display: none;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .player__content .player__control {
+  border-bottom: none;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .player__content .player__control span {
+  font-size: 1.2rem;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-duration {
+  display: flex;
+  align-items: center;
+}
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item .song-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3rem;
+  margin-right: 4rem;
 }
 
 /*# sourceMappingURL=app.css.map */
