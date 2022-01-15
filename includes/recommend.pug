@@ -21,6 +21,11 @@ mixin song_item(songData)
             .like 
                 i.far.fa-heart
 
+mixin slide_item (url) {
+    .container__slide-item.first
+        .container__slide-img(style="background: url('"url"') no-repeat center center / cover")
+}
+
 
 
 section#recommend
@@ -32,17 +37,17 @@ section#recommend
             h3 EDM 
             h3 Lofi 
         .group-tab__content
-            .tab__container.vpop-tab
+            .tab__container
                 .tab__heading 
-                    h1 Bài Hát
+                    h2 Bài Hát
                     .btn-group 
-                        .btn-addList 
+                        .poca-btn.btn-2.btn-addList 
                             i.fas.fa-download 
                                 span Tải về
-                        .btn-playAll  
+                        .poca-btn.btn-playAll  
                             i.fas.fa-play
                                     span Phát tất cả
-                .tab__content
+                .tab__content.vpop-tab.active
                     .container__slide.hide-on-mobile
                         .container__slide-show
                             .container__slide-item.first
@@ -77,26 +82,6 @@ section#recommend
                             
                     .tab__container-list
                         .play-list 
-                            //- .song-item.active
-                            //-     .song-content
-                            //-         .song-img
-                            //-             img(src="./img/bg-img/4.jpg", alt="")
-                            //-         .song-info 
-                            //-             h2.song-name The Last Blockbuster
-                            //-             .song-author Admin
-                            //-     .song-duration 02:56
-                            //-     .player__content
-                            //-         .player__control 
-                            //-             .play 
-                            //-                 i.fas.fa-play
-                            //-             span.currenTime 00:00
-                            //-             .sidebarTime 
-                            //-             span.duration 02:56
-                            //-     .song-option 
-                            //-         .addList 
-                            //-             i.fas.fa-plus
-                            //-         .like 
-                            //-             i.far.fa-heart
                             - const song_1 = {src: './img/bg-img/4.jpg', name: 'Blockbuster', author: 'Jayden White', duration: '02:56', isActive: ''}
                             +song_item(song_1)
                             - const song_2 = {src: './img/bg-img/5.jpg', name: 'You Don’t Know Squat!', author: 'Jayden White', duration: '03:47', isActive: ''}
@@ -115,5 +100,5 @@ section#recommend
                             +song_item(song_8)
                             - const song_9 = {src: './img/bg-img/12.jpg', name: 'Save Me', author: 'DEAMN', duration: '02:47', isActive: ''}
                             +song_item(song_9)
-            .tab__container.edm-tab
-            .tab__container.lofi-tab
+                .tab__content.edm-tab
+                .tab__content.lofi-tab

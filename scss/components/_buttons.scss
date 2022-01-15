@@ -13,15 +13,12 @@
   text-align: center;
   text-transform: uppercase;
   border-radius: 30px;
-  // color: $heading;
-  // background-color: $white;
   @include transition(all 500ms);
   border: 2px solid $primary;
   letter-spacing: 1px;
   box-shadow: none;
   background-color: $primary;
   color: $white;
-  @include filter($white);
   cursor: pointer;
 
   &.active,
@@ -32,17 +29,24 @@
     color: $white;
   }
 
+  &.filter {
+    @include filter($white);
+  }
+
   &.btn-2 {
     background-color: $white;
     color: $heading;
     border: none;
     line-height: 46px;
-    @include filter($primary);
     &:focus,
     &:hover {
       background-color: $white;
       color: $heading;
       border: none;
+    }
+
+    &.filter {
+      @include filter($primary);
     }
   }
 }

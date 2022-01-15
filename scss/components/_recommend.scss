@@ -1,11 +1,14 @@
 #recommend {
   margin-top: 15rem;
-  padding-bottom: 30rem;
+  h1 {
+    font-size: $font-size-heading;
+  }
   .line {
-    width: 10rem;
+    width: 15rem;
     border-bottom: 5px solid $primary;
   }
   .group-tab__name {
+    margin: 30px 0;
     text-align: center;
     h3 {
       display: inline-block;
@@ -16,23 +19,33 @@
     .tab__container {
       width: 100%;
       height: 300px;
+
       .tab__heading {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 20px;
         .btn-group {
           display: flex;
           justify-content: space-between;
           align-items: center;
           gap: 3rem;
+          i span {
+            font-size: 10px;
+            margin-left: 10px;
+          }
         }
       }
+
       .tab__content {
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-
+        display: none;
+        &.active {
+          display: flex;
+        }
         // Slider
         .container__slide {
           width: 350px;

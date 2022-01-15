@@ -3,6 +3,11 @@
 // @import "./css/fontawesome.css";
 @import "./css/animate.css/animate.css";
 
+// Mixins
+// *************
+@import "./mixins/flex";
+@import "./mixins/miscellaneous"; // **************
+
 // Import base Scss
 @import "./base/variables.scss";
 @import "./base/base.scss";
@@ -11,11 +16,6 @@
 // import Fonts
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&display=swap");
 
-// Mixins
-// *************
-@import "./mixins/flex";
-@import "./mixins/miscellaneous"; // **************
-
 // Import base Scss
 @import "./components/resetCss";
 @import "./components/buttons";
@@ -23,3 +23,4 @@
 @import "./components/header";
 @import "./components/slider";
 @import "./components/recommend";
+@import "./components/newletter";

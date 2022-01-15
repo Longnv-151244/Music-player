@@ -45,8 +45,8 @@
           <h1 class="slider__heading">Listen Now</h1>
           <p class="slider__text">Please schedule a podcast post, to make it visible here </p>
           <div class="slider__group--btn">
-            <div class="btn poca-btn">Subscribe with iTunes</div>
-            <div class="btn poca-btn btn-2">Subscribe with RSS</div>
+            <div class="poca-btn filter">Subscribe with iTunes</div>
+            <div class="poca-btn btn-2 filter">Subscribe with RSS</div>
           </div>
         </div>
         <div class="slider__player player"><img class="player__img" src="./img/bg-img/4.jpg" alt="">
@@ -85,15 +85,15 @@
           <h3>Lofi </h3>
         </div>
         <div class="group-tab__content">
-          <div class="tab__container vpop-tab">
+          <div class="tab__container">
             <div class="tab__heading"> 
-              <h1>Bài Hát</h1>
+              <h2>Bài Hát</h2>
               <div class="btn-group"> 
-                <div class="btn-addList"> <i class="fas fa-download"> <span>Tải về</span></i></div>
-                <div class="btn-playAll"> <i class="fas fa-play"><span>Phát tất cả</span></i></div>
+                <div class="poca-btn btn-2 btn-addList"> <i class="fas fa-download"> <span>Tải về</span></i></div>
+                <div class="poca-btn btn-playAll"> <i class="fas fa-play"><span>Phát tất cả</span></i></div>
               </div>
             </div>
-            <div class="tab__content">
+            <div class="tab__content vpop-tab active">
               <div class="container__slide hide-on-mobile">
                 <div class="container__slide-show">
                   <div class="container__slide-item first">
@@ -325,11 +325,29 @@
                 </div>
               </div>
             </div>
+            <div class="tab__content edm-tab"></div>
+            <div class="tab__content lofi-tab"></div>
           </div>
-          <div class="tab__container edm-tab"></div>
-          <div class="tab__container lofi-tab"></div>
         </div>
       </div>
     </section>
+    <section id="newletter">
+      <div class="jarallax bg-overlay bg-img" style="background-image: url('./img/bg-img/15.jpg');">
+        <div class="container newletter__container">
+          <div class="newletter__content">
+            <h1>Sign Up To Newsletter</h1>
+            <p>Subscribe to receive info on our latest news and episodes</p>
+          </div>
+          <div class="newletter__subcribe">
+            <form action="" method="method">
+              <input type="text" placeholder="Your Email">
+              <input type="submit" value="SUBCRIBE">
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="./node_modules/jarallax/dist/jarallax.min.js"></script>
+    <script src="./js/app.js"></script>
   </body>
 </html>

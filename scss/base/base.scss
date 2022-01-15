@@ -4,18 +4,6 @@ html {
   // font-size: 50%;
 }
 
-.filter {
-  filter: drop-shadow(4px 4px 4px $primary);
-}
-
-@mixin filter($color) {
-  filter: drop-shadow(4px 4px 4px $color);
-}
-
-// .container {
-//   min-width: 992px !important;
-// }
-
 .container {
   width: 100%;
   padding-right: 15px;
@@ -54,12 +42,19 @@ html {
   margin-left: auto;
 }
 
+.filter {
+  filter: drop-shadow(4px 4px 4px $primary);
+}
+
+@mixin filter($color) {
+  filter: drop-shadow(4px 4px 4px $color);
+}
+
 .center-block {
   display: block;
   margin-right: auto;
   margin-left: auto;
 }
-
 .text-left {
   text-align: left;
 }
@@ -68,4 +63,49 @@ html {
 }
 .text-center {
   text-align: center;
+}
+
+.bg-overlay {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+.bg-img {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+.box-shadow {
+  @include box-shadow(0 10px 50px 0 rgba(0, 0, 0, 0.2));
+}
+
+#success_fail_info {
+  margin-bottom: 30px;
+  color: $white;
+  text-align: center;
+}
+
+.mfp-iframe-holder .mfp-close {
+  top: 0;
+  width: 30px;
+  height: 30px;
+  background-color: $primary;
+  text-align: center;
+  right: 0;
+  padding-right: 0;
+  line-height: 32px;
 }
