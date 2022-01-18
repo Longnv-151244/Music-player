@@ -1,6 +1,5 @@
 #newletter {
   margin-top: 20rem;
-  padding-bottom: 30rem;
 
   .jarallax {
     position: relative;
@@ -10,10 +9,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media #{$breakpoint-mobile} {
+        flex-direction: column;
+        gap: 20px;
+      }
       .newletter__content {
         h1 {
           color: $white;
           font-size: $font-size-heading;
+          @media #{$breakpoint-mobile} {
+            font-size: 30px;
+          }
         }
         p {
           color: $white;
@@ -24,6 +30,7 @@
     }
     .newletter__subcribe {
       width: 500px;
+      max-width: 100%;
       form {
         width: 100%;
         display: grid;

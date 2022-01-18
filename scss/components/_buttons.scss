@@ -3,7 +3,6 @@
 .poca-btn {
   position: relative;
   z-index: 1;
-  min-width: 170px;
   height: 46px;
   line-height: 43px;
   font-size: 14px;
@@ -20,7 +19,9 @@
   background-color: $primary;
   color: $white;
   cursor: pointer;
-
+  @media #{$breakpoint-mobile} {
+    padding: 0 10px;
+  }
   &.active,
   &:focus,
   &:hover {

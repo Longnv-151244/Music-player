@@ -2,6 +2,9 @@
   margin-top: 15rem;
   h1 {
     font-size: $font-size-heading;
+    @media #{$breakpoint-mobile} {
+      font-size: 30px;
+    }
   }
   .line {
     width: 15rem;
@@ -13,12 +16,20 @@
     h3 {
       display: inline-block;
       margin: 0 6rem;
+      cursor: pointer;
+      @media #{$breakpoint-mobile} {
+        margin: 0 3rem;
+      }
     }
   }
   .group-tab__content {
     .tab__container {
       width: 100%;
       height: 300px;
+
+      @media #{$breakpoint-mobile} {
+        height: 200px;
+      }
 
       .tab__heading {
         display: flex;
@@ -33,6 +44,15 @@
           i span {
             font-size: 10px;
             margin-left: 10px;
+          }
+          .poca-btn {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+              rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+          }
+          @media #{$breakpoint-mobile} {
+            .btn-2 {
+              display: none;
+            }
           }
         }
       }
@@ -54,56 +74,60 @@
           align-items: center;
           padding-right: 20px;
           justify-content: flex-end;
-        }
 
-        .container__slide-show {
-          width: 387px;
-          height: 324px;
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          transform-style: preserve-3d;
-          position: relative;
-        }
-
-        .container__slide-item {
-          width: 300px;
-          height: 300px;
-          position: absolute;
-          transition: all 0.9s;
-          backface-visibility: hidden;
-          will-change: transform, opacity;
-          transform: perspective(1px) translateZ(0);
-        }
-
-        .container__slide-img {
-          width: 100%;
-          padding-top: 100%;
-          border-radius: 5px;
-        }
-
-        .container__slide-item {
-          &.first {
-            opacity: 1;
-            transform: translate3d(0, 0, 80px) scale(1, 1);
+          @media #{$breakpoint-table} {
+            display: none;
           }
 
-          &.second {
-            opacity: 0.7;
-            transform: translate3d($offset-x-second, 0, 60px)
-              scale($scale-rate-second, $scale-rate-second);
+          @media #{$breakpoint-mobile} {
+            display: none;
           }
 
-          &.third {
-            opacity: 0.9;
-            transform: translate3d($offset-x-third, 0, 20px)
-              scale($scale-rate-third, $scale-rate-third);
-          }
+          .container__slide-show {
+            width: 387px;
+            height: 324px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            transform-style: preserve-3d;
+            position: relative;
 
-          &.fourth {
-            opacity: 0.1;
-            transform: translate3d($offset-x-third, 0, 0)
-              scale($scale-rate-third, $scale-rate-third);
+            .container__slide-item {
+              width: 300px;
+              height: 300px;
+              position: absolute;
+              transition: all 0.9s;
+              backface-visibility: hidden;
+              will-change: transform, opacity;
+              transform: perspective(1px) translateZ(0);
+              &.first {
+                opacity: 1;
+                transform: translate3d(0, 0, 80px) scale(1, 1);
+              }
+
+              &.second {
+                opacity: 0.7;
+                transform: translate3d($offset-x-second, 0, 60px)
+                  scale($scale-rate-second, $scale-rate-second);
+              }
+
+              &.third {
+                opacity: 0.9;
+                transform: translate3d($offset-x-third, 0, 20px)
+                  scale($scale-rate-third, $scale-rate-third);
+              }
+
+              &.fourth {
+                opacity: 0.1;
+                transform: translate3d($offset-x-third, 0, 0)
+                  scale($scale-rate-third, $scale-rate-third);
+              }
+              .container__slide-img {
+                width: 100%;
+                padding-top: 100%;
+                border-radius: 5px;
+              }
+            }
           }
         }
 
@@ -116,6 +140,9 @@
           flex-direction: column;
           width: 100%;
           margin-left: 6rem;
+          @media #{$breakpoint-mobile} {
+            margin-left: 0rem;
+          }
           .play-list {
             flex: 1;
             display: flex;
@@ -171,6 +198,9 @@
                     object-fit: cover;
                     max-height: 100%;
                   }
+                  @media #{$breakpoint-mobile} {
+                    display: none;
+                  }
                 }
                 .song-info {
                   margin-left: 2rem;
@@ -181,6 +211,9 @@
                   .song-name {
                     font-size: 1.5rem;
                     color: $primary;
+                  }
+                  @media #{$breakpoint-mobile} {
+                    margin-left: 0;
                   }
                 }
               }

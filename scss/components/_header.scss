@@ -25,7 +25,6 @@
       font-size: 1.6rem;
       align-content: center;
       height: inherit;
-      padding: 0 15px;
       .header__menu {
         display: flex;
         justify-content: space-between;
@@ -42,6 +41,9 @@
 
         .header__search {
           margin-right: 2rem;
+          @media #{$breakpoint-table} {
+            margin-right: 0;
+          }
 
           form {
             button,
@@ -55,13 +57,16 @@
               outline: none;
             }
             border-right: 2px solid rgba(255, 255, 255, 0.2);
+            @media #{$breakpoint-table} {
+              input {
+                width: 30px;
+              }
+            }
           }
         }
 
         .header__social {
           display: inline-flex;
-          // justify-content: space-between;
-          // align-items: center;
           margin-left: 1rem;
           font-size: 1.4rem;
         }
@@ -75,6 +80,9 @@
           text-transform: capitalize;
           color: $white;
           margin: 2rem;
+          @media #{$breakpoint-table} {
+            margin: 1rem;
+          }
         }
       }
       button i,

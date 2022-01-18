@@ -3,10 +3,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media #{$breakpoint-mobile} {
+    min-height: 1280px;
+  }
   .slider__content {
     display: flex;
     flex-direction: column;
     gap: 20rem;
+    @media #{$breakpoint-mobile} {
+      gap: 5rem;
+    }
   }
   .slider__wellcome {
     // margin: 200px 0;
@@ -16,6 +23,9 @@
     }
     .slider__heading {
       font-size: 72px;
+      @media #{$breakpoint-mobile} {
+        font-size: 40px;
+      }
     }
     .slider__text {
       margin-bottom: 50px;
@@ -24,6 +34,9 @@
   .slider__group--btn {
     .poca-btn {
       margin-right: 30px;
+      @media #{$breakpoint-mobile} {
+        margin-bottom: 20px;
+      }
     }
   }
   .slider__player {

@@ -1,0 +1,19 @@
+// Xtra Large Breakpoint
+$breakpoint-pc: "only screen and (min-width:1200px)";
+// Large Breakpoint
+$breakpoint-table: "only screen and (min-width:768px) and (max-width:1199px)";
+// Small Breakpoint
+$breakpoint-mobile: "only screen and (max-width:767px)";
+// Xtra Small Landscape Breakpoint
+
+@media #{$breakpoint-table} {
+  html {
+    font-size: 50%;
+  }
+}
+
+@media #{$breakpoint-mobile} {
+  html {
+    font-size: 50%;
+  }
+}
