@@ -5,8 +5,30 @@
   left: 0;
   top: 0;
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  // background: $dark;
+
+  .header-mobile {
+    width: 280px;
+    height: 100vh;
+    background: $dark;
+    padding: 20px 10px;
+    position: fixed;
+    display: none;
+
+    .header__logo,
+    .header__nav-moblie {
+      margin-top: 50px;
+    }
+    li {
+      margin-bottom: 20px;
+    }
+  }
+
   .header__container {
     height: 96px;
+    width: 100%;
+    // padding: 0 20px;
+    // display: none;
     .header__background {
       background: $dark;
       top: 0px;
@@ -16,83 +38,101 @@
       width: 100%;
       height: inherit;
     }
-    .header__content {
-      z-index: 1;
-      margin-left: auto;
+  }
+  .header__content {
+    padding: 0 30px;
+    z-index: 1;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.6rem;
+    align-content: center;
+    height: inherit;
+
+    .header__menu {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
-      font-size: 1.6rem;
-      align-content: center;
-      height: inherit;
-      .header__menu {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        .header__nav {
-          display: inline-flex;
-        }
+      @media #{$breakpoint-mobile} {
+        display: none;
+      }
+    }
+  }
+  .header__nav {
+    display: inline-flex;
+  }
 
-        .current {
-          border-bottom: 3px $primary solid;
-          @include filter($primary);
-        }
+  .current {
+    border-bottom: 3px $primary solid;
+    @include filter($primary);
+  }
 
-        .header__search {
-          margin-right: 2rem;
-          @media #{$breakpoint-table} {
-            margin-right: 0;
-          }
+  .header__search {
+    margin-right: 2rem;
+    @media #{$breakpoint-table} {
+      margin-right: 0;
+    }
 
-          form {
-            button,
-            input {
-              padding: 10px;
-              color: $white;
-              background: none;
-              border: $border 2px;
-              font-size: 1.4rem;
-              margin-right: 1.5rem;
-              outline: none;
-            }
-            border-right: 2px solid rgba(255, 255, 255, 0.2);
-            @media #{$breakpoint-table} {
-              input {
-                width: 30px;
-              }
-            }
-          }
-        }
-
-        .header__social {
-          display: inline-flex;
-          margin-left: 1rem;
-          font-size: 1.4rem;
+    form {
+      button,
+      input {
+        padding: 10px;
+        color: $white;
+        background: none;
+        border: $border 2px;
+        font-size: 1.4rem;
+        margin-right: 1.5rem;
+        outline: none;
+      }
+      border-right: 2px solid rgba(255, 255, 255, 0.2);
+      @media #{$breakpoint-table} {
+        input {
+          width: 30px;
         }
       }
+    }
+  }
+  .header__social {
+    display: inline-flex;
+    margin-left: 1rem;
+    font-size: 1.4rem;
+  }
 
-      li {
-        a {
-          position: relative;
-          z-index: 1;
-          font-weight: $base-font-weight;
-          text-transform: capitalize;
-          color: $white;
-          margin: 2rem;
-          @media #{$breakpoint-table} {
-            margin: 1rem;
-          }
-        }
-      }
-      button i,
-      li a {
-        &:focus,
-        &:hover {
-          color: $primary;
-          @include filter($primary);
-        }
-      }
+  .mobile-toggle {
+    display: none;
+    font-size: 25px;
+    @media #{$breakpoint-mobile} {
+      display: block;
+    }
+  }
+
+  .mobile-toggle.menu-on {
+    // margin-right: 30px;
+    font-size: 30px;
+    float: right;
+  }
+
+  .mobile-toggle i,
+  li a {
+    position: relative;
+    z-index: 1;
+    font-weight: $base-font-weight;
+    text-transform: capitalize;
+    color: $white;
+    margin: 2rem;
+    @media #{$breakpoint-table} {
+      margin: 1rem;
+    }
+  }
+  .mobile-toggle i,
+  button i,
+  li a {
+    &:focus,
+    &:hover {
+      color: $primary;
+      @include filter($primary);
     }
   }
 }

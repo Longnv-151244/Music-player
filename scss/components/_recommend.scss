@@ -180,7 +180,7 @@
               font-size: 1.2rem !important;
               border-bottom: 3px solid $border;
               &.active {
-                grid-template-columns: 2fr 3fr 1fr;
+                grid-template-columns: 2fr 6fr 1fr;
                 .song-duration {
                   display: none;
                 }
@@ -238,6 +238,10 @@
                 justify-content: flex-end;
                 gap: 3rem;
                 margin-right: 4rem;
+                @media #{$breakpoint-mobile} {
+                  margin-right: 0;
+                  gap: 2rem;
+                }
               }
             }
           }
