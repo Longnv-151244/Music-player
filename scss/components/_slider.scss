@@ -4,9 +4,6 @@
   justify-content: space-between;
   align-items: center;
 
-  @media #{$breakpoint-mobile} {
-    min-height: 1280px;
-  }
   .slider__content {
     display: flex;
     flex-direction: column;

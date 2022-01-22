@@ -14,10 +14,12 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    // display: inline-block;
 
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
+    @media #{$breakpoint-mobile} {
+      display: none;
+    }
   }
   &__content {
     padding: 1rem 3rem;
@@ -41,6 +43,7 @@
       }
       .player__name {
         font-size: 32px;
+        cursor: pointer;
         @media #{$breakpoint-mobile} {
           font-size: 24px;
         }
@@ -59,43 +62,56 @@
       justify-content: space-between;
       border-bottom: 2px solid $border;
       padding: 1rem;
+      .pause,
       .play {
-        background-color: $primary;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
-        font-size: 13px;
+        display: block;
+        font-size: 30px;
         i {
-          margin-left: 13px;
-          margin-top: 11px;
-          color: $white;
+          color: $primary;
+        }
+        &.active {
+          display: none;
         }
       }
       span {
         font-size: 16px;
       }
+      .volume__silebar,
       .sidebarTime {
+        &--bg {
+          border-bottom: 4px solid $border;
+          position: relative;
+          @media #{$breakpoint-mobile} {
+            width: 40%;
+          }
+        }
+        &--current {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          border-bottom: 4px solid $primary;
+        }
+      }
+      .sidebarTime--bg {
         width: 60%;
-        border-bottom: 4px solid $primary;
-        @media #{$breakpoint-mobile} {
-          width: 40%;
+      }
+      .volume__silebar {
+        &--bg {
+          width: 10%;
+        }
+        &--current {
+          width: 20%;
         }
       }
       .volume__icon {
         i {
           display: none;
-          //   display: inline;
-        }
-        .mute {
           color: $primary;
         }
         .active {
           display: block;
         }
-      }
-      .volume__silebar {
-        width: 10%;
-        border-bottom: 4px solid $primary;
       }
     }
     .like-share-download {
@@ -118,11 +134,13 @@
         }
       }
     }
+
     .player__category,
+    .pause,
     .play,
-    .sidebarTime,
+    .sidebarTime--bg,
     .volume__icon,
-    .volume__silebar,
+    .volume__silebar--bg,
     .like,
     .share,
     .download {

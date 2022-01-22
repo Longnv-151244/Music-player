@@ -2,18 +2,22 @@
 mixin song_item(songData)
     div(class=`song-item ${songData.isActive}`)
         .song-content
-            .song-img
-                img(src= songData.src, alt="")
+            .song-img.bg-img(style=`background-image: url('${songData.src}');`)
+                .song-img--hover
+                    i.fas.fa-play
             .song-info 
                 h2.song-name= songData.name
                 .song-author= songData.author
         .song-duration= songData.duration
         .player__content
             .player__control 
-                .play 
-                    i.fas.fa-play
+                .play
+                    i.fas.fa-play-circle
+                .pause.active
+                    i.fas.fa-pause-circle
                 span.currenTime 00:00
-                .sidebarTime 
+                .sidebarTime--bg
+                    .sidebarTime--current
                 span.duration= songData.duration
         .song-option 
             .addList 
@@ -27,7 +31,7 @@ section#recommend
         .line.center-block
         .group-tab__name.text-center
             h3 Vpop 
-            h3 EDM 
+            h3 US-UK 
             h3 Lofi 
         .group-tab__content
             .tab__container
@@ -42,56 +46,16 @@ section#recommend
                                     span Phát tất cả
                 .tab__content.vpop-tab.active
                     .container__slide.hide-on-mobile
-                        .container__slide-show
-                            .container__slide-item.first
-                                .container__slide-img(style="background: url('./img/bg-img/1.jpg') no-repeat center center / cover")
-                            .container__slide-item.second
-                                .container__slide-img(style="background: url('./img/bg-img/2.jpg') no-repeat center center / cover")
-                            .container__slide-item.third
-                                .container__slide-img(style="background: url('./img/bg-img/3.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/4.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/5.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/6.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/7.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/8.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/9.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/10.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/11.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/12.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/13.jpg') no-repeat center center / cover")
-                            .container__slide-item.fourth
-                                .container__slide-img(style="background: url('./img/bg-img/14.jpg') no-repeat center center / cover")
-
-                            
+                        .container__slide-show.active
                     .tab__container-list
                         .play-list 
-                            - const song_1 = {src: './img/bg-img/4.jpg', name: 'Blockbuster', author: 'Jayden White', duration: '02:56', isActive: ''}
-                            +song_item(song_1)
-                            - const song_2 = {src: './img/bg-img/5.jpg', name: 'You Don’t Know Squat!', author: 'Jayden White', duration: '03:47', isActive: ''}
-                            +song_item(song_2)
-                            - const song_3 = {src: './img/bg-img/6.jpg', name: 'I Want A New Judge!', author: 'Alfred Day', duration: '02:56', isActive: 'active'}
-                            +song_item(song_3)
-                            - const song_4 = {src: './img/bg-img/7.jpg', name: 'Rendezvous', author: 'Axel Johansson', duration: '03:35', isActive: ''}
-                            +song_item(song_4)
-                            - const song_5 = {src: './img/bg-img/8.jpg', name: 'Way Back', author: 'Viceton, Cozi Zuehlsdorff', duration: '02:36', isActive: ''}
-                            +song_item(song_5)
-                            - const song_6 = {src: './img/bg-img/9.jpg', name: 'Faded', author: 'Alan Walker', duration: '04:02', isActive: ''}
-                            +song_item(song_6)
-                            - const song_7 = {src: './img/bg-img/10.jpg', name: 'Mood', author: '24Kgoldn', duration: '03:28', isActive: ''}
-                            +song_item(song_7)
-                            - const song_8 = {src: './img/bg-img/11.jpg', name: 'Havana', author: 'Camila Cabello, Young Thug', duration: '03:19', isActive: ''}
-                            +song_item(song_8)
-                            - const song_9 = {src: './img/bg-img/12.jpg', name: 'Save Me', author: 'DEAMN', duration: '02:47', isActive: ''}
-                            +song_item(song_9)
-                .tab__content.edm-tab
+                .tab__content.usuk-tab
+                    .container__slide.hide-on-mobile
+                        .container__slide-show
+                    .tab__container-list
+                        .play-list 
                 .tab__content.lofi-tab
+                    .container__slide.hide-on-mobile
+                        .container__slide-show
+                    .tab__container-list
+                        .play-list
