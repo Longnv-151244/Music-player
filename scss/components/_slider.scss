@@ -1,9 +1,11 @@
-#slider {
+.slider__item {
   min-height: 1024px;
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
-
+  &.active {
+    display: flex;
+  }
   .slider__content {
     display: flex;
     flex-direction: column;

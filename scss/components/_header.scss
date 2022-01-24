@@ -14,7 +14,11 @@
     padding: 20px 10px;
     position: fixed;
     display: none;
-
+    @media #{$breakpoint-mobile} {
+      &.menu-on {
+        display: block;
+      }
+    }
     .header__logo,
     .header__nav-moblie {
       margin-top: 50px;
@@ -105,12 +109,23 @@
     @media #{$breakpoint-mobile} {
       display: block;
     }
+    .open {
+      display: block;
+    }
+    .close {
+      display: none;
+    }
   }
 
   .mobile-toggle.menu-on {
-    // margin-right: 30px;
     font-size: 30px;
     float: right;
+    .open {
+      display: none;
+    }
+    .close {
+      display: block;
+    }
   }
 
   .mobile-toggle i,

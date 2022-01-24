@@ -11,7 +11,7 @@
   <body> 
     <section id="header">
       <div class="header-mobile">
-        <div class="mobile-toggle menu-on"> <i class="far fa-times"></i></div>
+        <div class="mobile-toggle"><i class="far fa-times close"></i></div>
         <div class="header__logo"><a class="header-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a></div>
         <div class="menu-nav"> 
           <ul class="header__nav-moblie">
@@ -61,55 +61,12 @@
               <li><a class="fab fa-youtube" href="#"></a></li>
             </ul>
           </div>
-          <div class="mobile-toggle"><i class="far fa-bars"></i></div>
+          <div class="mobile-toggle"><i class="far fa-bars open"></i><i class="far fa-times close">  </i></div>
         </div>
         <div class="header__background"></div>
       </div>
     </section>
-    <section class="bg-overlay bg-img" id="slider" style="background-image: url('img/bg-img/1.jpg');">
-      <div class="container slider__content"> 
-        <div class="slider__wellcome"> 
-          <h1 class="slider__heading">Listen Now</h1>
-          <p class="slider__text">Please schedule a podcast post, to make it visible here </p>
-          <div class="slider__group--btn">
-            <div class="poca-btn filter">Subscribe with iTunes</div>
-            <div class="poca-btn btn-2 filter">Subscribe with RSS</div>
-          </div>
-        </div>
-        <div class="slider__player player song-item">
-          <div class="player__img bg-img" style="background-image: url('img/bg-img/4.jpg');">
-            <div class="song-img--hover"></div>
-          </div>
-          <div class="player__content">
-            <div class="player__info">
-              <p class="player__date">December 7, 2018</p>
-              <h1 class="player__name song-name">Episode 201 - The Last Blockbuster</h1>
-              <p class="player__text"><span class="player__author">Admin | </span><span class="player__category">Tutorials | </span><span class="player_duration">00:02:56</span></p>
-            </div>
-            <div class="player__control">
-              <div class="play"><i class="fas fa-play-circle"></i></div>
-              <div class="pause active"><i class="fas fa-pause-circle"></i></div><span class="currenTime">00:00</span>
-              <div class="sidebarTime--bg">
-                <div class="sidebarTime--current"> </div>
-              </div><span class="duration">02:56</span>
-              <div class="volume">
-                <div class="volume__icon"> <i class="mute fas fa-volume-slash"></i><i class="volume--low fas fa-volume active"></i><i class="volume--hight fas fa-volume-up"></i></div>
-              </div>
-              <div class="volume__silebar--bg">
-                <div class="volume__silebar--current"></div>
-              </div>
-            </div>
-            <div class="like-share-download">
-              <div class="like"><i class="fas fa-heart"> <span>Like(29)</span></i></div>
-              <div class="div">
-                <div class="share"> <i class="fas fa-share-alt"> <span>Share(04)</span></i></div>
-                <div class="download"><i class="fas fa-download"> <span>Download(12)</span></i></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section id="slider"></section>
     <section id="recommend">
       <div class="container">
         <h1 class="text-center">Lựa chọn của Poca</h1>
@@ -130,7 +87,7 @@
             </div>
             <div class="tab__content vpop-tab active">
               <div class="container__slide hide-on-mobile">
-                <div class="container__slide-show active"></div>
+                <div class="container__slide-show"></div>
               </div>
               <div class="tab__container-list">
                 <div class="play-list"> </div>

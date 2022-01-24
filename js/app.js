@@ -5,26 +5,74 @@ jarallax(document.querySelectorAll(".jarallax"), {
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 const audio = $("#audio");
-// const play = Array.from($$(".play"));
-// const pause = Array.from($$(".pause"));
-// const sidebarBg = Array.from($$(".sidebarTime--bg"));
-// const sidebarTime = Array.from($$(".sidebarTime--current"));
-// const currentTime = Array.from($$(".currenTime"));
-// const volumSideBg = Array.from($$(".volume__silebar--bg"));
-// const volumSide = Array.from($$(".volume__silebar--current"));
-// const songName = Array.from($$(".song-name"));
-// const playImg = Array.from($$(".song-img--hover"));
-// const songItem = Array.from($$(".song-item"));
-// const volumeMute = Array.from($$(".mute"));
-// const volumeLow = Array.from($$(".volume--low"));
-// const volumeHight = Array.from($$(".volume--hight"));
+const tabName = Array.from($$("#recommend .group-tab__name h3"));
+const tabContent = Array.from($$("#recommend .tab__content"));
 
 const app = {
   currentIndex: 0,
   lastIndex_Play: 0,
   isPlaying: false,
+  currentSlider: 0,
+  currentTab: 0,
 
   // data
+  listSongSlider: [
+    {
+      name: "OK",
+      author: "BINZ",
+      category: "Vpop",
+      duration: "02:34",
+      date: "December 7, 2018",
+      image: "./img/song-img/list-slider/song-1.jpg",
+      path: "./song-mp3/list-slider/song-1.mp3",
+    },
+    {
+      name: "Perfect",
+      author: "Ed Sheeran",
+      category: "US-UK",
+      duration: "04:39",
+      date: "August 18, 2016",
+      image: "./img/song-img/list-slider/song-2.jpg",
+      path: "./song-mp3/list-slider/song-2.mp3",
+    },
+    {
+      name: "The Girl I've Never Met",
+      author: "Gustixa",
+      category: "Lofi",
+      duration: "04:33",
+      date: "June 20, 2019",
+      image: "./img/song-img/list-slider/song-3.jpg",
+      path: "./song-mp3/list-slider/song-3.mp3",
+    },
+    {
+      name: "Bài Này Chill Phết",
+      author: "Đen, MIN",
+      category: "Vpop",
+      duration: "04:33",
+      date: "December 25, 2018",
+      image: "./img/song-img/list-slider/song-4.jpg",
+      path: "./song-mp3/list-slider/song-4.mp3",
+    },
+    {
+      name: "Legends Never Die",
+      author: "Against The Current",
+      category: "US-UK",
+      duration: "02:59",
+      date: "September 09, 2017",
+      image: "./img/song-img/list-slider/song-5.jpg",
+      path: "./song-mp3/list-slider/song-5.mp3",
+    },
+    {
+      name: "Surrender",
+      author: "Natalie Taylor",
+      category: "Lofi",
+      duration: "03:39",
+      date: "July 09, 2019",
+      image: "./img/song-img/list-slider/song-6.jpg",
+      path: "./song-mp3/list-slider/song-6.mp3",
+    },
+  ],
+
   listSongRecommend_Vpop: [
     {
       name: "Đế vương",
@@ -262,6 +310,208 @@ const app = {
     },
   ],
 
+  listSongRecommend_Lofi: [
+    {
+      name: "Nothin On You",
+      author: "BoB, Bruno Mars",
+      duration: "03:50",
+      image: "./img/song-img/lofi/song-1.jpg",
+      path: "./song-mp3/lofi/song-1.mp3",
+    },
+    {
+      name: "Lemon Tree",
+      author: "Fools Garden",
+      duration: "03:44",
+      image: "./img/song-img/lofi/song-2.jpg",
+      path: "./song-mp3/lofi/song-2.mp3",
+    },
+    {
+      name: "At My Worst",
+      author: "Pink Sweat",
+      duration: "03:05",
+      image: "./img/song-img/lofi/song-3.jpg",
+      path: "./song-mp3/lofi/song-3.mp3",
+    },
+    {
+      name: "Mood",
+      author: "24kGoldn",
+      duration: "02:30",
+      image: "./img/song-img/lofi/song-4.jpg",
+      path: "./song-mp3/lofi/song-4.mp3",
+    },
+    {
+      name: "SugarCrash",
+      author: "ElyOtto",
+      duration: "01:20",
+      image: "./img/song-img/lofi/song-5.jpg",
+      path: "./song-mp3/lofi/song-5.mp3",
+    },
+    {
+      name: "Positions",
+      author: "Ariana Grande",
+      duration: "02:57",
+      image: "./img/song-img/lofi/song-6.jpg",
+      path: "./song-mp3/lofi/song-6.mp3",
+    },
+    {
+      name: "I Love You Baby",
+      author: "Frank Sinatra",
+      duration: "03:56",
+      image: "./img/song-img/lofi/song-7.jpg",
+      path: "./song-mp3/lofi/song-7.mp3",
+    },
+    {
+      name: "What A Wonderful World",
+      author: "Louis Armstrong",
+      duration: "02:17",
+      image: "./img/song-img/lofi/song-8.jpg",
+      path: "./song-mp3/lofi/song-8.mp3",
+    },
+    {
+      name: "I Want To Hold Your",
+      author: "The Beatles",
+      duration: "02:36",
+      image: "./img/song-img/lofi/song-9.jpg",
+      path: "./song-mp3/lofi/song-9.mp3",
+    },
+    {
+      name: "Death Bed Coffee",
+      author: "Powfu",
+      duration: "02:53",
+      image: "./img/song-img/lofi/song-10.jpg",
+      path: "./song-mp3/lofi/song-10.mp3",
+    },
+    {
+      name: "Cant Help Falling In Love",
+      author: "Elvis Presley",
+      duration: "03:00",
+      image: "./img/song-img/lofi/song-11.jpg",
+      path: "./song-mp3/lofi/song-11.mp3",
+    },
+    {
+      name: "Crystal Dolphin",
+      author: "Engelwood",
+      duration: "01:53",
+      image: "./img/song-img/lofi/song-12.jpg",
+      path: "./song-mp3/lofi/song-12.mp3",
+    },
+    {
+      name: "Someone You Loved",
+      author: "Lewis Capaldi",
+      duration: "03:01",
+      image: "./img/song-img/lofi/song-13.jpg",
+      path: "./song-mp3/lofi/song-13.mp3",
+    },
+    {
+      name: "Let Me Down Slowly",
+      author: "Alec Benjamin",
+      duration: "02:57",
+      image: "./img/song-img/lofi/song-14.jpg",
+      path: "./song-mp3/lofi/song-14.mp3",
+    },
+    {
+      name: "Star Shopping",
+      author: "Lil Peep, Kryptik",
+      duration: "02:22",
+      image: "./img/song-img/lofi/song-15.jpg",
+      path: "./song-mp3/lofi/song-15.mp3",
+    },
+    {
+      name: "Be Like That",
+      author: "Kane Brown, Swae Lee",
+      duration: "03:11",
+      image: "./img/song-img/lofi/song-16.jpg",
+      path: "./song-mp3/lofi/song-16.mp3",
+    },
+    {
+      name: "Runaway",
+      author: "AURORA",
+      duration: "04:08",
+      image: "./img/song-img/lofi/song-17.jpg",
+      path: "./song-mp3/lofi/song-17.mp3",
+    },
+  ],
+
+  Slider_Content: {
+    Vpop: {
+      heading: "Listen Now",
+      content: "Listen to deep, lyrical V-Pop songs together!",
+    },
+    "US-UK": {
+      heading: "Discover Today",
+      content: "Discover today with upbeat US-UK music!",
+    },
+    Lofi: {
+      heading: "Subscribe Today",
+      content: "Sign up to follow the gentle lofi music, relax after work!",
+    },
+  },
+  getHtmls_Slider: function (e) {
+    htmls = e.map((song, index) => {
+      return `
+      <div class="slider__item bg-overlay bg-img slider__item-${index} ${
+        index === this.currentSlider ? "active" : ""
+      }" style="background-image: url('${song.image}');">
+        <div class="container">
+          <div class="slider__content">
+            <div class="slider__wellcome"> 
+              <h1 class="slider__heading">${
+                this.Slider_Content[song.category].heading
+              }</h1>
+              <p class="slider__text">${
+                this.Slider_Content[song.category].content
+              }</p>
+              <div class="slider__group--btn">
+                <div class="poca-btn filter">Subscribe with iTunes</div>
+                <div class="poca-btn btn-2 filter">Subscribe with RSS</div>
+              </div>
+            </div>
+            <div class="slider__player player song-item">
+              <div class="player__img bg-img" style="background-image: url('${
+                song.image
+              }');">
+                <div class="song-img--hover"></div>
+              </div>
+              <div class="player__content">
+                <div class="player__info">
+                  <p class="player__date">${song.date}</p>
+                  <h1 class="player__name song-name">${song.name}</h1>
+                  <p class="player__text"><span class="player__author">${
+                    song.author
+                  } | </span><span class="player__category">${
+        song.category
+      } | </span><span class="player_duration">00:${song.duration}</span></p>
+                </div>
+                <div class="player__control">
+                  <div class="play"><i class="fas fa-play-circle"></i></div>
+                  <div class="pause active"><i class="fas fa-pause-circle"></i></div><span class="currenTime">00:00</span>
+                  <div class="sidebarTime--bg">
+                    <div class="sidebarTime--current"> </div>
+                  </div><span class="duration">${song.duration}</span>
+                  <div class="volume">
+                    <div class="volume__icon"> <i class="mute fas fa-volume-slash"></i><i class="volume--low fas fa-volume active"></i><i class="volume--hight fas fa-volume-up"></i></div>
+                  </div>
+                  <div class="volume__silebar--bg">
+                    <div class="volume__silebar--current"></div>
+                  </div>
+                </div>
+                <div class="like-share-download">
+                  <div class="like"><i class="fas fa-heart"> <span>Like(29)</span></i></div>
+                  <div class="div">
+                    <div class="share"> <i class="fas fa-share-alt"> <span>Share(04)</span></i></div>
+                    <div class="download"><i class="fas fa-download"> <span>Download(12)</span></i></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+                    `;
+    });
+    return htmls;
+  },
+
   getHtmls_Recommend_ListSong: function (e) {
     htmls = e.map((song, index) => {
       return `
@@ -303,14 +553,22 @@ const app = {
       } ${index === 2 ? "third" : ""} ${index > 2 ? "fourth" : ""}">
         <div class="container__slide-img" style="background: url('${
           song.image
-        }') no-repeat center center / cover"></div></div>
+        }') no-repeat center center / cover">
+        </div>
+      </div>
                     `;
     });
     return htmls;
   },
 
+  renderSlider: function () {
+    const Htmls_Slider = this.getHtmls_Slider(this.listSongSlider);
+    $("#slider").innerHTML = Htmls_Slider.join("");
+  },
+
   renderRecommendList: function () {
     const _this = this;
+    // Tab Vpop
     const Htmls_Recommend_ListSong_Vpop = this.getHtmls_Recommend_ListSong(
       _this.listSongRecommend_Vpop
     );
@@ -335,10 +593,24 @@ const app = {
     );
     $(".usuk-tab .container__slide-show").innerHTML =
       Htmls_Recommend_SlideSong_USUK.join("");
+
+    // Tab Lofi
+    const Htmls_Recommend_ListSong_Lofi = this.getHtmls_Recommend_ListSong(
+      _this.listSongRecommend_Lofi
+    );
+    $(".lofi-tab .play-list").innerHTML =
+      Htmls_Recommend_ListSong_Lofi.join("");
+
+    const Htmls_Recommend_SlideSong_Lofi = this.getHtmls_Recommend_SlideSong(
+      _this.listSongRecommend_Lofi
+    );
+    $(".lofi-tab .container__slide-show").innerHTML =
+      Htmls_Recommend_SlideSong_Lofi.join("");
   },
 
   render: function () {
     this.renderRecommendList();
+    this.renderSlider();
   },
 
   defineProperties: function () {
@@ -363,6 +635,7 @@ const app = {
     const volumeMute = Array.from($$(".mute"));
     const volumeLow = Array.from($$(".volume--low"));
     const volumeHight = Array.from($$(".volume--hight"));
+    const mobileToggle = Array.from($$(".mobile-toggle"));
     const _this = this;
     // Xu ly su kien khi scroll
     document.onscroll = function () {
@@ -499,43 +772,89 @@ const app = {
       };
       // volumeLow[i].addEventListener("click", mute());
     }
+
+    tabName[this.currentTab].classList.add("active");
+    // Xu ly event chuyen tab Recommended
+    for (let i = 0; i < tabName.length; i++) {
+      tabName[i].onclick = function () {
+        tabName[_this.currentTab].classList.remove("active");
+        tabContent[_this.currentTab].classList.remove("active");
+        _this.currentTab = i;
+        tabContent[i].classList.add("active");
+        tabName[i].classList.add("active");
+      };
+    }
+
+    // Xu ly event nav mobile devices
+    for (let i = 0; i < mobileToggle.length; i++) {
+      mobileToggle[i].onclick = function () {
+        mobileToggle.forEach((e) => {
+          e.classList.toggle("menu-on");
+        });
+        $(".header-mobile").classList.toggle("menu-on");
+      };
+    }
+
     // Xu ly khi end bai hat
     audio.onended = function () {
       play[_this.currentIndex + 1].onclick();
     };
   },
 
-  imgSlide_Index: 2,
-  handleSlide_Recommend: function (tab) {
-    const _this = this;
+  handleSlider: function () {
+    $(`.slider__item-${this.currentSlider}`).classList.remove("active");
+    this.currentSlider++;
+    if (this.currentSlider >= this.listSongSlider.length) {
+      this.currentSlider = 0;
+    }
+    $(`.slider__item-${this.currentSlider}`).classList.add("active");
+    setTimeout(() => {
+      this.handleSlider();
+    }, 5000);
+  },
+
+  imgSlide_Index: [2, 2, 2],
+  handleSlide_Recommend: function (index) {
+    let tab = "";
+    switch (index) {
+      case 0:
+        tab = ".vpop-tab";
+        break;
+      case 1:
+        tab = ".usuk-tab";
+        break;
+      case 2:
+        tab = ".lofi-tab";
+        break;
+    }
     const slideImgs = $$(`${tab} .container__slide-item`);
     const slideImgFirst = $(`${tab} .container__slide-item.first`);
     const slideImgSecond = $(`${tab} .container__slide-item.second`);
-    const slideImgThird = slideImgs[_this.imgSlide_Index];
+    const slideImgThird = slideImgs[this.imgSlide_Index[index]];
     const slideImgFourth =
       slideImgs[
-        _this.imgSlide_Index === slideImgs.length - 1
+        this.imgSlide_Index[index] === slideImgs.length - 1
           ? 0
-          : _this.imgSlide_Index + 1
+          : this.imgSlide_Index[index] + 1
       ];
     slideImgFourth.classList.replace("fourth", "third");
     slideImgThird.classList.replace("third", "second");
     slideImgSecond.classList.replace("second", "first");
     slideImgFirst.classList.replace("first", "fourth");
-    _this.imgSlide_Index++;
-    console.log(slideImgs);
-    if (_this.imgSlide_Index >= slideImgs.length) {
-      _this.imgSlide_Index = 0;
+    this.imgSlide_Index[index]++;
+    if (this.imgSlide_Index[index] >= slideImgs.length) {
+      this.imgSlide_Index[index] = 0;
     }
+    setTimeout(() => {
+      this.handleSlide_Recommend(index);
+    }, 2000);
   },
 
   handleSlide: function () {
-    setInterval(() => {
-      this.handleSlide_Recommend(".vpop-tab");
-    }, 2000);
-    setInterval(() => {
-      this.handleSlide_Recommend(".usuk-tab");
-    }, 2000);
+    tabContent.forEach((tab, index) => {
+      this.handleSlide_Recommend(index);
+    });
+    this.handleSlider();
   },
 
   setDefaultApp: function () {

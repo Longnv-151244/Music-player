@@ -20,6 +20,9 @@
       @media #{$breakpoint-mobile} {
         margin: 0 3rem;
       }
+      &.active {
+        border-bottom: 3px solid $primary;
+      }
     }
   }
   .group-tab__content {
@@ -139,7 +142,7 @@
           flex-shrink: 1;
           flex-direction: column;
           width: 100%;
-          margin-left: 6rem;
+          margin-left: 1rem;
           @media #{$breakpoint-mobile} {
             margin-left: 0rem;
           }
