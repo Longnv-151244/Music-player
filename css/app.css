@@ -177,7 +177,7 @@ ul li {
 }
 
 /* :: 6.0 Buttons CSS */
-.poca-btn {
+.btn {
   position: relative;
   z-index: 1;
   height: 46px;
@@ -200,30 +200,30 @@ ul li {
   cursor: pointer;
 }
 @media only screen and (max-width:767px) {
-  .poca-btn {
+  .btn {
     padding: 0 10px;
   }
 }
-.poca-btn.active, .poca-btn:focus, .poca-btn:hover {
+.btn.active, .btn:focus, .btn:hover {
   box-shadow: none;
   background-color: #f55656;
   color: #ffffff;
 }
-.poca-btn.filter {
+.btn.filter {
   filter: drop-shadow(4px 4px 4px #ffffff);
 }
-.poca-btn.btn-2 {
+.btn.btn--second {
   background-color: #ffffff;
   color: #232323;
   border: none;
   line-height: 46px;
 }
-.poca-btn.btn-2:focus, .poca-btn.btn-2:hover {
+.btn.btn--second:focus, .btn.btn--second:hover {
   background-color: #ffffff;
   color: #232323;
   border: none;
 }
-.poca-btn.btn-2.filter {
+.btn.btn--second.filter {
   filter: drop-shadow(4px 4px 4px #f55656);
 }
 
@@ -314,7 +314,10 @@ ul li {
   display: none;
 }
 .player__content .player__control span {
-  font-size: 16px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 0 4px;
 }
 .player__content .player__control .volume__silebar--bg,
 .player__content .player__control .sidebarTime--bg {
@@ -412,6 +415,7 @@ ul li {
 #header .header-mobile .header__logo,
 #header .header-mobile .header__nav-moblie {
   margin-top: 50px;
+  margin-left: 30px;
 }
 #header .header-mobile li {
   margin-bottom: 20px;
@@ -641,11 +645,11 @@ ul li {
   font-size: 10px;
   margin-left: 10px;
 }
-#recommend .group-tab__content .tab__container .tab__heading .btn-group .poca-btn {
+#recommend .group-tab__content .tab__container .tab__heading .btn-group .btn {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 }
 @media only screen and (max-width:767px) {
-  #recommend .group-tab__content .tab__container .tab__heading .btn-group .btn-2 {
+  #recommend .group-tab__content .tab__container .tab__heading .btn-group .btn--second {
     display: none;
   }
 }
@@ -851,16 +855,16 @@ ul li {
     gap: 2rem;
   }
 }
-#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover {
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active, #recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover {
   background: #ebebeb;
 }
-#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .song-img {
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active .song-img, #recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .song-img {
   opacity: 0.8;
 }
-#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .song-img--hover {
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active .song-img--hover, #recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .song-img--hover {
   display: block;
 }
-#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .sidebarTime--bg {
+#recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item.active .sidebarTime--bg, #recommend .group-tab__content .tab__container .tab__content .tab__container-list .play-list .song-item:hover .sidebarTime--bg {
   border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 

@@ -75,7 +75,10 @@
         }
       }
       span {
-        font-size: 16px;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 14px;
+        padding: 0 4px;
       }
       .volume__silebar,
       .sidebarTime {

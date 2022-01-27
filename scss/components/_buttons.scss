@@ -1,6 +1,6 @@
 /* :: 6.0 Buttons CSS */
 
-.poca-btn {
+.btn {
   position: relative;
   z-index: 1;
   height: 46px;
@@ -34,7 +34,7 @@
     @include filter($white);
   }
 
-  &.btn-2 {
+  &.btn--second {
     background-color: $white;
     color: $heading;
     border: none;

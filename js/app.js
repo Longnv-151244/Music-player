@@ -9,12 +9,11 @@ const tabName = Array.from($$("#recommend .group-tab__name h3"));
 const tabContent = Array.from($$("#recommend .tab__content"));
 
 const app = {
-  currentIndex: 0,
+  currentIndex: -1,
   lastIndex_Play: 0,
   isPlaying: false,
   currentSlider: 0,
   currentTab: 0,
-
   // data
   listSongSlider: [
     {
@@ -462,8 +461,8 @@ const app = {
                 this.Slider_Content[song.category].content
               }</p>
               <div class="slider__group--btn">
-                <div class="poca-btn filter">Subscribe with iTunes</div>
-                <div class="poca-btn btn-2 filter">Subscribe with RSS</div>
+                <div class="btn filter">Subscribe with iTunes</div>
+                <div class="btn btn--second filter">Subscribe with RSS</div>
               </div>
             </div>
             <div class="slider__player player song-item">
@@ -567,42 +566,41 @@ const app = {
   },
 
   renderRecommendList: function () {
-    const _this = this;
     // Tab Vpop
     const Htmls_Recommend_ListSong_Vpop = this.getHtmls_Recommend_ListSong(
-      _this.listSongRecommend_Vpop
+      this.listSongRecommend_Vpop
     );
     $(".vpop-tab .play-list").innerHTML =
       Htmls_Recommend_ListSong_Vpop.join("");
 
     const Htmls_Recommend_SlideSong_Vpop = this.getHtmls_Recommend_SlideSong(
-      _this.listSongRecommend_Vpop
+      this.listSongRecommend_Vpop
     );
     $(".vpop-tab .container__slide-show").innerHTML =
       Htmls_Recommend_SlideSong_Vpop.join("");
 
     // Tab USUK
     const Htmls_Recommend_ListSong_USUK = this.getHtmls_Recommend_ListSong(
-      _this.listSongRecommend_USUK
+      this.listSongRecommend_USUK
     );
     $(".usuk-tab .play-list").innerHTML =
       Htmls_Recommend_ListSong_USUK.join("");
 
     const Htmls_Recommend_SlideSong_USUK = this.getHtmls_Recommend_SlideSong(
-      _this.listSongRecommend_USUK
+      this.listSongRecommend_USUK
     );
     $(".usuk-tab .container__slide-show").innerHTML =
       Htmls_Recommend_SlideSong_USUK.join("");
 
     // Tab Lofi
     const Htmls_Recommend_ListSong_Lofi = this.getHtmls_Recommend_ListSong(
-      _this.listSongRecommend_Lofi
+      this.listSongRecommend_Lofi
     );
     $(".lofi-tab .play-list").innerHTML =
       Htmls_Recommend_ListSong_Lofi.join("");
 
     const Htmls_Recommend_SlideSong_Lofi = this.getHtmls_Recommend_SlideSong(
-      _this.listSongRecommend_Lofi
+      this.listSongRecommend_Lofi
     );
     $(".lofi-tab .container__slide-show").innerHTML =
       Htmls_Recommend_SlideSong_Lofi.join("");
@@ -614,12 +612,25 @@ const app = {
   },
 
   defineProperties: function () {
+    Object.defineProperty(this, "listSong", {
+      get: function () {
+        const listSong = [
+          ...this.listSongSlider,
+          ...this.listSongRecommend_Vpop,
+          ...this.listSongRecommend_USUK,
+          ...this.listSongRecommend_Lofi,
+        ];
+        return listSong;
+      },
+    });
+
     Object.defineProperty(this, "currentSong", {
       get: function () {
-        return this.listSongRecommend[this.currentIndex];
+        return this.listSong[this.currentIndex];
       },
     });
   },
+
   // Xu ly events
   handleEvent: function () {
     const play = Array.from($$(".play"));
@@ -648,18 +659,34 @@ const app = {
     for (let i = 0; i < play.length; i++) {
       // Xu ly playBtn onClick
       play[i].onclick = function () {
-        pause[_this.currentIndex].onclick();
+        if (_this.currentIndex != -1) {
+          pause[_this.currentIndex].onclick();
+        }
         pause[i].classList.remove("active");
         play[i].classList.add("active");
         playImg[i].style.visibility = "hidden";
         if (i === _this.currentIndex) {
-          // audio.play();
+          console.log(audio);
+          audio.play();
         } else {
-          sidebarTime[_this.currentIndex].style.width = "0%";
+          if (_this.currentIndex != -1) {
+            sidebarTime[_this.currentIndex].style.width = "0%";
+            currentTime[_this.currentIndex].innerHTML = "00:00";
+          }
           _this.currentIndex = i;
           playImg[i].onclick();
-          // _this.loadCurrentSong();
-          // audio.play();
+          _this.loadCurrentSong();
+          console.log(audio);
+          audio.play();
+          // const loadSong = new Promise((resolve, reject) => {
+          //   _this.loadCurrentSong();
+          //   resolve();
+          // });
+          // loadSong.then(function () {
+          //   _this.loadCurrentSong();
+          //   console.log(audio);
+          //   audio.play();
+          // });
         }
       };
 
@@ -668,7 +695,7 @@ const app = {
         pause[i].classList.add("active");
         play[i].classList.remove("active");
         playImg[i].style.visibility = "visible";
-        // audio.pause();
+        audio.pause();
       };
 
       // Xu ly playImg onClick
@@ -685,6 +712,14 @@ const app = {
         play[i].onclick();
       };
 
+      function formatTime(seconds) {
+        minutes = Math.floor(seconds / 60);
+        minutes = minutes >= 10 ? minutes : "0" + minutes;
+        seconds = Math.floor(seconds % 60);
+        seconds = seconds >= 10 ? seconds : "0" + seconds;
+        return minutes + ":" + seconds;
+      }
+
       // Xy ly khi tiến độ bài hát thay đổi
       audio.ontimeupdate = function () {
         if (audio.duration) {
@@ -692,43 +727,23 @@ const app = {
             (audio.currentTime / audio.duration) * 100
           );
           sidebarTime[_this.currentIndex].style.width = `${progressPercent}%`;
-          currentTime[_this.currentIndex].innerHTML = `${audio.currentTime}`;
+          currentTime[_this.currentIndex].innerHTML = `${formatTime(
+            audio.currentTime
+          )}`;
         }
       };
 
       // Xử lý khi tua song
       sidebarBg[i].onclick = function (e) {
-        const seekProcess = e.pageX - this.offsetLeft;
-        let progressPercent = (seekProcess / this.offsetWidth) * 100;
-        progressPercent = Math.ceil(progressPercent);
         if (i !== _this.currentIndex) {
           play[i].onclick();
         }
-        // sidebarTime[i].style.width = `${progressPercent}%`;
-        const seekTime = (progressPercent * audio.duration) / 100;
-        audio.currentTime = seekTime;
-      };
-
-      // Xử lý khi onmousemove sidebar
-      sidebarBg[i].onmousemove = function (e) {
         const seekProcess = e.pageX - this.offsetLeft;
         let progressPercent = (seekProcess / this.offsetWidth) * 100;
         progressPercent = Math.ceil(progressPercent);
-        if (i === _this.currentIndex) {
-          sidebarTime[i].style.width = `${progressPercent}%`;
-        }
-        // const seekTime = (progressPercent * audio.duration) / 100;
-        // audio.currentTime = seekTime;
-      };
-
-      // Xử lý khi onmouseleave sidebar
-      sidebarBg[i].onmouseleave = function (e) {
-        if (audio.duration) {
-          let progressPercent = Math.floor(
-            (audio.currentTime / audio.duration) * 100
-          );
-          sidebarTime[i].style.width = `${progressPercent}`;
-        }
+        // sidebarTime[i].style.width = `${progressPercent}%`;
+        const seekTime = (progressPercent * audio.duration) / 100;
+        audio.currentTime = seekTime;
       };
     }
 
@@ -770,7 +785,6 @@ const app = {
       volumeHight[i].onclick = function () {
         mute(i);
       };
-      // volumeLow[i].addEventListener("click", mute());
     }
 
     tabName[this.currentTab].classList.add("active");
@@ -798,6 +812,9 @@ const app = {
     // Xu ly khi end bai hat
     audio.onended = function () {
       play[_this.currentIndex + 1].onclick();
+      if (_this.currentSlider !== _this.currentIndex) {
+        _this.handleSlider();
+      }
     };
   },
 
@@ -808,9 +825,6 @@ const app = {
       this.currentSlider = 0;
     }
     $(`.slider__item-${this.currentSlider}`).classList.add("active");
-    setTimeout(() => {
-      this.handleSlider();
-    }, 5000);
   },
 
   imgSlide_Index: [2, 2, 2],
@@ -854,7 +868,12 @@ const app = {
     tabContent.forEach((tab, index) => {
       this.handleSlide_Recommend(index);
     });
-    this.handleSlider();
+    // this.handleSlider();
+    setInterval(() => {
+      if (this.currentSlider !== this.currentIndex) {
+        this.handleSlider();
+      }
+    }, 5000);
   },
 
   setDefaultApp: function () {
@@ -867,14 +886,19 @@ const app = {
   },
 
   loadCurrentSong: function () {
-    audio.src = this.currentSong.path;
+    if (this.currentIndex === -1) {
+      audio.src = this.listSong[0].path;
+    } else {
+      audio.src = this.currentSong.path;
+    }
   },
 
   start: function () {
     this.render();
+    this.defineProperties();
+    this.setDefaultApp();
     this.handleEvent();
     this.handleSlide();
-    // this.setDefaultApp()
   },
 };
 app.start();
