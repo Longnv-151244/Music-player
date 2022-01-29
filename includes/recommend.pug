@@ -1,33 +1,6 @@
-//- Mixins
-mixin song_item(songData)
-    div(class=`song-item ${songData.isActive}`)
-        .song-content
-            .song-img.bg-img(style=`background-image: url('${songData.src}');`)
-                .song-img--hover
-                    i.fas.fa-play
-            .song-info 
-                h2.song-name= songData.name
-                .song-author= songData.author
-        .song-duration= songData.duration
-        .player__content
-            .player__control 
-                .play
-                    i.fas.fa-play-circle
-                .pause.active
-                    i.fas.fa-pause-circle
-                span.currenTime 00:00
-                .sidebarTime--bg
-                    .sidebarTime--current
-                span.duration= songData.duration
-        .song-option 
-            .addList 
-                i.fas.fa-plus
-            .like 
-                i.far.fa-heart
-
 section#recommend
     .container
-        h1.text-center Lựa chọn của Poca
+        h1.text-center Lựa chọn của Loustic
         .line.center-block
         .group-tab__name.text-center
             h3 Vpop 

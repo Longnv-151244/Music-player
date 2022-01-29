@@ -399,6 +399,10 @@ ul li {
   top: 0;
   border-bottom: 3px solid rgba(255, 255, 255, 0.2);
 }
+#header .header__logo img {
+  width: 100px;
+  margin-top: 5px;
+}
 #header .header-mobile {
   width: 280px;
   height: 100vh;
@@ -431,6 +435,7 @@ ul li {
   z-index: -1;
   width: 100%;
   height: inherit;
+  opacity: 0;
 }
 #header .header__content {
   padding: 0 30px;
@@ -480,6 +485,7 @@ ul li {
   font-size: 1.4rem;
   margin-right: 1.5rem;
   outline: none;
+  height: 100%;
 }
 @media only screen and (min-width:768px) and (max-width:1199px) {
   #header .header__search form input {
@@ -965,6 +971,14 @@ ul li {
 #footer .footer__container li a:focus, #footer .footer__container li a:hover {
   color: #f55656;
   filter: drop-shadow(4px 4px 4px #f55656);
+}
+
+#main {
+  height: 120vh;
+}
+#main .main__bg {
+  height: 100%;
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */
