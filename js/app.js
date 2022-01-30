@@ -882,7 +882,7 @@ const app = {
   },
 
   setVolumeDefault: function () {
-    audio.volume = 0.2;
+    // audio.volume = 0.2;
   },
 
   loadCurrentSong: function () {
@@ -896,7 +896,7 @@ const app = {
   start: function () {
     this.render();
     this.defineProperties();
-    this.setDefaultApp();
+    // this.setDefaultApp();
     this.handleEvent();
     this.handleSlide();
   },
