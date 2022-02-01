@@ -1019,7 +1019,7 @@ ul li {
 }
 #main .main__settingBg .settingBg__container {
   width: 250px;
-  height: 400px;
+  height: 70vh;
   box-sizing: border-box;
   background: #f55656;
   border-radius: 20px;
@@ -1038,6 +1038,8 @@ ul li {
   font-size: 20px;
   color: #ffffff;
   text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #ebebeb;
 }
 #main .main__settingBg .settingBg__content .settingBg__list-item {
   display: grid;
@@ -1046,7 +1048,7 @@ ul li {
   overflow: hidden overlay;
   scroll-behavior: smooth;
   will-change: scroll-position;
-  height: 350px;
+  height: calc(70vh - 60px);
   /* Handle */
   /* Handle on hover */
 }
@@ -1076,6 +1078,7 @@ ul li {
   position: fixed;
   z-index: 3;
   width: 100%;
+  height: 70px;
   left: 0;
   bottom: 20px;
   display: flex;
@@ -1087,6 +1090,8 @@ ul li {
   display: flex;
   align-items: center;
   position: relative;
+  width: 200px;
+  max-width: 100%;
 }
 #main .main__player .song-img {
   width: 5rem;
@@ -1252,8 +1257,8 @@ ul li {
   display: block;
 }
 #main .main__playlist .playlist__content {
-  width: 350px;
-  height: 400px;
+  width: 400px;
+  height: 70vh;
   background-color: #f55656;
   border-radius: 20px;
   display: none;
@@ -1329,10 +1334,16 @@ ul li {
 #main .main__playlist .playlist__content .song-item {
   color: #ffffff;
 }
-#main .main__playlist .playlist__content .song-item:hover {
+#main .main__playlist .playlist__content .song-item.active {
+  grid-template-columns: 3fr 1fr 1fr !important;
+}
+#main .main__playlist .playlist__content .song-item.active .song-duration {
+  display: flex;
+}
+#main .main__playlist .playlist__content .song-item.active, #main .main__playlist .playlist__content .song-item:hover {
   color: #f55656 !important;
 }
-#main .main__playlist .playlist__content .song-item:hover .song-name {
+#main .main__playlist .playlist__content .song-item.active .song-name, #main .main__playlist .playlist__content .song-item:hover .song-name {
   color: #f55656 !important;
 }
 #main .main__playlist .playlist__content .song-name {
@@ -1341,12 +1352,12 @@ ul li {
 #main .main__settingBg,
 #main .main__player,
 #main .main__playlist {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 #main .main__settingBg:hover,
 #main .main__player:hover,
 #main .main__playlist:hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 #main .settingBg__icon,
 #main .playlist__icon {

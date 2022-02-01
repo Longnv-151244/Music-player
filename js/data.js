@@ -407,19 +407,165 @@ listSongSlider = [
   },
 ];
 
-// Slider_Content= {
-//   Vpop: {
-//     heading: "Listen Now",
-//     content: "Listen to deep, lyrical V-Pop songs together!",
-//   },
-//   "US-UK": {
-//     heading: "Discover Today",
-//     content: "Discover today with upbeat US-UK music!",
-//   },
-//   Lofi: {
-//     heading: "Subscribe Today",
-//     content: "Sign up to follow the gentle lofi music, relax after work!",
-//   },
-// };
-// const v = "Vpop";
-// console.log(Slider_Content[v].heading);
+listBg = [
+  {
+    ID: 1,
+    img: "./img/bg-gif/gif-1.gif",
+  },
+  {
+    ID: 2,
+    img: "./img/bg-gif/gif-2.gif",
+  },
+  {
+    ID: 3,
+    img: "./img/bg-gif/gif-3.gif",
+  },
+  {
+    ID: 4,
+    img: "./img/bg-gif/gif-4.gif",
+  },
+  {
+    ID: 5,
+    img: "./img/bg-gif/gif-5.gif",
+  },
+  {
+    ID: 6,
+    img: "./img/bg-gif/gif-6.gif",
+  },
+  {
+    ID: 7,
+    img: "./img/bg-gif/gif-7.gif",
+  },
+  {
+    ID: 8,
+    img: "./img/bg-gif/gif-8.gif",
+  },
+  {
+    ID: 9,
+    img: "./img/bg-gif/gif-9.gif",
+  },
+  {
+    ID: 10,
+    img: "./img/bg-gif/gif-10.gif",
+  },
+  {
+    ID: 11,
+    img: "./img/bg-gif/gif-11.gif",
+  },
+  {
+    ID: 12,
+    img: "./img/bg-gif/gif-12.gif",
+  },
+  {
+    ID: 13,
+    img: "./img/bg-gif/gif-13.gif",
+  },
+  {
+    ID: 14,
+    img: "./img/bg-gif/gif-14.gif",
+  },
+  {
+    ID: 15,
+    img: "./img/bg-gif/gif-15.gif",
+  },
+  {
+    ID: 16,
+    img: "./img/bg-gif/gif-16.gif",
+  },
+  {
+    ID: 17,
+    img: "./img/bg-gif/gif-17.gif",
+  },
+  {
+    ID: 18,
+    img: "./img/bg-gif/gif-18.gif",
+  },
+  {
+    ID: 19,
+    img: "./img/bg-gif/gif-19.gif",
+  },
+  {
+    ID: 20,
+    img: "./img/bg-gif/gif-20.gif",
+  },
+  {
+    ID: 21,
+    img: "./img/bg-gif/gif-21.gif",
+  },
+  {
+    ID: 22,
+    img: "./img/bg-gif/gif-22.gif",
+  },
+  {
+    ID: 23,
+    img: "./img/bg-gif/gif-23.gif",
+  },
+  {
+    ID: 24,
+    img: "./img/bg-gif/gif-24.gif",
+  },
+  {
+    ID: 25,
+    img: "./img/bg-gif/gif-25.gif",
+  },
+  {
+    ID: 26,
+    img: "./img/bg-gif/gif-26.gif",
+  },
+  {
+    ID: 27,
+    img: "./img/bg-gif/gif-27.gif",
+  },
+  {
+    ID: 28,
+    img: "./img/bg-gif/gif-28.gif",
+  },
+  {
+    ID: 29,
+    img: "./img/bg-gif/gif-29.gif",
+  },
+  {
+    ID: 30,
+    img: "./img/bg-gif/gif-30.gif",
+  },
+  {
+    ID: 31,
+    img: "./img/bg-gif/gif-31.gif",
+  },
+  {
+    ID: 32,
+    img: "./img/bg-gif/gif-32.gif",
+  },
+  {
+    ID: 33,
+    img: "./img/bg-gif/gif-33.gif",
+  },
+  {
+    ID: 34,
+    img: "./img/bg-gif/gif-34.gif",
+  },
+  {
+    ID: 35,
+    img: "./img/bg-gif/gif-35.gif",
+  },
+  {
+    ID: 36,
+    img: "./img/bg-gif/gif-36.gif",
+  },
+  {
+    ID: 37,
+    img: "./img/bg-gif/gif-37.gif",
+  },
+  {
+    ID: 38,
+    img: "./img/bg-gif/gif-38.gif",
+  },
+  {
+    ID: 39,
+    img: "./img/bg-gif/gif-39.gif",
+  },
+  {
+    ID: 40,
+    img: "./img/bg-gif/gif-40.gif",
+  },
+];

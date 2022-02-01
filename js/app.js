@@ -666,7 +666,6 @@ const app = {
         play[i].classList.add("active");
         playImg[i].style.visibility = "hidden";
         if (i === _this.currentIndex) {
-          console.log(audio);
           audio.play();
         } else {
           if (_this.currentIndex != -1) {
@@ -676,7 +675,6 @@ const app = {
           _this.currentIndex = i;
           playImg[i].onclick();
           _this.loadCurrentSong();
-          console.log(audio);
           audio.play();
           // const loadSong = new Promise((resolve, reject) => {
           //   _this.loadCurrentSong();

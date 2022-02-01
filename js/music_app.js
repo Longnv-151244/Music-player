@@ -1,10 +1,192 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const audio = $("#audio");
+const repeat = $(".main__player .repeat");
+const prev = $(".main__player .prev");
+const play = $(".main__player .play");
+const pause = $(".main__player .pause");
+const next = $(".main__player .next");
+const random = $(".main__player .random");
+const songNamePlayer = $(".main__player .song-name");
+const songAuthorPlayer = $(".main__player .song-author");
+const songImgPlayer = $(".main__player .song-img");
+const songDurationPlayer = $(".main__player .durationTime");
+const currentTime = $(".currenTime");
+const sidebarTime = $(".sidebarTime--current");
+const sidebarBg = $(".sidebarTime--bg");
+const volumeMute = $(".mute");
+const volumeLow = $(".volume--low");
+const volumeHight = $(".volume--hight");
+const volumSideBg = $(".volume__silebar--bg");
+const volumSide = $(".volume__silebar--current");
 
 const app = {
-  currentIndex: -1,
+  currentIndex: 0,
   lastIndex_Play: 0,
   isPlaying: false,
+
+  listBg: [
+    {
+      ID: 1,
+      img: "./img/bg-gif/gif-1.gif",
+    },
+    {
+      ID: 2,
+      img: "./img/bg-gif/gif-2.gif",
+    },
+    {
+      ID: 3,
+      img: "./img/bg-gif/gif-3.gif",
+    },
+    {
+      ID: 4,
+      img: "./img/bg-gif/gif-4.gif",
+    },
+    {
+      ID: 5,
+      img: "./img/bg-gif/gif-5.gif",
+    },
+    {
+      ID: 6,
+      img: "./img/bg-gif/gif-6.gif",
+    },
+    {
+      ID: 7,
+      img: "./img/bg-gif/gif-7.gif",
+    },
+    {
+      ID: 8,
+      img: "./img/bg-gif/gif-8.gif",
+    },
+    {
+      ID: 9,
+      img: "./img/bg-gif/gif-9.gif",
+    },
+    {
+      ID: 10,
+      img: "./img/bg-gif/gif-10.gif",
+    },
+    {
+      ID: 11,
+      img: "./img/bg-gif/gif-11.gif",
+    },
+    {
+      ID: 12,
+      img: "./img/bg-gif/gif-12.gif",
+    },
+    {
+      ID: 13,
+      img: "./img/bg-gif/gif-13.gif",
+    },
+    {
+      ID: 14,
+      img: "./img/bg-gif/gif-14.gif",
+    },
+    {
+      ID: 15,
+      img: "./img/bg-gif/gif-15.gif",
+    },
+    {
+      ID: 16,
+      img: "./img/bg-gif/gif-16.gif",
+    },
+    {
+      ID: 17,
+      img: "./img/bg-gif/gif-17.gif",
+    },
+    {
+      ID: 18,
+      img: "./img/bg-gif/gif-18.gif",
+    },
+    {
+      ID: 19,
+      img: "./img/bg-gif/gif-19.gif",
+    },
+    {
+      ID: 20,
+      img: "./img/bg-gif/gif-20.gif",
+    },
+    {
+      ID: 21,
+      img: "./img/bg-gif/gif-21.gif",
+    },
+    {
+      ID: 22,
+      img: "./img/bg-gif/gif-22.gif",
+    },
+    {
+      ID: 23,
+      img: "./img/bg-gif/gif-23.gif",
+    },
+    {
+      ID: 24,
+      img: "./img/bg-gif/gif-24.gif",
+    },
+    {
+      ID: 25,
+      img: "./img/bg-gif/gif-25.gif",
+    },
+    {
+      ID: 26,
+      img: "./img/bg-gif/gif-26.gif",
+    },
+    {
+      ID: 27,
+      img: "./img/bg-gif/gif-27.gif",
+    },
+    {
+      ID: 28,
+      img: "./img/bg-gif/gif-28.gif",
+    },
+    {
+      ID: 29,
+      img: "./img/bg-gif/gif-29.gif",
+    },
+    {
+      ID: 30,
+      img: "./img/bg-gif/gif-30.gif",
+    },
+    {
+      ID: 31,
+      img: "./img/bg-gif/gif-31.gif",
+    },
+    {
+      ID: 32,
+      img: "./img/bg-gif/gif-32.gif",
+    },
+    {
+      ID: 33,
+      img: "./img/bg-gif/gif-33.gif",
+    },
+    {
+      ID: 34,
+      img: "./img/bg-gif/gif-34.gif",
+    },
+    {
+      ID: 35,
+      img: "./img/bg-gif/gif-35.gif",
+    },
+    {
+      ID: 36,
+      img: "./img/bg-gif/gif-36.gif",
+    },
+    {
+      ID: 37,
+      img: "./img/bg-gif/gif-37.gif",
+    },
+    {
+      ID: 38,
+      img: "./img/bg-gif/gif-38.gif",
+    },
+    {
+      ID: 39,
+      img: "./img/bg-gif/gif-39.gif",
+    },
+    {
+      ID: 40,
+      img: "./img/bg-gif/gif-40.gif",
+    },
+  ],
 
   listSongRecommend_Vpop: [
     {
@@ -368,7 +550,7 @@ const app = {
   getHtmls_Playlist_ListSong: function (e) {
     htmls = e.map((song, index) => {
       return `
-            <div class="song-item">
+            <div class="song-item data-index="${index}">
                 <div class="song-content">
                     <div class="song-img bg-img" style="background-image: url('${song.image}');');">
                         <div class="song-img--hover"><i class="fas fa-play"></i></div>
@@ -387,6 +569,20 @@ const app = {
                     `;
     });
     return htmls;
+  },
+
+  getHtmls_Bg: function () {
+    html = this.listBg.map((e) => {
+      return `
+      <div class="bg-item bg-img" style="background-image: url(${e.img});"></div>
+      `;
+    });
+    return html;
+  },
+
+  rederSettingBg: function () {
+    const Htmls_Bg = this.getHtmls_Bg();
+    $(".main__settingBg .settingBg__list-item").innerHTML = Htmls_Bg.join("");
   },
 
   renderPlaylist: function () {
@@ -438,9 +634,22 @@ const app = {
 
   render: function () {
     this.renderPlaylist();
+    this.rederSettingBg();
   },
 
   defineProperties: function () {
+    Object.defineProperty(this, "listSong", {
+      get: function () {
+        if ($("#vpop")) {
+          return this.listSongRecommend_Vpop;
+        } else if ($("#us-uk")) {
+          return this.listSongRecommend_USUK;
+        } else {
+          return this.listSongRecommend_Lofi;
+        }
+      },
+    });
+
     Object.defineProperty(this, "currentSong", {
       get: function () {
         return this.listSong[this.currentIndex];
@@ -457,8 +666,18 @@ const app = {
     const playlist_TabName = Array.from($$(".playlist_grouptab span"));
     const playlist_TabContent = Array.from($$(".tab__container-list"));
     const settingBg_item = Array.from($$(".main__settingBg .bg-item"));
+    const songItem = Array.from($$(".play-list .song-item"));
+    const playImg = Array.from($$(".play-list .song-img--hover"));
+    const songName = Array.from($$(".play-list .song-name"));
 
     const _this = this;
+    songItem[this.currentIndex].classList.add("active");
+    songNamePlayer.innerHTML = this.listSong[this.currentIndex].name;
+    songAuthorPlayer.innerHTML = this.listSong[this.currentIndex].author;
+    songDurationPlayer.innerHTML = this.listSong[this.currentIndex].duration;
+    songImgPlayer.style.backgroundImage = `url("${
+      this.listSong[this.currentIndex].image
+    }")`;
 
     // Xu ly event nav mobile devices
     for (let i = 0; i < mobileToggle.length; i++) {
@@ -502,29 +721,153 @@ const app = {
         $(".main__bg").style.backgroundImage = this.style.backgroundImage;
       };
     }
+
+    for (let i = 0; i < songItem.length; i++) {
+      playImg[i].onclick = function () {
+        pause.classList.remove("active");
+        play.classList.add("active");
+        playImg[i].style.visibility = "hidden";
+        if (i === _this.currentIndex) {
+          audio.play();
+          cdThumbAnimate.play();
+        } else {
+          songItem[_this.currentIndex].classList.remove("active");
+          songItem[i].classList.add("active");
+          playImg[_this.currentIndex].style.visibility = "visible";
+          sidebarTime.style.width = "0%";
+          currentTime.innerHTML = "00:00";
+          _this.currentIndex = i;
+          songImgPlayer.style.backgroundImage = `url("${
+            _this.listSong[_this.currentIndex].image
+          }")`;
+          songNamePlayer.innerHTML = _this.listSong[_this.currentIndex].name;
+          songAuthorPlayer.innerHTML =
+            _this.listSong[_this.currentIndex].author;
+          songDurationPlayer.innerHTML =
+            _this.listSong[_this.currentIndex].duration;
+          _this.loadCurrentSong();
+          audio.play();
+          cdThumbAnimate.play();
+          console.log(i);
+        }
+      };
+
+      songName[i].onclick = function () {
+        playImg[i].onclick();
+      };
+    }
+
+    function formatTime(seconds) {
+      minutes = Math.floor(seconds / 60);
+      minutes = minutes >= 10 ? minutes : "0" + minutes;
+      seconds = Math.floor(seconds % 60);
+      seconds = seconds >= 10 ? seconds : "0" + seconds;
+      return minutes + ":" + seconds;
+    }
+
+    // Xy ly khi tiến độ bài hát thay đổi
+    audio.ontimeupdate = function () {
+      if (audio.duration) {
+        let progressPercent = Math.floor(
+          (audio.currentTime / audio.duration) * 100
+        );
+        sidebarTime.style.width = `${progressPercent}%`;
+        currentTime.innerHTML = `${formatTime(audio.currentTime)}`;
+      }
+    };
+
+    // Xử lý khi tua song
+    sidebarBg.onclick = function (e) {
+      const seekProcess = e.pageX - this.offsetLeft;
+      let progressPercent = (seekProcess / this.offsetWidth) * 100;
+      progressPercent = Math.ceil(progressPercent);
+      // sidebarTime[i].style.width = `${progressPercent}%`;
+      const seekTime = (progressPercent * audio.duration) / 100;
+      audio.currentTime = seekTime;
+      console.log(sidebarBg);
+    };
+
+    function resetVolume() {
+      volumeMute.classList.remove("active");
+      volumeLow.classList.remove("active");
+      volumeHight.classList.remove("active");
+    }
+
+    function mute() {
+      audio.volume = 0;
+      volumSide.style.width = "0%";
+      resetVolume();
+      volumeMute.classList.add("active");
+    }
+    // Xy ly xu kien volumeSide onclick
+    volumSideBg.onclick = function (e) {
+      const seekProcess = e.pageX - this.offsetLeft;
+      let progressPercent = (seekProcess / this.offsetWidth) * 100;
+      progressPercent = Math.ceil(progressPercent);
+      audio.volume = progressPercent / 100;
+      volumSide.style.width = `${progressPercent}%`;
+      resetVolume();
+      if (progressPercent === 0) {
+        volumeMute.classList.add("active");
+      } else if (progressPercent >= 0 && progressPercent <= 50) {
+        volumeLow.classList.add("active");
+      } else {
+        volumeHight.classList.add("active");
+      }
+    };
+
+    // Xu ly khi an Icon Volume
+    volumeLow.onclick = function () {
+      mute();
+    };
+    volumeHight.onclick = function () {
+      mute();
+    };
+
+    const cdThumbAnimate = songImgPlayer.animate(
+      [{ transform: "rotate(360deg)" }],
+      {
+        duration: 10000, // 10 seconds
+        iterations: Infinity,
+      }
+    );
+    cdThumbAnimate.pause();
+
+    play.onclick = function () {
+      pause.classList.remove("active");
+      play.classList.add("active");
+      playImg[_this.currentIndex].style.visibility = "hidden";
+      audio.play();
+      cdThumbAnimate.play();
+      console.log(audio);
+    };
+
+    pause.onclick = function () {
+      pause.classList.add("active");
+      play.classList.remove("active");
+      playImg[_this.currentIndex].style.visibility = "visible";
+      audio.pause();
+      cdThumbAnimate.pause();
+    };
   },
 
-  //   setDefaultApp: function () {
-  //     this.setVolumeDefault();
-  //     this.loadCurrentSong();
-  //   },
+  setDefaultApp: function () {
+    this.setVolumeDefault();
+    this.loadCurrentSong();
+  },
 
-  //   setVolumeDefault: function () {
-  //     audio.volume = 0.2;
-  //   },
+  setVolumeDefault: function () {
+    audio.volume = 0.2;
+  },
 
-  //   loadCurrentSong: function () {
-  //     if (this.currentIndex === -1) {
-  //       audio.src = this.listSong[0].path;
-  //     } else {
-  //       audio.src = this.currentSong.path;
-  //     }
-  //   },
+  loadCurrentSong: function () {
+    audio.src = this.currentSong.path;
+  },
 
   start: function () {
     this.render();
     this.defineProperties();
-    // this.setDefaultApp();
+    this.setDefaultApp();
     this.handleEvent();
   },
 };
