@@ -660,7 +660,7 @@ const app = {
       // Xu ly playBtn onClick
       play[i].onclick = function () {
         if (_this.currentIndex != -1) {
-          pause[_this.currentIndex].onclick();
+          pause[_this.currentIndex].click();
         }
         pause[i].classList.remove("active");
         play[i].classList.add("active");
@@ -673,7 +673,7 @@ const app = {
             currentTime[_this.currentIndex].innerHTML = "00:00";
           }
           _this.currentIndex = i;
-          playImg[i].onclick();
+          playImg[i].click();
           _this.loadCurrentSong();
           audio.play();
           // const loadSong = new Promise((resolve, reject) => {
@@ -702,12 +702,12 @@ const app = {
           element.classList.remove("active");
         });
         songItem[i].classList.add("active");
-        play[i].onclick();
+        play[i].click();
       };
 
       // Xy ly su kien songName onClick
       songName[i].onclick = function () {
-        play[i].onclick();
+        play[i].click();
       };
 
       function formatTime(seconds) {
@@ -734,14 +734,15 @@ const app = {
       // Xử lý khi tua song
       sidebarBg[i].onclick = function (e) {
         if (i !== _this.currentIndex) {
-          play[i].onclick();
+          play[i].click();
+        } else {
+          const seekProcess = e.pageX - this.offsetLeft;
+          let progressPercent = (seekProcess / this.offsetWidth) * 100;
+          progressPercent = Math.ceil(progressPercent);
+          // sidebarTime[i].style.width = `${progressPercent}%`;
+          const seekTime = (progressPercent * audio.duration) / 100;
+          audio.currentTime = seekTime;
         }
-        const seekProcess = e.pageX - this.offsetLeft;
-        let progressPercent = (seekProcess / this.offsetWidth) * 100;
-        progressPercent = Math.ceil(progressPercent);
-        // sidebarTime[i].style.width = `${progressPercent}%`;
-        const seekTime = (progressPercent * audio.duration) / 100;
-        audio.currentTime = seekTime;
       };
     }
 
@@ -809,7 +810,7 @@ const app = {
 
     // Xu ly khi end bai hat
     audio.onended = function () {
-      play[_this.currentIndex + 1].onclick();
+      play[_this.currentIndex + 1].click();
       if (_this.currentSlider !== _this.currentIndex) {
         _this.handleSlider();
       }
@@ -880,7 +881,7 @@ const app = {
   },
 
   setVolumeDefault: function () {
-    // audio.volume = 0.2;
+    audio.volume = 0.2;
   },
 
   loadCurrentSong: function () {
@@ -894,7 +895,7 @@ const app = {
   start: function () {
     this.render();
     this.defineProperties();
-    // this.setDefaultApp();
+    this.setDefaultApp();
     this.handleEvent();
     this.handleSlide();
   },

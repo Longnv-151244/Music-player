@@ -24,6 +24,32 @@ const app = {
   currentIndex: 0,
   lastIndex_Play: 0,
   isPlaying: false,
+  isRandom: false,
+  isRepeat: false,
+
+  nextSong: function () {
+    this.currentIndex++;
+    if (this.currentIndex >= this.listSong.length) {
+      this.currentIndex = 0;
+    }
+    this.loadCurrentSong();
+  },
+  prevSong: function () {
+    this.currentIndex--;
+    if (this.currentIndex < 0) {
+      this.currentIndex = this.listSong.length - 1;
+    }
+    this.loadCurrentSong();
+  },
+  playRandomSong: function () {
+    let newIndex;
+    do {
+      newIndex = Math.floor(Math.random() * this.listSong.length);
+    } while (newIndex === this.currentIndex);
+
+    this.currentIndex = newIndex;
+    this.loadCurrentSong();
+  },
 
   listBg: [
     {
@@ -660,6 +686,7 @@ const app = {
   handleEvent: function () {
     const mobileToggle = Array.from($$(".mobile-toggle"));
     const settingBg_icon = $(".settingBg__icon");
+    const playlist_Icon = Array.from($$(".playlist__icon > *"));
     const playlist_BtnOpen = $(".main__playlist .open");
     const playlist_BtnClose = $(".main__playlist .close");
     const playlist_Content = $(".main__playlist .playlist__content");
@@ -672,12 +699,6 @@ const app = {
 
     const _this = this;
     songItem[this.currentIndex].classList.add("active");
-    songNamePlayer.innerHTML = this.listSong[this.currentIndex].name;
-    songAuthorPlayer.innerHTML = this.listSong[this.currentIndex].author;
-    songDurationPlayer.innerHTML = this.listSong[this.currentIndex].duration;
-    songImgPlayer.style.backgroundImage = `url("${
-      this.listSong[this.currentIndex].image
-    }")`;
 
     // Xu ly event nav mobile devices
     for (let i = 0; i < mobileToggle.length; i++) {
@@ -689,22 +710,21 @@ const app = {
       };
     }
 
+    // Setting onclick
     settingBg_icon.onclick = function () {
       $(".settingBg__container").classList.toggle("active");
     };
 
-    playlist_BtnOpen.onclick = function () {
-      playlist_BtnOpen.classList.remove("active");
-      playlist_BtnClose.classList.add("active");
-      playlist_Content.classList.add("active");
-    };
+    // Open - Close Playlist
+    for (let i = 0; i < playlist_Icon.length; i++) {
+      playlist_Icon[i].onclick = function () {
+        playlist_BtnOpen.classList.toggle("active");
+        playlist_BtnClose.classList.toggle("active");
+        playlist_Content.classList.toggle("active");
+      };
+    }
 
-    playlist_BtnClose.onclick = function () {
-      playlist_BtnOpen.classList.add("active");
-      playlist_BtnClose.classList.remove("active");
-      playlist_Content.classList.remove("active");
-    };
-
+    // Click tab Playlist
     for (let i = 0; i < playlist_TabName.length; i++) {
       playlist_TabName[i].onclick = function () {
         for (let j = 0; j < playlist_TabName.length; j++) {
@@ -737,14 +757,6 @@ const app = {
           sidebarTime.style.width = "0%";
           currentTime.innerHTML = "00:00";
           _this.currentIndex = i;
-          songImgPlayer.style.backgroundImage = `url("${
-            _this.listSong[_this.currentIndex].image
-          }")`;
-          songNamePlayer.innerHTML = _this.listSong[_this.currentIndex].name;
-          songAuthorPlayer.innerHTML =
-            _this.listSong[_this.currentIndex].author;
-          songDurationPlayer.innerHTML =
-            _this.listSong[_this.currentIndex].duration;
           _this.loadCurrentSong();
           audio.play();
           cdThumbAnimate.play();
@@ -753,7 +765,7 @@ const app = {
       };
 
       songName[i].onclick = function () {
-        playImg[i].onclick();
+        playImg[i].click();
       };
     }
 
@@ -849,6 +861,52 @@ const app = {
       audio.pause();
       cdThumbAnimate.pause();
     };
+
+    random.onclick = function (e) {
+      _this.isRandom = !_this.isRandom;
+      // _this.setConfig("isRandom", _this.isRandom);
+      random.classList.toggle("active", _this.isRandom);
+    };
+
+    // Xử lý lặp lại một song
+    // Single-parallel repeat processing
+    repeat.onclick = function (e) {
+      _this.isRepeat = !_this.isRepeat;
+      // _this.setConfig("isRepeat", _this.isRepeat);
+      repeat.classList.toggle("active", _this.isRepeat);
+    };
+
+    next.onclick = function () {
+      songItem[_this.currentIndex].classList.remove("active");
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.nextSong();
+      }
+      songItem[_this.currentIndex].classList.add("active");
+      playImg[_this.currentIndex].style.visibility = "hidden";
+      audio.play();
+    };
+
+    prev.onclick = function () {
+      songItem[_this.currentIndex].classList.remove("active");
+      if (_this.isRandom) {
+        _this.playRandomSong();
+      } else {
+        _this.prevSong();
+      }
+      songItem[_this.currentIndex].classList.add("active");
+      playImg[_this.currentIndex].style.visibility = "hidden";
+      audio.play();
+    };
+
+    audio.onended = function () {
+      if (_this.isRepeat) {
+        audio.play();
+      } else {
+        next.click();
+      }
+    };
   },
 
   setDefaultApp: function () {
@@ -862,6 +920,10 @@ const app = {
 
   loadCurrentSong: function () {
     audio.src = this.currentSong.path;
+    songNamePlayer.innerHTML = this.currentSong.name;
+    songAuthorPlayer.innerHTML = this.currentSong.author;
+    songDurationPlayer.innerHTML = this.currentSong.duration;
+    songImgPlayer.style.backgroundImage = `url("${this.currentSong.image}")`;
   },
 
   start: function () {

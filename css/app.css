@@ -318,6 +318,7 @@ ul li {
   box-sizing: border-box;
   font-size: 14px;
   padding: 0 4px;
+  width: 40px;
 }
 .player__content .player__control .volume__silebar--bg,
 .player__content .player__control .sidebarTime--bg {
@@ -1131,6 +1132,9 @@ ul li {
   justify-content: space-between;
   align-items: center;
 }
+#main .main__player .player__control .duration .currenTime {
+  width: 50px;
+}
 #main .main__player .player__control .repeat:hover, #main .main__player .player__control .repeat.active,
 #main .main__player .player__control .random:hover,
 #main .main__player .player__control .random.active {
@@ -1191,6 +1195,7 @@ ul li {
 }
 #main .main__player .player__option .volume__icon {
   margin-right: 10px;
+  width: 20px;
 }
 #main .main__player .player__option .volume__icon i {
   display: none;
@@ -1270,8 +1275,9 @@ ul li {
   position: fixed;
   z-index: 2;
   height: 40px;
-  width: 350px;
+  width: 400px;
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   margin-bottom: 10px;
   border-bottom: 3px solid #ebebeb;
