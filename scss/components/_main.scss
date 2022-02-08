@@ -279,13 +279,13 @@
       }
     }
     .playlist__content {
-      width: 400px;
+      width: 0px;
       height: 70vh;
       background-color: $primary;
       border-radius: 20px;
-      display: none;
       &.active {
-        display: block;
+        width: 400px;
+        @include transition-duration(500ms);
       }
       .playlist_grouptab {
         position: fixed;

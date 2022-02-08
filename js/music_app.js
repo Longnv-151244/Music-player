@@ -878,6 +878,7 @@ const app = {
 
     next.onclick = function () {
       songItem[_this.currentIndex].classList.remove("active");
+      playImg[_this.currentIndex].style.visibility = "visible";
       if (_this.isRandom) {
         _this.playRandomSong();
       } else {
@@ -890,6 +891,7 @@ const app = {
 
     prev.onclick = function () {
       songItem[_this.currentIndex].classList.remove("active");
+      playImg[_this.currentIndex].style.visibility = "visible";
       if (_this.isRandom) {
         _this.playRandomSong();
       } else {

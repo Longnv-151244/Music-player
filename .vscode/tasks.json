@@ -9,11 +9,6 @@
       "command": "sass ./scss/app.scss ./css/app.css --watch"
     },
     {
-      "label": "Run sass vpop",
-      "type": "shell",
-      "command": "sass ./scss/music_play_app.scss ./css/music_play_app.css --watch"
-    },
-    {
       "label": "Run pug",
       "type": "shell",
       "command": "pug index.pug index.html --watch --pretty"
@@ -22,6 +17,16 @@
       "label": "Run pug vpop",
       "type": "shell",
       "command": "pug vpop.pug vpop.html --watch --pretty"
+    },
+    {
+      "label": "Run pug us-uk",
+      "type": "shell",
+      "command": "pug usuk.pug usuk.html --watch --pretty"
+    },
+    {
+      "label": "Run pug lofi",
+      "type": "shell",
+      "command": "pug lofi.pug lofi.html --watch --pretty"
     }
   ]
 }

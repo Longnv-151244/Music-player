@@ -12,12 +12,12 @@
 @import "./base/variables.scss";
 @import "./base/base.scss";
 @import "./base/responsive.scss";
+@import "./base/resetCss";
 
 // import Fonts
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&display=swap");
 
 // Import base Scss
-@import "./components/resetCss";
 @import "./components/buttons";
 @import "./components/player";
 @import "./components/header";
