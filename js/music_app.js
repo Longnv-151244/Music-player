@@ -19,6 +19,9 @@ const volumeLow = $(".volume--low");
 const volumeHight = $(".volume--hight");
 const volumSideBg = $(".volume__silebar--bg");
 const volumSide = $(".volume__silebar--current");
+const loginMain = $("#login");
+const loginContainer = $(".login__container");
+const toast = $("#toast");
 
 const app = {
   currentIndex: 0,
@@ -49,6 +52,13 @@ const app = {
 
     this.currentIndex = newIndex;
     this.loadCurrentSong();
+  },
+
+  toastIcons: {
+    success: "fas fa-check-circle",
+    info: "fas fa-info-circle",
+    warning: "fas fa-exclamation-circle",
+    error: "fas fa-exclamation-circle",
   },
 
   listBg: [
@@ -588,8 +598,8 @@ const app = {
                 </div>
                 <div class="song-duration">${song.duration}</div>
                 <div class="song-option">
-                    <div class="like"><i class="far fa-heart"></i></div>
-                    <div class="download"><i class="fas fa-download"></i></div>
+                    <div class="option like"><i class ="far fa-heart"></i></div>
+                    <div class="option download"><i class="fas fa-download"></i></div>
                 </div>
             </div>
                     `;
@@ -696,6 +706,86 @@ const app = {
     const songItem = Array.from($$(".play-list .song-item"));
     const playImg = Array.from($$(".play-list .song-img--hover"));
     const songName = Array.from($$(".play-list .song-name"));
+    const login = Array.from($$(".login"));
+    const options_Request = Array.from($$(".option"));
+
+    // Event for login
+    function showLogin() {
+      loginMain.classList.add("active");
+    }
+
+    function hideLogin() {
+      loginMain.classList.remove("active");
+    }
+
+    login.forEach((element) => {
+      element.addEventListener("click", showLogin);
+    });
+
+    loginMain.addEventListener("click", hideLogin);
+
+    loginContainer.onclick = function (event) {
+      event.stopPropagation();
+    };
+
+    $(".singin__name").onclick = function () {
+      $(".singin__name").classList.add("active");
+      $(".singin").classList.add("active");
+      $(".singup").classList.remove("active");
+      $(".singup__name").classList.remove("active");
+    };
+
+    $(".singup__name").onclick = function () {
+      $(".singin").classList.remove("active");
+      $(".singin__name").classList.remove("active");
+      $(".singup__name").classList.add("active");
+      $(".singup").classList.add("active");
+    };
+
+    // Xu ly toast
+    function createToast(toastData) {
+      const toastChild = document.createElement("div");
+      toastChild.classList.add("toast", `toast--${toastData.type}`);
+      toastChild.innerHTML = `
+                    <div class="toast__container"> 
+                      <div class="toast__icon"> <i class="${toastData.icon}"></i></div>
+                      <div class="toast__content"> 
+                        <div class="toast__heading">${toastData.heading}</div>
+                        <div class="toast__text">${toastData.text}</div>
+                      </div>
+                      <div class="toast__close"> <i class="fas fa-times-square"></i></div>
+                    </div>
+                `;
+      toast.appendChild(toastChild);
+
+      // Auto remove toast
+      const autoRemoveId = setTimeout(function () {
+        toast.removeChild(toastChild);
+      }, toastData.duration);
+
+      // Remove toast when clicked
+      toastChild.onclick = function (e) {
+        if (e.target.closest(".toast__close")) {
+          toast.removeChild(toastChild);
+          clearTimeout(autoRemoveId);
+        }
+      };
+    }
+
+    if (!this.isLogin) {
+      options_Request.forEach((option) => {
+        option.onclick = function () {
+          const toastData = {
+            type: "error",
+            icon: _this.toastIcons.error,
+            heading: "Thất bại!",
+            text: "Bạn cần đăng nhập để sử dụng chức năng này!!",
+            duration: 5000,
+          };
+          createToast(toastData);
+        };
+      });
+    }
 
     const _this = this;
     songItem[this.currentIndex].classList.add("active");

@@ -1,7 +1,7 @@
 // Import Css
 // @import "./css/bootstrap.min.css";
 // @import "./css/fontawesome.css";
-// @import "./css/animate.css/animate.css";
+@import "../css/animate1.css";
 
 // Mixins
 // *************
@@ -25,4 +25,6 @@
 @import "./components/recommend";
 @import "./components/newletter";
 @import "./components/footer";
+@import "./components/login";
+@import "./components/toast";
 @import "./components/main";

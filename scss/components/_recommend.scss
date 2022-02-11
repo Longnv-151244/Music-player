@@ -263,6 +263,9 @@
           margin-right: 0;
           gap: 2rem;
         }
+        & > * {
+          cursor: pointer;
+        }
       }
       &.active,
       &:hover {

@@ -139,6 +139,11 @@
     }
   }
 
+  .login {
+    cursor: pointer;
+  }
+
+  .login,
   .mobile-toggle i,
   li a {
     position: relative;
@@ -151,6 +156,7 @@
       margin: 1rem;
     }
   }
+  .login,
   .mobile-toggle i,
   button i,
   li a {

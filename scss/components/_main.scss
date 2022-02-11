@@ -35,7 +35,7 @@
       width: 250px;
       height: 70vh;
       box-sizing: border-box;
-      background: $primary;
+      background: $darkslategray;
       border-radius: 20px;
       display: none;
       &.active {
@@ -197,7 +197,7 @@
     .player__option {
       width: 100px;
       .volume,
-      .option {
+      .option__content {
         display: flex;
         align-items: center;
       }
@@ -220,7 +220,7 @@
           display: block;
         }
       }
-      .option {
+      .option__content {
         margin-top: 10px;
         justify-content: space-between;
       }
@@ -275,23 +275,25 @@
         display: none;
         &.active {
           display: block;
+          animation: backInRight ease 0.5s;
         }
       }
     }
     .playlist__content {
-      width: 0px;
+      width: 430px;
       height: 70vh;
-      background-color: $primary;
+      background-color: $darkslategray;
       border-radius: 20px;
+      display: none;
       &.active {
-        width: 400px;
-        @include transition-duration(500ms);
+        display: block;
+        animation: backInRight ease 0.5s;
       }
       .playlist_grouptab {
         position: fixed;
         z-index: 2;
         height: 40px;
-        width: 400px;
+        width: 430px;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -350,12 +352,14 @@
         }
       }
       .tab__container-list {
-        margin-left: 0px;
         padding-top: 40px;
         height: calc(100% - 60px);
       }
       .song-item {
+        margin: 10px auto;
+        width: calc(100% - 60px);
         color: $white;
+        border-bottom: 3px solid $primary;
         &.active {
           grid-template-columns: 3fr 1fr 1fr !important;
           .song-duration {

@@ -1,3 +1,4 @@
+@import "../css/animate1.css";
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;600;700&display=swap");
 html {
   font-size: 62.5%;
@@ -526,6 +527,10 @@ ul li {
 #header .mobile-toggle.menu-on .close {
   display: block;
 }
+#header .login {
+  cursor: pointer;
+}
+#header .login,
 #header .mobile-toggle i,
 #header li a {
   position: relative;
@@ -536,12 +541,15 @@ ul li {
   margin: 2rem;
 }
 @media only screen and (min-width:768px) and (max-width:1199px) {
-  #header .mobile-toggle i,
+  #header .login,
+#header .mobile-toggle i,
 #header li a {
     margin: 1rem;
   }
 }
-#header .mobile-toggle i:focus, #header .mobile-toggle i:hover,
+#header .login:focus, #header .login:hover,
+#header .mobile-toggle i:focus,
+#header .mobile-toggle i:hover,
 #header button i:focus,
 #header button i:hover,
 #header li a:focus,
@@ -558,6 +566,7 @@ ul li {
 }
 .slider__item.active {
   display: flex;
+  animation: all linear 1s;
 }
 .slider__item .slider__content {
   display: flex;
@@ -866,6 +875,9 @@ ul li {
     gap: 2rem;
   }
 }
+.tab__container-list .play-list .song-item .song-option > * {
+  cursor: pointer;
+}
 .tab__container-list .play-list .song-item.active, .tab__container-list .play-list .song-item:hover {
   background: #ebebeb;
 }
@@ -978,6 +990,179 @@ ul li {
   filter: drop-shadow(4px 4px 4px #f55656);
 }
 
+#login {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: none;
+}
+#login.active {
+  display: block;
+}
+#login .login__container {
+  width: 500px;
+  height: 460px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 20px;
+}
+@media only screen and (max-width:767px) {
+  #login .login__container {
+    width: 80vw;
+  }
+  #login .login__container .login__nav h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+}
+#login .login__nav {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+#login .login__nav span,
+#login .login__nav h1 {
+  font-size: 42px;
+  font-weight: 800;
+  opacity: 0.3;
+}
+#login .login__nav h1 {
+  cursor: pointer;
+}
+#login .login__nav .active {
+  opacity: 1;
+  color: #f55656;
+}
+#login .login__content .singup form,
+#login .login__content .singin form {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+#login .login__content .singup form .social,
+#login .login__content .singin form .social {
+  display: inline-flex;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 888px;
+  border: 1px solid #343434;
+  margin: 10px;
+}
+#login .login__content .singup form .social i,
+#login .login__content .singin form .social i {
+  margin: 0 auto;
+  font-size: 16px;
+}
+#login .login__content .singup form .forgot,
+#login .login__content .singup form span,
+#login .login__content .singin form .forgot,
+#login .login__content .singin form span {
+  font-size: 14px;
+  color: #666666;
+  margin: 10px 0;
+}
+#login .login__content .singup form input,
+#login .login__content .singin form input {
+  background-color: #eee;
+  border: none;
+  width: 80%;
+  padding: 12px 5px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+#login .login__content .singup form button,
+#login .login__content .singin form button {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 160px;
+}
+#login .login__content .singup.active form,
+#login .login__content .singin.active form {
+  display: flex;
+}
+
+#toast {
+  position: fixed;
+  z-index: 888;
+  right: 20px;
+  top: 120px;
+}
+#toast .toast {
+  animation: backInRight 0.3s ease, fadeOut 1s linear 4s;
+}
+#toast .toast.toast--success .toast__container {
+  border-left: 5px solid #00c24e;
+}
+#toast .toast.toast--success .toast__container .toast__heading,
+#toast .toast.toast--success .toast__container .toast__icon {
+  color: #00c24e;
+}
+#toast .toast.toast--info .toast__container {
+  border-left: 5px solid #3881e0;
+}
+#toast .toast.toast--info .toast__container .toast__heading,
+#toast .toast.toast--info .toast__container .toast__icon {
+  color: #3881e0;
+}
+#toast .toast.toast--warning .toast__container {
+  border-left: 5px solid #ffbb33;
+}
+#toast .toast.toast--warning .toast__container .toast__heading,
+#toast .toast.toast--warning .toast__container .toast__icon {
+  color: #ffbb33;
+}
+#toast .toast.toast--error .toast__container {
+  border-left: 5px solid #ff4444;
+}
+#toast .toast.toast--error .toast__container .toast__heading,
+#toast .toast.toast--error .toast__container .toast__icon {
+  color: #ff4444;
+}
+#toast .toast__container {
+  margin-bottom: 30px;
+  padding: 0 30px;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  background-color: #ffffff;
+}
+@media only screen and (max-width:767px) {
+  #toast .toast__container {
+    width: 70vw;
+  }
+}
+#toast .toast__container .toast__icon {
+  font-size: 30px;
+}
+#toast .toast__container .toast__close {
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+#toast .toast__container .toast__content .toast__heading {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+#toast .toast__container .toast__content .toast__text {
+  font-size: 14px;
+  color: #666666;
+}
+
 #main {
   height: 120vh;
 }
@@ -1025,7 +1210,7 @@ ul li {
   width: 250px;
   height: 70vh;
   box-sizing: border-box;
-  background: #f55656;
+  background: #343434;
   border-radius: 20px;
   display: none;
 }
@@ -1186,7 +1371,7 @@ ul li {
   width: 100px;
 }
 #main .main__player .player__option .volume,
-#main .main__player .player__option .option {
+#main .main__player .player__option .option__content {
   display: flex;
   align-items: center;
 }
@@ -1207,7 +1392,7 @@ ul li {
 #main .main__player .player__option .volume__icon .active {
   display: block;
 }
-#main .main__player .player__option .option {
+#main .main__player .player__option .option__content {
   margin-top: 10px;
   justify-content: space-between;
 }
@@ -1263,24 +1448,24 @@ ul li {
 }
 #main .main__playlist .playlist__icon > *.active {
   display: block;
+  animation: backInRight ease 0.5s;
 }
 #main .main__playlist .playlist__content {
-  width: 0px;
+  width: 430px;
   height: 70vh;
-  background-color: #f55656;
+  background-color: #343434;
   border-radius: 20px;
+  display: none;
 }
 #main .main__playlist .playlist__content.active {
-  width: 400px;
-  -webkit-transition-duration: 500ms;
-  -o-transition-duration: 500ms;
-  transition-duration: 500ms;
+  display: block;
+  animation: backInRight ease 0.5s;
 }
 #main .main__playlist .playlist__content .playlist_grouptab {
   position: fixed;
   z-index: 2;
   height: 40px;
-  width: 400px;
+  width: 430px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -1338,12 +1523,14 @@ ul li {
   display: flex;
 }
 #main .main__playlist .playlist__content .tab__container-list {
-  margin-left: 0px;
   padding-top: 40px;
   height: calc(100% - 60px);
 }
 #main .main__playlist .playlist__content .song-item {
+  margin: 10px auto;
+  width: calc(100% - 60px);
   color: #ffffff;
+  border-bottom: 3px solid #f55656;
 }
 #main .main__playlist .playlist__content .song-item.active {
   grid-template-columns: 3fr 1fr 1fr !important;

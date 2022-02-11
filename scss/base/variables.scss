@@ -16,6 +16,7 @@ $white: #ffffff;
 // Dark Color
 $dark: #000000;
 $dark_light: rgba(0, 0, 0, 0.8);
+$darkslategray: #343434;
 
 // Border Color
 $border: #ebebeb;
@@ -25,6 +26,16 @@ $hover: #f55656;
 
 // Secondary Color
 $secondary: #a6a6a6;
+
+// Color toast
+// Success
+$success: #00c24e;
+// Info
+$info: #3881e0;
+// Warning
+$warning: #ffbb33;
+// Error
+$error: #ff4444;
 
 // Fonts
 $fonts: "Space Grotesk", sans-serif;
