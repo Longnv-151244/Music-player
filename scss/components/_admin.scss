@@ -1,0 +1,152 @@
+#main {
+  display: inline-flex;
+  width: 100vw;
+  height: 100vh;
+}
+.admin__sidebar {
+  width: 300px;
+  height: 100%;
+  background: $primary;
+  .logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .sidebar__main {
+    color: $border;
+    font-size: 20px;
+    .sidebar__tab {
+      padding: 10px 20px;
+      margin-left: 30px;
+      margin-bottom: 10px;
+      &.active {
+        background: $border;
+        color: $text;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        // margin:
+      }
+      & > .active {
+        color: $primary !important;
+        border-bottom: 3px solid $primary !important;
+        display: block !important;
+      }
+      .sidebar__tab-name {
+        .icon {
+          font-size: 16px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        width: fit-content;
+        cursor: pointer;
+      }
+      .sidebar__tab-child {
+        margin-top: 10px;
+        margin-left: 40px;
+        font-size: 16px;
+        width: fit-content;
+        cursor: pointer;
+        display: none;
+      }
+    }
+  }
+}
+
+.admin__container {
+  left: 300px;
+  width: calc(100vw - 300px);
+  height: 80px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .admin__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    .header__search {
+      form {
+        input {
+          padding: 10px 20px;
+          border-radius: 20px;
+          width: 300px;
+          border: 3px solid $border;
+        }
+      }
+    }
+    .header__user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      .user__avatar {
+        width: 50px;
+        height: 50px;
+        img {
+          border-radius: 888px;
+        }
+      }
+      .user__name {
+        font-size: 24px;
+        font-weight: 700;
+      }
+      .user__role {
+        font-size: 20px;
+        font-weight: 600;
+        color: $text;
+      }
+    }
+  }
+  .admin__content {
+    .admin__content-overview {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .overview__item {
+        & > * {
+          display: inline-block;
+        }
+        margin-top: 40px;
+        width: 200px;
+        padding: 20px 20px;
+        background: $border;
+        border-radius: 10px;
+        .overview__item-info {
+          margin-left: 30px;
+          .overview__item-value {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+          }
+          .overview__item-unit {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: $text;
+          }
+        }
+        .overview__item-icon {
+          float: right;
+          color: $primary;
+          font-size: 50px;
+        }
+      }
+    }
+    .admin__content-header {
+      margin-top: 30px;
+      margin-left: 50px;
+      & > * {
+        display: inline-block;
+      }
+      .sort-select {
+        float: right;
+        margin-right: 50px;
+        select {
+          height: 40px;
+          padding: 5px;
+          border-radius: 10px;
+          font-size: 16px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}

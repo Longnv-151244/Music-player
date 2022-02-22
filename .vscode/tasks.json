@@ -14,6 +14,11 @@
       "command": "pug index.pug index.html --watch --pretty"
     },
     {
+      "label": "Run pug admin",
+      "type": "shell",
+      "command": "pug admin.pug admin.html --watch --pretty"
+    },
+    {
       "label": "Run pug vpop",
       "type": "shell",
       "command": "pug vpop.pug vpop.html --watch --pretty"

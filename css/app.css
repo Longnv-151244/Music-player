@@ -159,7 +159,6 @@ li {
 
 p {
   line-height: 1.9;
-  color: #666666;
   font-weight: 600;
 }
 
@@ -1560,6 +1559,153 @@ ul li {
 #main .settingBg__icon,
 #main .playlist__icon {
   margin-right: 20px;
+}
+
+#main {
+  display: inline-flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.admin__sidebar {
+  width: 300px;
+  height: 100%;
+  background: #f55656;
+}
+.admin__sidebar .logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.admin__sidebar .sidebar__main {
+  color: #ebebeb;
+  font-size: 20px;
+}
+.admin__sidebar .sidebar__main .sidebar__tab {
+  padding: 10px 20px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.admin__sidebar .sidebar__main .sidebar__tab.active {
+  background: #ebebeb;
+  color: #666666;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.admin__sidebar .sidebar__main .sidebar__tab > .active {
+  color: #f55656 !important;
+  border-bottom: 3px solid #f55656 !important;
+  display: block !important;
+}
+.admin__sidebar .sidebar__main .sidebar__tab .sidebar__tab-name {
+  width: fit-content;
+  cursor: pointer;
+}
+.admin__sidebar .sidebar__main .sidebar__tab .sidebar__tab-name .icon {
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.admin__sidebar .sidebar__main .sidebar__tab .sidebar__tab-child {
+  margin-top: 10px;
+  margin-left: 40px;
+  font-size: 16px;
+  width: fit-content;
+  cursor: pointer;
+  display: none;
+}
+
+.admin__container {
+  left: 300px;
+  width: calc(100vw - 300px);
+  height: 80px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.admin__container .admin__header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.admin__container .admin__header .header__search form input {
+  padding: 10px 20px;
+  border-radius: 20px;
+  width: 300px;
+  border: 3px solid #ebebeb;
+}
+.admin__container .admin__header .header__user {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.admin__container .admin__header .header__user .user__avatar {
+  width: 50px;
+  height: 50px;
+}
+.admin__container .admin__header .header__user .user__avatar img {
+  border-radius: 888px;
+}
+.admin__container .admin__header .header__user .user__name {
+  font-size: 24px;
+  font-weight: 700;
+}
+.admin__container .admin__header .header__user .user__role {
+  font-size: 20px;
+  font-weight: 600;
+  color: #666666;
+}
+.admin__container .admin__content .admin__content-overview {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.admin__container .admin__content .admin__content-overview .overview__item {
+  margin-top: 40px;
+  width: 200px;
+  padding: 20px 20px;
+  background: #ebebeb;
+  border-radius: 10px;
+}
+.admin__container .admin__content .admin__content-overview .overview__item > * {
+  display: inline-block;
+}
+.admin__container .admin__content .admin__content-overview .overview__item .overview__item-info {
+  margin-left: 30px;
+}
+.admin__container .admin__content .admin__content-overview .overview__item .overview__item-info .overview__item-value {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.admin__container .admin__content .admin__content-overview .overview__item .overview__item-info .overview__item-unit {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #666666;
+}
+.admin__container .admin__content .admin__content-overview .overview__item .overview__item-icon {
+  float: right;
+  color: #f55656;
+  font-size: 50px;
+}
+.admin__container .admin__content .admin__content-header {
+  margin-top: 30px;
+  margin-left: 50px;
+}
+.admin__container .admin__content .admin__content-header > * {
+  display: inline-block;
+}
+.admin__container .admin__content .admin__content-header .sort-select {
+  float: right;
+  margin-right: 50px;
+}
+.admin__container .admin__content .admin__content-header .sort-select select {
+  height: 40px;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" type="text/css">
+  </head>
+  <body id="main">
+    <section class="admin__sidebar"> 
+      <div class="logo"> <a class="header-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a></div>
+      <div class="sidebar__main"> 
+        <div class="sidebar__tab active"> 
+          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc Vpop</span><i class="fas fa-caret-down icon"></i></p>
+          <div class="sidebar__tab-child active">Bài hát Vpop nổi bật</div>
+        </div>
+        <div class="sidebar__tab">
+          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc US-UK</span><i class="fas fa-caret-down icon"></i></p>
+          <div class="sidebar__tab-child">Bài hát US-UK nổi bật</div>
+        </div>
+        <div class="sidebar__tab"> 
+          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc Lofi</span><i class="fas fa-caret-down icon"></i></p>
+          <div class="sidebar__tab-child">Bài hát Lofi nổi bật</div>
+        </div>
+        <div class="sidebar__tab">
+          <p class="sidebar__tab-name"><i class="fas fa-sliders-h icon"></i><span class="sidebar__tab-name">Background  </span></p>
+        </div>
+      </div>
+    </section>
+    <section class="admin__container">
+      <div class="admin__header">
+        <div class="header__search"> 
+          <form action="" method="post">
+            <input type="text" name="header-search" placeholder="Search and hit enter...">
+            <button class="btn" type="submit"> <i class="fa fa-search"></i></button>
+          </form>
+        </div>
+        <div class="header__user"> 
+          <div class="user__avatar"><img src="./img/avatar.jpg" alt=""></div>
+          <div class="user__info"> 
+            <div class="user__name">John Doe</div>
+            <div class="user__role">Admin</div>
+          </div>
+        </div>
+      </div>
+      <div class="admin__content"> 
+        <div class="admin__content-overview">
+          <div class="overview__item">
+            <div class="overview__item-info">
+              <div class="overview__item-value">54</div>
+              <div class="overview__item-unit">Album</div>
+            </div>
+            <div class="overview__item-icon"><i class="fas fa-album"></i></div>
+          </div>
+          <div class="overview__item">
+            <div class="overview__item-info">
+              <div class="overview__item-value">123</div>
+              <div class="overview__item-unit">Love</div>
+            </div>
+            <div class="overview__item-icon"><i class="fas fa-heart"></i></div>
+          </div>
+          <div class="overview__item">
+            <div class="overview__item-info">
+              <div class="overview__item-value">34</div>
+              <div class="overview__item-unit">User Like</div>
+            </div>
+            <div class="overview__item-icon"><i class="fas fa-user"></i></div>
+          </div>
+        </div>
+        <div class="admin__content-header"> 
+          <h1>All playlist </h1>
+          <div class="sort-select">
+            <select>
+              <option value="default">Sort by:</option>
+              <option value="a-z">Name: A - Z</option>
+              <option value="z-a">Name: Z - A</option>
+              <option value="time">Time Update</option>
+              <option value="like">Most Like</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
