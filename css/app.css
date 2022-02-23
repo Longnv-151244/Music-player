@@ -107,6 +107,35 @@ html {
   line-height: 32px;
 }
 
+.scroll-overflow {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden overlay;
+  scroll-behavior: smooth;
+  will-change: scroll-position;
+  /* Handle */
+  /* Handle on hover */
+}
+.scroll-overflow::-webkit-scrollbar {
+  display: none;
+}
+.scroll-overflow:hover::-webkit-scrollbar {
+  display: block;
+  width: 4px;
+}
+.scroll-overflow::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: transparent;
+}
+.scroll-overflow::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: #888;
+}
+.scroll-overflow::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 @media only screen and (min-width:768px) and (max-width:1199px) {
   html {
     font-size: 50%;
@@ -756,33 +785,7 @@ ul li {
 }
 .tab__container-list .play-list {
   flex: 1;
-  display: flex;
   font-weight: 500;
-  flex-direction: column;
-  overflow: hidden overlay;
-  scroll-behavior: smooth;
-  justify-content: flex-start;
-  will-change: scroll-position;
-  /* Handle */
-  /* Handle on hover */
-}
-.tab__container-list .play-list::-webkit-scrollbar {
-  display: none;
-}
-.tab__container-list .play-list:hover::-webkit-scrollbar {
-  display: block;
-  width: 4px;
-}
-.tab__container-list .play-list::-webkit-scrollbar-track {
-  border-radius: 10px;
-  background: transparent;
-}
-.tab__container-list .play-list::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background: #888;
-}
-.tab__container-list .play-list::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 .tab__container-list .play-list .song-item {
   display: grid;
@@ -1627,6 +1630,14 @@ ul li {
   align-items: center;
   height: 100%;
 }
+.admin__container .admin__header .admin__toggle {
+  font-size: 24px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.admin__container .admin__header .admin__toggle > * {
+  margin-right: 20px;
+}
 .admin__container .admin__header .header__search form input {
   padding: 10px 20px;
   border-radius: 20px;
@@ -1706,6 +1717,70 @@ ul li {
   border-radius: 10px;
   font-size: 16px;
   font-weight: 700;
+}
+.admin__container .admin__content .admin__content-main table {
+  width: 100%;
+}
+.admin__container .admin__content .admin__content-main table > * tr {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.admin__container .admin__content .admin__content-main table > * tr .id {
+  width: 5%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .name {
+  width: 20%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .like {
+  width: 10%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .timeUpdate {
+  width: 20%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .view {
+  width: 10%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .action {
+  width: 10%;
+}
+.admin__container .admin__content .admin__content-main table > * tr .action > * {
+  display: inline-block;
+}
+.admin__container .admin__content .admin__content-main table thead tr {
+  margin-left: 40px;
+  margin-right: 40px;
+  color: #f55656;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.admin__container .admin__content .admin__content-main table tbody {
+  margin-left: 40px;
+  margin-right: 40px;
+  height: calc(100vh - 380px);
+}
+.admin__container .admin__content .admin__content-main table tbody tr {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  border-bottom: 3px solid #666666;
+  font-size: 16px;
+}
+.admin__container .admin__content .admin__content-main table tbody tr .icon {
+  cursor: pointer;
+  color: #f55656;
+}
+.admin__container .admin__content .admin__content-main table tbody tr .like .icon {
+  cursor: auto;
+  margin-left: 10px;
+}
+.admin__container .admin__content .admin__content-main table tbody tr .timeUpdate {
+  font-size: 14px;
+  color: #666666;
+}
+.admin__container .admin__content .admin__content-main table tbody tr .action .icon {
+  margin: 0 5px;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -13,16 +13,19 @@
       <div class="logo"> <a class="header-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a></div>
       <div class="sidebar__main"> 
         <div class="sidebar__tab active"> 
-          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc Vpop</span><i class="fas fa-caret-down icon"></i></p>
-          <div class="sidebar__tab-child active">Bài hát Vpop nổi bật</div>
+          <p class="sidebar__tab-name"> <i class="fas fa-compact-disc icon"></i><span>Nhạc Vpop</span></p>
         </div>
         <div class="sidebar__tab">
-          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc US-UK</span><i class="fas fa-caret-down icon"></i></p>
-          <div class="sidebar__tab-child">Bài hát US-UK nổi bật</div>
+          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc US-UK</span></p>
         </div>
         <div class="sidebar__tab"> 
-          <p class="sidebar__tab-name"> <i class="fas fa-headphones-alt icon"></i><span>Nhạc Lofi</span><i class="fas fa-caret-down icon"></i></p>
-          <div class="sidebar__tab-child">Bài hát Lofi nổi bật</div>
+          <p class="sidebar__tab-name"> <i class="fas fa-boombox icon"></i><span>Nhạc Lofi</span></p>
+        </div>
+        <div class="sidebar__tab">
+          <p class="sidebar__tab-name"><i class="fas fa-history icon"></i><span class="sidebar__tab-name">History</span></p>
+        </div>
+        <div class="sidebar__tab">
+          <p class="sidebar__tab-name"><i class="fas fa-user-music icon"></i><span class="sidebar__tab-name">User</span></p>
         </div>
         <div class="sidebar__tab">
           <p class="sidebar__tab-name"><i class="fas fa-sliders-h icon"></i><span class="sidebar__tab-name">Background  </span></p>
@@ -31,6 +34,7 @@
     </section>
     <section class="admin__container">
       <div class="admin__header">
+        <div class="admin__toggle active"><i class="fas fa-bars"></i><span>Dashboard</span></div>
         <div class="header__search"> 
           <form action="" method="post">
             <input type="text" name="header-search" placeholder="Search and hit enter...">
@@ -74,12 +78,260 @@
           <div class="sort-select">
             <select>
               <option value="default">Sort by:</option>
+              <option value="id">Sort by ID</option>
               <option value="a-z">Name: A - Z</option>
               <option value="z-a">Name: Z - A</option>
               <option value="time">Time Update</option>
               <option value="like">Most Like</option>
             </select>
           </div>
+        </div>
+        <div class="admin__content-main"> 
+          <table>
+            <thead> 
+              <tr>
+                <th class="id">ID</th>
+                <th class="name">Name</th>
+                <th class="like">Like</th>
+                <th class="timeUpdate">Last Update</th>
+                <th class="view">Display</th>
+                <th class="action">Action</th>
+              </tr>
+            </thead>
+            <tbody class="scroll-overflow">
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+              <tr>
+                <td class="id">13</td>
+                <td class="name">Nothin On You</td>
+                <td class="like">36<i class="fas fa-heart icon"></i></td>
+                <td class="timeUpdate">12/03/08 11:23:04</td>
+                <td class="view"> <i class="fas fa-eye icon"></i></td>
+                <td class="action"> 
+                  <div class="update"> <i class="fal fa-edit icon"></i></div>
+                  <div class="delete"> <i class="far fa-trash-alt icon"></i></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

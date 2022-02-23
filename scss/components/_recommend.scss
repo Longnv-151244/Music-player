@@ -151,35 +151,7 @@
   }
   .play-list {
     flex: 1;
-    display: flex;
     font-weight: 500;
-    flex-direction: column;
-    overflow: hidden overlay;
-    scroll-behavior: smooth;
-    justify-content: flex-start;
-    will-change: scroll-position;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    &:hover::-webkit-scrollbar {
-      display: block;
-      width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 10px;
-      background: transparent;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      background: #888;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
     .song-item {
       display: grid;
       grid-template-columns: 3fr 1fr 1fr;
