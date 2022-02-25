@@ -1,0 +1,90 @@
+section#admin_action.bg-overlay.active
+    .admin_action-container
+        .admin_view.admin_view-container
+            .view_item-img.bg-img(style="background-image: url('./img/song-img/us-uk/song-2.jpg');")
+                .control.bg-overlay  
+                    .play.active 
+                        i.fad.fa-play-circle
+                    .pause
+                        i.fas.fa-pause-circle
+            .view_item-info 
+                .item-name
+                    .title 
+                        i.fas.fa-album.icon
+                        span Name: 
+                    .value On My Way
+                .item-author
+                    .title 
+                        i.fas.fa-at.icon
+                        span Author: 
+                    .value Alan Walker, Sabrina,..
+                .item-category 
+                    .title 
+                        i.far.fa-betamax.icon
+                        span Category: 
+                    .value US-UK
+                .item-duration
+                    .title 
+                        i.fad.fa-hourglass-start.icon
+                        span Duration: 
+                    .value 03:36
+                .item-path 
+                    .title 
+                        i.fas.fa-location-arrow.icon
+                        span Path: 
+                    .value ./song-mp3/us-uk/song-2.mp3
+                .item-t-create 
+                    .title 
+                        i.fad.fa-calendar-plus.icon
+                        span Time create: 
+                    .value 11/11/2011
+                .item-t-lastUpdate
+                    .title 
+                        i.far.fa-calendar-edit.icon
+                        span Time last update
+                    .value 23/02/2022 11:34:23
+            audio#audio(src="")
+        .admin_edit.admin_edit-container.active
+            .edit_item-img.bg-img(style="background-image: url('./img/song-img/us-uk/song-2.jpg');")
+                .item-image.bg-overlay 
+                    input(type="file" name="edit_image")#edit_image.value
+            .edit_item-info 
+                .item-name
+                    label(for="edit_name").title 
+                        i.fas.fa-album.icon
+                        span Name: 
+                    input(type="text" name="edit_name" value="On My Way")#edit_name.value
+                .item-author
+                    label(for="edit_author").title 
+                        i.fas.fa-at.icon
+                        span Author: 
+                    input(type="text" name="edit_author" value="Alan Walker, Sabrina,..")#edit_author.value
+                .item-category 
+                    label(for="edit_category").title 
+                        i.far.fa-betamax.icon
+                        span Category: 
+                    select(name="edit_category")#edit_category.value
+                        option(value='vpop') Vpop
+                        option(value='us-uk') US-UK
+                        option(value='lofi') Lofi
+                .item-duration
+                    label(for="edit_duration").title 
+                        i.fad.fa-hourglass-start.icon
+                        span Duration: 
+                    input(type="text" name="edit_duration" value=" " disabled)#edit_duration.value 
+                .item-path 
+                    label(for="edit_path").title 
+                        i.fas.fa-location-arrow.icon
+                        span Path: 
+                    .value ./song-mp3/us-uk/song-2.mp3
+                    input(type="file" name="edit_path")#edit_path.value
+                .item-t-create 
+                    label(for="edit_t-create").title 
+                        i.fad.fa-calendar-plus.icon
+                        span Time create: 
+                    input(type="date" name="edit_t-create" value="11/11/2011" )#edit_t-create.value 
+                .item-t-lastUpdate
+                    label(for="edit_t-lastUpdate").title 
+                        i.far.fa-calendar-edit.icon
+                        span Time last update
+                    input(type="datetime-local" name="edit_t-lastUpdate" value="2022-02-23T11:34" )#edit_t-lastUpdate.value 
