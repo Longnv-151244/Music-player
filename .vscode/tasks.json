@@ -6,32 +6,32 @@
     {
       "label": "Run sass",
       "type": "shell",
-      "command": "sass ./scss/app.scss ./css/app.css --watch"
+      "command": "sass ./web/scss/app.scss ./web/css/app.css --watch"
     },
     {
       "label": "Run pug",
       "type": "shell",
-      "command": "pug index.pug index.html --watch --pretty"
+      "command": "pug ./web/index.pug ./web/index.html --watch --pretty"
     },
     {
       "label": "Run pug admin",
       "type": "shell",
-      "command": "pug admin.pug admin.html --watch --pretty"
+      "command": "pug ./web/admin.pug ./web/admin.html --watch --pretty"
     },
     {
       "label": "Run pug vpop",
       "type": "shell",
-      "command": "pug vpop.pug vpop.html --watch --pretty"
+      "command": "pug ./web/vpop.pug ./web/vpop.html --watch --pretty"
     },
     {
       "label": "Run pug us-uk",
       "type": "shell",
-      "command": "pug usuk.pug usuk.html --watch --pretty"
+      "command": "pug ./web/usuk.pug ./web/usuk.html --watch --pretty"
     },
     {
       "label": "Run pug lofi",
       "type": "shell",
-      "command": "pug lofi.pug lofi.html --watch --pretty"
+      "command": "pug ./web/lofi.pug ./web/lofi.html --watch --pretty"
     }
   ]
 }

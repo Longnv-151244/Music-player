@@ -41,14 +41,12 @@ const app = {
         showView();
       };
     });
-
     btn_create.forEach((element) => {
       element.onclick = function () {
         showAdminContainer();
         showCreate();
       };
     });
-
     btn_edit.forEach((element) => {
       element.onclick = function () {
         showAdminContainer();

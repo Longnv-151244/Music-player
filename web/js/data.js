@@ -165,7 +165,7 @@ listSongRecommend_USUK = [
   },
   {
     name: "Blinding Lights",
-    author: "- The Weeknd",
+    author: "The Weeknd",
     duration: "03:23",
     image: "./img/song-img/us-uk/song-7.jpg",
     path: "./song-mp3/us-uk/song-7.mp3",
