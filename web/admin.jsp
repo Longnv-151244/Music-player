@@ -16,7 +16,7 @@
     <body>
         <section id="admin_main"> 
             <section class="admin__sidebar"> 
-                <div class="logo"> <a class="header-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""></a></div>
+                <div class="logo"> <a class="header-brand" href="home.html"><img src="./img/core-img/logo.png" alt=""></a></div>
                 <div class="sidebar__main"> 
                     <div class="sidebar__tab active"> 
                         <p class="sidebar__tab-name"> <i class="fas fa-compact-disc icon"></i><span>Nhạc Vpop </span></p>
@@ -348,7 +348,7 @@
         <section class="bg-overlay" id="admin_action">
             <div class="admin_action-container">
                 <div class="admin_action-content admin_view-container">
-                    <div class="view_item-img bg-img" style="background-image: url('./img/song-img/us-uk/on-my-way.jpg');">
+                    <div class="view_item-img bg-img" style="background-image: url('./img/song-img/us-uk/song-2.jpg');">
                         <div class="control bg-overlay"> 
                             <div class="play active"> <i class="fad fa-play-circle"></i></div>
                             <div class="pause"><i class="fas fa-pause-circle"></i></div>
@@ -386,7 +386,7 @@
                     </div>
                 </div>
                 <div class="admin_action-content admin_edit-container">
-                    <div class="edit_item-img bg-img" style="background-image: url('./img/song-img/us-uk/on-my-way.jpg');">
+                    <div class="edit_item-img bg-img" style="background-image: url('./img/song-img/us-uk/song-2.jpg');">
                         <div class="control bg-overlay"> 
                             <div class="play active"> <i class="fad fa-play-circle"></i></div>
                             <div class="pause"><i class="fas fa-pause-circle"></i></div>

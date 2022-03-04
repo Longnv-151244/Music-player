@@ -107,7 +107,7 @@
                 </div>
             </section>
             <section id="main">
-                <div class="main__bg bg-img" style="background-image: url('./img/bg-gif/gif-9.gif');">
+                <div class="main__bg bg-img" style="background-image: url('./img/bg-gif/gif-34.gif');">
                     <div class="main__settingBg">
                         <div class="settingBg__icon"> <i class="fas fa-sliders-h"></i></div>
                         <div class="settingBg__container">

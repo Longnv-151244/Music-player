@@ -35,7 +35,7 @@ const app = {
   lastIndex_Play: 0,
   isPlaying: false,
   isLogin: false,
-  currentSlider: 0,
+  currentSlider: 1,
   currentTab: 0,
   listSongSlider: songSlider.map((song) => {
     return {
