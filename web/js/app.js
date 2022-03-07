@@ -4,6 +4,7 @@ jarallax(document.querySelectorAll(".jarallax"), {
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+const body = $("body");
 const audio = $("#audio");
 const tabName = Array.from($$("#recommend .group-tab__name h3"));
 const tabContent = Array.from($$("#recommend .tab__content"));
@@ -29,6 +30,22 @@ const volumeHight = Array.from($$(".volume--hight"));
 const mobileToggle = Array.from($$(".mobile-toggle"));
 const options_Request = Array.from($$(".option"));
 const songSlider = Array.from($$(".slider__player"));
+
+const user = $("#user");
+const userIconOption = Array.from($$(".user .fas.fa-caret-down.icon"));
+const userOption = Array.from($$(".user .user__option"));
+
+const userAvatar = Array.from($$(".user .user__avatar"));
+const userViewInfo = Array.from($$(".user .view-info"));
+
+const userValueInfo = Array.from($$("#user .value span"));
+const userIconSetting = Array.from($$("#user .icon-setting"));
+const userIconSetting_Close = Array.from($$("#user .icon-setting-close"));
+const userEditInput = Array.from($$("#user .edit_value"));
+const userEditPassword = $("#user .edit_password");
+const usernameIconSetting = $("#user .user_username .icon-setting");
+const t_createIconSetting = $("#user .user_time-create .icon-setting");
+const userIconSummit = $("#user .user__icon-summit");
 
 const app = {
   currentIndex: -1,
@@ -120,6 +137,106 @@ const app = {
       $(".singup").classList.add("active");
     };
 
+    // event show userOption
+    function showUserOption() {
+      for (let i = 0; i < userOption.length; i++) {
+        userOption[i].classList.add("active");
+      }
+    }
+
+    function hideUserOption() {
+      for (let i = 0; i < userOption.length; i++) {
+        userOption[i].classList.remove("active");
+      }
+    }
+
+    userIconOption.forEach((element) => {
+      element.addEventListener("click", showUserOption);
+    });
+
+    body.addEventListener("click", hideUserOption);
+
+    userOption.forEach((element) => {
+      element.onclick = function (event) {
+        event.stopPropagation();
+      };
+    });
+
+    userIconOption.forEach((element) => {
+      element.onclick = function (event) {
+        event.stopPropagation();
+      };
+    });
+
+    // Event show #User
+    function showUser() {
+      user.classList.add("active");
+    }
+
+    function hideUser() {
+      user.classList.remove("active");
+    }
+
+    userAvatar.forEach((element) => {
+      element.addEventListener("click", showUser);
+    });
+
+    userViewInfo.forEach((element) => {
+      element.addEventListener("click", showUser);
+    });
+
+    user.addEventListener("click", hideUser);
+
+    $(".user-content").onclick = function (event) {
+      event.stopPropagation();
+    };
+
+    // Event xu ly UserForm
+    function showEditInput(index) {
+      userValueInfo[index].classList.remove("active");
+      userEditInput[index].classList.add("active");
+      userIconSetting[index].classList.remove("active");
+      userIconSetting_Close[index].classList.add("active");
+      if (!userIconSummit.classList.contains("active")) {
+        userIconSummit.classList.add("active");
+      }
+    }
+
+    function hideEditInput(index) {
+      userValueInfo[index].classList.add("active");
+      userEditInput[index].classList.remove("active");
+      userIconSetting[index].classList.add("active");
+      userIconSetting_Close[index].classList.remove("active");
+      if (userValueInfo[index] !== userEditPassword) {
+        userEditInput[index].value = userValueInfo[index].innerText;
+      }
+      let count = 0;
+      for (let i = 0; i < userIconSetting.length; i++) {
+        if (userIconSetting[i].classList.contains("active")) {
+          count++;
+        }
+      }
+      if (count === userIconSetting.length) {
+        if (userIconSummit.classList.contains("active")) {
+          userIconSummit.classList.remove("active");
+        }
+      }
+    }
+
+    userIconSetting.forEach((element, index) => {
+      if (element !== usernameIconSetting && element !== t_createIconSetting) {
+        element.addEventListener("click", function () {
+          showEditInput(index);
+        });
+      }
+    });
+
+    userIconSetting_Close.forEach((element, index) => {
+      element.addEventListener("click", function () {
+        hideEditInput(index);
+      });
+    });
+
     // Xu ly toast
     function createToast(toastData) {
       const toastChild = document.createElement("div");
@@ -169,7 +286,7 @@ const app = {
     document.onscroll = function () {
       const scrollTop = document.documentElement.scrollTop;
       const headerBg = $(".header__background");
-      headerBg.style.opacity = scrollTop > 200 ? "1" : "0";
+      headerBg.style.opacity = scrollTop > 70 ? "1" : "0";
     };
 
     // Xu ly cac su kien ve play music
@@ -395,6 +512,7 @@ const app = {
   setDefaultApp: function () {
     this.setVolumeDefault();
     this.loadCurrentSong();
+    this.setUserdefault();
   },
 
   setVolumeDefault: function () {
@@ -406,6 +524,14 @@ const app = {
       audio.src = this.listSong[0].path;
     } else {
       audio.src = this.currentSong.path;
+    }
+  },
+
+  setUserdefault: function () {
+    if (user) {
+      login.forEach((element) => {
+        element.style.display = "none";
+      });
     }
   },
 

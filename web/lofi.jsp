@@ -11,6 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>JSP Page</title>
         <link rel="stylesheet" href="css/app.css">
         <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
@@ -52,7 +54,7 @@
                 <div class="header-mobile">
                     <div class="mobile-toggle"><i class="far fa-times close"></i></div>
                     <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png"
-                                                                                             alt=""></a></div>
+                                                                                         alt=""></a></div>
                     <div class="menu-nav">
                         <ul class="header__nav-moblie">
                             <li><a href="./home">Home </a></li>
@@ -70,16 +72,36 @@
                         <ul class="header__social">
                             <li><a class="fab fa-facebook" href="#"> </a></li>
                             <li><a class="fab fa-twitter" href="#"> </a></li>
-                            <li><a class="fab fa-pinterest" href="#"> </a></li>
-                            <li><a class="fab fa-instagram" href="#"> </a></li>
                             <li><a class="fab fa-youtube" href="#"></a></li>
+                            <li>
+                                <div class="user"> 
+                                    <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div><i class="fas fa-caret-down icon"></i>
+                                    <div class="user__option"> 
+                                        <div class="user__option-content"> 
+                                            <div class="option-item view-info">
+                                                <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                                                <div class="user__info"> 
+                                                    <div class="user__name heading">Nguyen Van Long </div>
+                                                    <div class="subtitle">See your profile</div>
+                                                </div>
+                                            </div>
+                                            <div class="option-item setting"><i class="fas fa-cog icon"></i>
+                                                <div class="heading">Settings </div>
+                                            </div>
+                                            <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
+                                                <div class="heading">Log Out</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="header__container container-fluid">
                     <div class="header__content">
                         <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png"
-                                                                                                 alt=""></a></div>
+                                                                                             alt=""></a></div>
                         <div class="header__menu">
                             <ul class="header__nav">
                                 <li><a href="./home">Home </a></li>
@@ -96,10 +118,30 @@
                             <ul class="header__social">
                                 <li><a class="fab fa-facebook" href="#"> </a></li>
                                 <li><a class="fab fa-twitter" href="#"> </a></li>
-                                <li><a class="fab fa-pinterest" href="#"> </a></li>
-                                <li><a class="fab fa-instagram" href="#"> </a></li>
                                 <li><a class="fab fa-youtube" href="#"></a></li>
-                                <li class="login">Đăng nhập </li>
+                                <!--<li class="login">Đăng nhập </li>-->
+                                <li>
+                                    <div class="user"> 
+                                        <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div><i class="fas fa-caret-down icon"></i>
+                                        <div class="user__option"> 
+                                            <div class="user__option-content"> 
+                                                <div class="option-item view-info">
+                                                    <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                                                    <div class="user__info"> 
+                                                        <div class="user__name heading">Nguyen Van Long </div>
+                                                        <div class="subtitle">See your profile</div>
+                                                    </div>
+                                                </div>
+                                                <div class="option-item setting"><i class="fas fa-cog icon"></i>
+                                                    <div class="heading">Settings </div>
+                                                </div>
+                                                <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
+                                                    <div class="heading">Log Out</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                         <div class="mobile-toggle"><i class="far fa-bars open"></i><i class="far fa-times close"> </i></div>
@@ -204,6 +246,63 @@
                 </div>
             </section>
             <section id="toast"></section>
+            <section class="bg-overlay" id="user">
+                <div class="user-container">
+                    <div class="user-content">
+                        <div class="user__base-info"> 
+                            <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                            <div class="user__fullname"> 
+                                <div class="first_name"> 
+                                    <div class="title">First name: </div>
+                                    <div class="value"> <span class="active">Long</span>
+                                        <input class="edit_value" type="text" name="first-name" value="Long" placeholder="First-name ...">
+                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                                </div>
+                                <div class="last_name"> 
+                                    <div class="title">Last name: </div>
+                                    <div class="value"> <span class="active">Nguyễn</span>
+                                        <input class="edit_value" type="text" name="last-name" value="Nguyễn" placeholder="First-name ...">
+                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user__more-info">
+                            <div class="user_username">
+                                <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> 
+                                    <div class="edit_value"></div><span class="active">longnvhe151244</span>
+                                </div>
+                            </div>
+                            <div class="user_password">
+                                <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> <span class="active">********</span>
+                                    <div class="edit_password edit_value">
+                                        <input type="password" name="old-password" placeholder="Mật khẩu cũ">
+                                        <input type="password" name="new-password" placeholder="Mật khẩu mới">
+                                        <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="user_email"> 
+                                <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> <span class="active">longnvhe151244@fpt.edu.vn</span>
+                                    <input class="edit_value" type="email" name="email" value="longnvhe151244@fpt.edu.vn" placeholder="Email ....">
+                                </div>
+                            </div>
+                            <div class="user_time-create">
+                                <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> 
+                                    <div class="edit_value"></div><span class="active">15/02/2001 13:20:16</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user__icon-summit"> 
+                            <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
+                            <input type="summit" hidden id="user__edit_summit">
+                        </div>
+                    </div>
+                </div>
+            </section>
             <audio id="audio" src=""> </audio>
             <script src="./js/music_app.js"></script>
         </section>

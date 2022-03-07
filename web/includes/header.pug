@@ -58,12 +58,25 @@ section#header
                     li
                         a(href="#" class="fab fa-twitter") 
                     li
-                        a(href="#" class="fab fa-pinterest") 
-                    li
-                        a(href="#" class="fab fa-instagram") 
-                    li
                         a(href="#" class="fab fa-youtube")
-                    li.login Đăng nhập 
+                    //- li.login Đăng nhập
+                    li
+                        .user 
+                            .user__avatar.bg-img(style="background-image: url('./img/core-img/avatar-default-1.jpg');")
+                            i.fas.fa-caret-down.icon
+                            .user__option 
+                                .user__option-content 
+                                    .option-item.view-info
+                                        .user__avatar.bg-img(style="background-image: url('./img/core-img/avatar-default-1.jpg');")
+                                        .user__info 
+                                            .user__name.heading Nguyen Van Long 
+                                            .subtitle See your profile
+                                    .option-item.setting
+                                        i.fas.fa-cog.icon
+                                        .heading Settings 
+                                    .option-item.logout
+                                        i.fas.fa-sign-out-alt.icon
+                                        .heading Log Out
             .mobile-toggle
                 i.far.fa-bars.open
                 i.far.fa-times.close   

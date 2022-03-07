@@ -34,7 +34,7 @@
       }
       .sidebar__tab-name {
         .icon {
-          font-size: 16px;
+          font-size: 22px;
           margin-left: 10px;
           margin-right: 10px;
         }
@@ -87,25 +87,15 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      .user__avatar {
-        width: 50px;
-        height: 50px;
-        img {
-          border-radius: 888px;
-        }
-      }
-      .user__name {
-        font-size: 24px;
-        font-weight: 700;
-      }
-      .user__role {
-        font-size: 20px;
-        font-weight: 600;
-        color: $text;
-      }
     }
   }
   .admin__content {
+    & > * {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
     .admin__content-overview {
       display: flex;
       justify-content: space-around;
@@ -152,19 +142,7 @@
         border: 0px;
         height: 100%;
         margin-right: 30px;
-        background: #8a2387; /* fallback for old browsers */
-        background: -webkit-linear-gradient(
-          to left,
-          #f27121,
-          #e94057,
-          #8a2387
-        ); /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(
-          to left,
-          #f27121,
-          #e94057,
-          #8a2387
-        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: $primary_linear;
         .icon {
           margin-left: 20px;
         }
@@ -173,6 +151,7 @@
         float: right;
         margin-right: 50px;
         select {
+          cursor: pointer;
           height: 43px;
           padding: 5px;
           border-radius: 10px;
@@ -231,6 +210,14 @@
             padding-top: 15px;
             border-bottom: 3px solid $text;
             font-size: 16px;
+            opacity: 0.8;
+            &:hover {
+              font-size: 18px;
+              background-color: $border;
+              box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+                rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+              opacity: 1;
+            }
             .icon {
               cursor: pointer;
               color: $primary;
@@ -248,6 +235,13 @@
             }
           }
         }
+      }
+    }
+    #admin__user,
+    #admin__history {
+      .btn-create,
+      .icon {
+        cursor: not-allowed;
       }
     }
   }

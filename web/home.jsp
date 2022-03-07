@@ -1,7 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <%-- 
     Document   : home
@@ -15,11 +13,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>JSP Page</title>
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="./css/app.css">
         <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     </head>
-    <body>
+    <body> 
         <section class="bg-overlay" id="login">
             <div class="login__container">
                 <div class="login__nav">
@@ -29,9 +29,7 @@
                 <div class="login__content">
                     <div class="singin active">
                         <form action="#">
-                            <div class="social-container"><a class="social" href="#"><i class="fab fa-facebook-f"></i></a><a
-                                    class="social" href="#"><i class="fab fa-google-plus-g"></i></a><a class="social" href="#"><i
-                                        class="fab fa-linkedin-in"></i></a></div><span>or use your account</span>
+                            <div class="social-container"><a class="social" href="#"><i class="fab fa-facebook-f"></i></a><a class="social" href="#"><i class="fab fa-google-plus-g"></i></a><a class="social" href="#"><i class="fab fa-linkedin-in"></i></a></div><span>or use your account</span>
                             <input type="email" placeholder="Email">
                             <input type="password" placeholder="Password"><a class="forgot" href="#">Forgot your password?</a>
                             <button class="btn">Sign In</button>
@@ -39,9 +37,7 @@
                     </div>
                     <div class="singup">
                         <form action="#">
-                            <div class="social-container"><a class="social" href="#"><i class="fab fa-facebook-f"></i></a><a
-                                    class="social" href="#"><i class="fab fa-google-plus-g"></i></a><a class="social" href="#"><i
-                                        class="fab fa-linkedin-in"></i></a></div><span>or use your email for registration</span>
+                            <div class="social-container"><a class="social" href="#"><i class="fab fa-facebook-f"></i></a><a class="social" href="#"><i class="fab fa-google-plus-g"></i></a><a class="social" href="#"><i class="fab fa-linkedin-in"></i></a></div><span>or use your email for registration</span>
                             <input type="text" placeholder="Name">
                             <input type="email" placeholder="Email">
                             <input type="password" placeholder="Password">
@@ -54,58 +50,96 @@
         <section id="header">
             <div class="header-mobile">
                 <div class="mobile-toggle"><i class="far fa-times close"></i></div>
-                <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png" alt=""></a>
-                </div>
-                <div class="menu-nav">
+                <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png" alt=""></a></div>
+                <div class="menu-nav"> 
                     <ul class="header__nav-moblie">
-                        <li><a class="current" href="./home">Home </a></li>
+                        <li><a a class="current" href="./home">Home </a></li>
                         <li><a href="./vpop">Nhạc Việt Nam </a></li>
                         <li><a href="./us-uk">Nhạc Quốc Tế </a></li>
                         <li><a href="./lofi">Lofi </a></li>
                         <li class="login">Đăng nhập</li>
                     </ul>
-                    <div class="header__search">
+                    <div class="header__search"> 
                         <form action="" method="post">
                             <input type="text" name="header-search" placeholder="Search and hit enter...">
                             <button class="btn" type="submit"> <i class="fa fa-search"> </i></button>
                         </form>
                     </div>
-                    <ul class="header__social">
+                    <ul class="header__social"> 
                         <li><a class="fab fa-facebook" href="#"> </a></li>
                         <li><a class="fab fa-twitter" href="#"> </a></li>
-                        <li><a class="fab fa-pinterest" href="#"> </a></li>
-                        <li><a class="fab fa-instagram" href="#"> </a></li>
                         <li><a class="fab fa-youtube" href="#"></a></li>
+                        <li class="login">Đăng nhập</li>
+                        <li>
+                            <div class="user"> 
+                                <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div><i class="fas fa-caret-down icon"></i>
+                                <div class="user__option"> 
+                                    <div class="user__option-content"> 
+                                        <div class="option-item view-info">
+                                            <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                                            <div class="user__info"> 
+                                                <div class="user__name heading">Nguyen Van Long </div>
+                                                <div class="subtitle">See your profile</div>
+                                            </div>
+                                        </div>
+                                        <div class="option-item setting"><i class="fas fa-cog icon"></i>
+                                            <div class="heading">Settings </div>
+                                        </div>
+                                        <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
+                                            <div class="heading">Log Out</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="header__container container-fluid">
-                <div class="header__content">
-                    <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png"
-                                                                                         alt=""></a></div>
-                    <div class="header__menu">
+                <div class="header__content"> 
+                    <div class="header__logo"><a class="header-brand" href="./home"><img src="./img/core-img/logo.png" alt=""></a></div>
+                    <div class="header__menu"> 
                         <ul class="header__nav">
-                            <li><a class="current" href="./home">Home </a></li>
+                            <li><a a class="current" href="./home">Home </a></li>
                             <li><a href="./vpop">Nhạc Việt Nam </a></li>
                             <li><a href="./us-uk">Nhạc Quốc Tế </a></li>
                             <li><a href="./lofi">Lofi </a></li>
                         </ul>
-                        <div class="header__search">
+                        <div class="header__search"> 
                             <form action="" method="post">
                                 <input type="text" name="header-search" placeholder="Search and hit enter...">
                                 <button class="btn" type="submit"> <i class="fa fa-search"> </i></button>
                             </form>
                         </div>
-                        <ul class="header__social">
+                        <ul class="header__social"> 
                             <li><a class="fab fa-facebook" href="#"> </a></li>
                             <li><a class="fab fa-twitter" href="#"> </a></li>
-                            <li><a class="fab fa-pinterest" href="#"> </a></li>
-                            <li><a class="fab fa-instagram" href="#"> </a></li>
                             <li><a class="fab fa-youtube" href="#"></a></li>
-                            <li class="login">Đăng nhập </li>
+                            <li>
+                                <div class="user"> 
+                                    <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div><i class="fas fa-caret-down icon"></i>
+                                    <div class="user__option"> 
+                                        <div class="user__option-content"> 
+                                            <div class="option-item view-info">
+                                                <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                                                <div class="user__info"> 
+                                                    <div class="user__name heading">Nguyen Van Long </div>
+                                                    <div class="subtitle">See your profile</div>
+                                                </div>
+                                            </div>
+                                            <div class="option-item setting"><i class="fas fa-cog icon"></i>
+                                                <div class="heading">Settings </div>
+                                            </div>
+                                            <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
+                                                <div class="heading">Log Out</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
-                    <div class="mobile-toggle"><i class="far fa-bars open"></i><i class="far fa-times close"> </i></div>
+                    <div class="mobile-toggle"><i class="far fa-bars open"></i><i class="far fa-times close">  </i></div>
                 </div>
                 <div class="header__background"></div>
             </div>
@@ -161,8 +195,6 @@
                     </div>
                 </div>
             </c:forEach>
-
-
         </section>
         <section id="recommend">
             <div class="container">
@@ -337,7 +369,7 @@
             </div>
         </section>
         <section id="newletter">
-            <div class="jarallax bg-overlay bg-img" style="background-image: url('./img/core-img/newletter.png');">
+            <div class="jarallax bg-overlay bg-img" style="background-image: url('./img/core-img/jarallax.jpg');">
                 <div class="container newletter__container">
                     <div class="newletter__content">
                         <h1>Sign Up To Newsletter</h1>
@@ -354,19 +386,19 @@
         </section>
         <section id="footer">
             <div class="container footer__container">
-                <div class="footer__about">
+                <div class="footer__about"> 
                     <h2>About Us</h2>
                     <p>It is a long established fact that a reader will be distracted by the readable content.</p>
                     <p>&copy; Copyright &copy; 2022 <span>Nguyen Van Long</span></p>
                 </div>
-                <ul class="footer__categories">
+                <ul class="footer__categories"> 
                     <h2>Categories</h2>
                     <li><a href="#">Entrepreneurship </a></li>
                     <li><a href="#">Media </a></li>
                     <li><a href="#">Tech </a></li>
-                    <li> <a href="#">Tutorials </a></li>
+                    <li>   <a href="#">Tutorials </a></li>
                 </ul>
-                <div class="footer_social">
+                <div class="footer_social"> 
                     <h2>Follow Us</h2>
                     <ul class="media">
                         <li><a class="fab fa-facebook" href="#"> </a></li>
@@ -375,7 +407,7 @@
                         <li><a class="fab fa-instagram" href="#"> </a></li>
                         <li><a class="fab fa-youtube" href="#"> </a></li>
                     </ul>
-                    <ul class="store">
+                    <ul class="store"> 
                         <li> <a href=""><img src="./img/core-img/app-store.png" alt=""></a></li>
                         <li> <a href=""><img src="./img/core-img/google-play.png" alt=""></a></li>
                     </ul>
@@ -383,8 +415,65 @@
             </div>
         </section>
         <section id="toast"></section>
-        <audio id="audio" src=""> </audio>
+        <section class="bg-overlay" id="user">
+            <div class="user-container">
+                <div class="user-content">
+                    <div class="user__base-info"> 
+                        <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                        <div class="user__fullname"> 
+                            <div class="first_name"> 
+                                <div class="title">First name: </div>
+                                <div class="value"> <span class="active">Long</span>
+                                    <input class="edit_value" type="text" name="first-name" value="Long" placeholder="First-name ...">
+                                </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                            </div>
+                            <div class="last_name"> 
+                                <div class="title">Last name: </div>
+                                <div class="value"> <span class="active">Nguyễn</span>
+                                    <input class="edit_value" type="text" name="last-name" value="Nguyễn" placeholder="First-name ...">
+                                </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__more-info">
+                        <div class="user_username">
+                            <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> 
+                                <div class="edit_value"></div><span class="active">longnvhe151244</span>
+                            </div>
+                        </div>
+                        <div class="user_password">
+                            <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> <span class="active">********</span>
+                                <div class="edit_password edit_value">
+                                    <input type="password" name="old-password" placeholder="Mật khẩu cũ">
+                                    <input type="password" name="new-password" placeholder="Mật khẩu mới">
+                                    <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_email"> 
+                            <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> <span class="active">longnvhe151244@fpt.edu.vn</span>
+                                <input class="edit_value" type="email" name="email" value="longnvhe151244@fpt.edu.vn" placeholder="Email ....">
+                            </div>
+                        </div>
+                        <div class="user_time-create">
+                            <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> 
+                                <div class="edit_value"></div><span class="active">15/02/2001 13:20:16</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__icon-summit"> 
+                        <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
+                        <input type="summit" hidden id="user__edit_summit">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <audio id="audio" src="">    </audio>
         <script src="./node_modules/jarallax/dist/jarallax.min.js"></script>
-        <script src="./js/app_demo.js"></script>
+        <script src="./js/app.js"></script>
     </body>
 </html>

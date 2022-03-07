@@ -1,0 +1,277 @@
+// User in header
+.user {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  .user__avatar {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 888px;
+  }
+  .icon {
+    font-size: 30px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .user__option {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    right: -20px;
+    width: 350px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    &.active {
+      display: block;
+    }
+    .icon {
+      color: $darkslategray;
+    }
+    .user__option-content {
+      padding: 10px 0 20px;
+      .option-item {
+        padding: 0 30px;
+        display: flex;
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        gap: 30px;
+        border-bottom: 1px solid $border;
+        &:hover {
+          background-color: $border;
+          opacity: 0.9;
+        }
+        & > * {
+          cursor: pointer;
+        }
+      }
+      .icon {
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 888px;
+        margin-left: 0;
+        background-color: #d3d6db;
+        font-size: 20px;
+        &::before {
+          margin: 0 auto;
+        }
+      }
+      .heading {
+        font-size: 20px;
+        font-weight: 800;
+        letter-spacing: 0.5px;
+      }
+      .subtitle {
+        font-size: 16px;
+        color: $text;
+      }
+      .view-info {
+        .user__avatar {
+          height: 70px;
+          width: 70px;
+        }
+        .user__info {
+          .heading {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+#header {
+  .user {
+    .user__option {
+      top: 76px;
+    }
+    > .icon {
+      color: $white;
+    }
+  }
+}
+
+.admin__header {
+  .user {
+    .user__info {
+      margin-left: 15px;
+      .user__name {
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .user__role {
+        font-size: 12px;
+        color: $text;
+      }
+    }
+    .user__option {
+      top: 70px;
+    }
+    > .icon {
+      color: $darkslategray;
+    }
+  }
+}
+
+// User
+#user {
+  position: fixed;
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: none;
+  &.active {
+    display: block;
+  }
+  @media #{$breakpoint-mobile} {
+    display: none;
+  }
+  .user-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .user-content {
+      position: relative;
+      width: 500px;
+      padding: 20px 30px 30px;
+      border-radius: 10px;
+      background-color: $white;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      .title {
+        font-size: 20px;
+        color: $text;
+        opacity: 0.9;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+      .value {
+        & > * {
+          display: none;
+          &.active {
+            display: block;
+          }
+        }
+        span {
+          font-size: 22px;
+          font-weight: 700;
+          margin-left: 50px;
+          letter-spacing: 1.5px;
+        }
+        input {
+          background-color: #eee;
+          border: none;
+          width: 80%;
+          font-size: 16px;
+          padding: 12px 10px;
+          padding-left: 25px;
+          border-radius: 5px;
+        }
+      }
+      .icon-setting-close,
+      .icon-setting {
+        cursor: pointer;
+        float: right;
+        margin-right: 20px;
+        color: $text !important;
+        opacity: 0.5 !important;
+        font-size: 20px !important;
+        display: none !important;
+        &:hover {
+          opacity: 0.7 !important;
+        }
+        &.active {
+          display: block !important;
+        }
+      }
+      .icon-setting-close {
+        margin-right: 23px;
+      }
+      .user__base-info {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        .user_avatar {
+          width: 100px;
+          height: 100px;
+          border-radius: 888px;
+        }
+        .user__fullname {
+          flex: 1;
+          & > * {
+            padding: 10px 0;
+            border-bottom: 1px solid $border;
+            .value {
+              width: 150px;
+            }
+            & > * {
+              display: inline-block;
+            }
+          }
+        }
+      }
+      .user__more-info {
+        & > * {
+          padding-left: 30px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid $border;
+        }
+        .title {
+          .icon {
+            margin-right: 5px;
+            font-size: 20px;
+          }
+        }
+        .user_password {
+          .value {
+            input {
+              margin-bottom: 10px;
+            }
+          }
+        }
+        .user_username,
+        .user_time-create {
+          .icon-setting {
+            cursor: not-allowed;
+          }
+          .value {
+            span {
+              opacity: 0.7;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+      .user__icon-summit {
+        display: none;
+        &.active {
+          display: block;
+        }
+        .edit-summit {
+          font-size: 60px;
+          color: $success;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(50%, -50%);
+          background-color: $darkslategray;
+          border-radius: 888px;
+        }
+      }
+    }
+  }
+}

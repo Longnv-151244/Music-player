@@ -25,7 +25,7 @@
       gap: 30px;
       display: none;
       align-items: center;
-      background: $border;
+      background: $white;
       border-radius: 10px;
     }
     .create_item-img,
@@ -84,6 +84,16 @@
         color: $text;
         font-size: 16px;
         margin: 2px 60px;
+        background-color: #eee;
+        border: none;
+      }
+    }
+    .view_item-info {
+      .title {
+        padding-bottom: 0;
+      }
+      .value {
+        background-color: $white;
       }
     }
     .create_item-info,
@@ -111,11 +121,15 @@
             opacity: 0.7;
           }
         }
+        .value {
+          background-color: $white;
+        }
       }
       select,
       input {
-        padding: 3px 10px;
+        padding: 3px 20px;
         border-radius: 5px;
+        cursor: pointer;
       }
       .item-duration {
         input {

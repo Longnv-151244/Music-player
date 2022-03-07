@@ -11,7 +11,7 @@
     {
       "label": "Run pug",
       "type": "shell",
-      "command": "pug ./web/index.pug ./web/index.html --watch --pretty"
+      "command": "pug ./web/home.pug ./web/home.html --watch --pretty"
     },
     {
       "label": "Run pug admin",
