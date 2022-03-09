@@ -19,6 +19,11 @@
       "command": "pug ./web/admin.pug ./web/admin.html --watch --pretty"
     },
     {
+      "label": "Run pug admin login",
+      "type": "shell",
+      "command": "pug ./web/admin_login.pug ./web/admin_login.html --watch --pretty"
+    },
+    {
       "label": "Run pug vpop",
       "type": "shell",
       "command": "pug ./web/vpop.pug ./web/vpop.html --watch --pretty"

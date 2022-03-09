@@ -16,10 +16,7 @@ import model.Slider;
  */
 public class Test {
     public static void main(String[] args) {
-        Method md = new Method();
-        SliderDAO sd = new SliderDAO();
-        ArrayList<Slider> sliders = sd.getAll();
-//        System.out.println(sliders);
-        System.out.println(sliders.get(1).getAlbum().getName());
+        String s = "   ";
+        System.out.println(s.trim().length());
     }
 }

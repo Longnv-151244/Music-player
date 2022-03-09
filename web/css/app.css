@@ -2219,4 +2219,86 @@ ul li {
   border-radius: 888px;
 }
 
+#admin__login .login__container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+#admin__login .login__container .login__main {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+#admin__login .login__container .login__main .login__content {
+  margin: 0 auto;
+  max-width: 350px;
+}
+#admin__login .login__container .login__main .login__content .login__header {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+#admin__login .login__container .login__main .login__content .login__subtittle {
+  font-size: 14px;
+  color: #666666;
+  margin-bottom: 20px;
+}
+#admin__login .login__container .login__main .login__content .login__form .title {
+  margin-top: 20px;
+  font-size: 20px;
+}
+#admin__login .login__container .login__main .login__content .login__form .value {
+  font-size: 16px;
+  background-color: #eee;
+  border: none;
+  height: 30px;
+  padding: 10px 20px;
+  width: 90%;
+  margin: 13px auto;
+  border-radius: 0px;
+}
+#admin__login .login__container .login__main .login__content .login__form .form_checkRemember #login_checkRemember:checked ~ .title .checkbox-mark {
+  background-color: #f55656 !important;
+}
+#admin__login .login__container .login__main .login__content .login__form .form_checkRemember #login_checkRemember:checked ~ .title .checkbox-mark::before {
+  display: block !important;
+}
+#admin__login .login__container .login__main .login__content .login__form .form_checkRemember .title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  color: #666666;
+  font-size: 16px;
+  margin-top: 10px !important;
+}
+#admin__login .login__container .login__main .login__content .login__form .form_checkRemember .title .checkbox-mark {
+  display: inline-flex;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 2px;
+  margin-left: 0;
+  background-color: #d3d6db;
+}
+#admin__login .login__container .login__main .login__content .login__form .form_checkRemember .title .checkbox-mark::before {
+  display: none;
+  margin: 0 auto;
+}
+#admin__login .login__container .login__main .login__content .btn-submit {
+  background: linear-gradient(to left, #f27121, #e94057, #8a2387);
+  border-radius: 10px;
+  border: none;
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+}
+#admin__login .login__container .login__bg-img {
+  flex: 1;
+  height: 100%;
+  float: right;
+}
+
 /*# sourceMappingURL=app.css.map */

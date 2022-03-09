@@ -22,6 +22,7 @@
         <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
     </head>
     <body> 
+        <h1>${sessionScope.e_login}</h1>
         <section class="bg-overlay" id="login">
             <div class="login__container">
                 <div class="login__nav">
@@ -446,60 +447,57 @@
             <section class="bg-overlay" id="user">
                 <div class="user-container">
                     <div class="user-content">
-                        <form action="./update/user?id=${user.id}" method="POST">
-                            <input type="text" name="url" value="/home" hidden>
-                            <div class="user__base-info"> 
-                                <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
-                                <div class="user__fullname"> 
-                                    <div class="first_name"> 
-                                        <div class="title">First name: </div>
-                                        <div class="value"> <span class="active">${user.firs_name}</span>
-                                            <input class="edit_value" type="text" name="first-name" value="${user.firs_name}" placeholder="First-name ...">
-                                        </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
-                                    </div>
-                                    <div class="last_name"> 
-                                        <div class="title">Last name: </div>
-                                        <div class="value"> <span class="active">${user.last_name}</span>
-                                            <input class="edit_value" type="text" name="last-name" value="${user.last_name}" placeholder="Last-name ...">
-                                        </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                        <div class="user__base-info"> 
+                            <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                            <div class="user__fullname"> 
+                                <div class="first_name"> 
+                                    <div class="title">First name: </div>
+                                    <div class="value"> <span class="active">Long</span>
+                                        <input class="edit_value" type="text" name="first-name" value="Long" placeholder="First-name ...">
+                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                                </div>
+                                <div class="last_name"> 
+                                    <div class="title">Last name: </div>
+                                    <div class="value"> <span class="active">Nguyễn</span>
+                                        <input class="edit_value" type="text" name="last-name" value="Nguyễn" placeholder="First-name ...">
+                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user__more-info">
+                            <div class="user_username">
+                                <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> 
+                                    <div class="edit_value"></div><span class="active">longnvhe151244</span>
+                                </div>
+                            </div>
+                            <div class="user_password">
+                                <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> <span class="active">********</span>
+                                    <div class="edit_password edit_value">
+                                        <input type="password" name="old-password" placeholder="Mật khẩu cũ">
+                                        <input type="password" name="new-password" placeholder="Mật khẩu mới">
+                                        <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
                                     </div>
                                 </div>
                             </div>
-                            <div class="user__more-info">
-                                <div class="user_username">
-                                    <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                    <div class="value"> 
-                                        <div class="edit_value"></div><span class="active">${user.username}</span>
-                                    </div>
-                                </div>
-                                <div class="user_password">
-                                    <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                    <div class="value"> <span class="active">********</span>
-                                        <div class="edit_password edit_value">
-                                            <input type="password" name="old-password" placeholder="Mật khẩu cũ">
-                                            <input type="password" name="new-password" placeholder="Mật khẩu mới">
-                                            <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="user_email"> 
-                                    <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                    <div class="value"> <span class="active">${user.email}</span>
-                                        <input class="edit_value" type="email" name="email" value="${user.email}" placeholder="Email ....">
-                                    </div>
-                                </div>
-                                <div class="user_time-create">
-                                    <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                    <div class="value"> 
-                                        <div class="edit_value"></div><span class="active">${user.t_create}</span>
-                                    </div>
+                            <div class="user_email"> 
+                                <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> <span class="active">longnvhe151244@fpt.edu.vn</span>
+                                    <input class="edit_value" type="email" name="email" value="longnvhe151244@fpt.edu.vn" placeholder="Email ....">
                                 </div>
                             </div>
-                            <div class="user__icon-summit"> 
-                                <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
-                                <input type="submit" hidden id="user__edit_summit">
+                            <div class="user_time-create">
+                                <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                                <div class="value"> 
+                                    <div class="edit_value"></div><span class="active">15/02/2001 13:20:16</span>
+                                </div>
                             </div>
-                        </form>
+                        </div>
+                        <div class="user__icon-summit"> 
+                            <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
+                            <input type="summit" hidden id="user__edit_summit">
+                        </div>
                     </div>
                 </div>
             </section>
@@ -507,6 +505,6 @@
         <section id="toast"></section>
         <audio id="audio" src="">    </audio>
         <script src="./node_modules/jarallax/dist/jarallax.min.js"></script>
-        <script src="./js/app.js"></script>
+        <script src="./js/app_demo.js"></script>
     </body>
 </html>

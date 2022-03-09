@@ -6,6 +6,9 @@
 package model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
@@ -26,7 +29,15 @@ public class User {
 
     public User() {
     }
-    
+
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.t_create = getT_now();
+        this.role_id = 1;
+    }
+
     public User(String username, String password, String firs_name, String last_name, String avatar, int role_id, Timestamp t_create, Timestamp t_lastOnline, String email) {
         this.username = username;
         this.password = password;
@@ -131,6 +142,10 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
+    public Timestamp getT_now() {
+        Date nowDate = new Date();
+        Timestamp now = new Timestamp(nowDate.getTime());
+        return now;
+    }
 }

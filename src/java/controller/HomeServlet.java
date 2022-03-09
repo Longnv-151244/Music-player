@@ -7,6 +7,7 @@ package controller;
 
 import dal.AlbumDAO;
 import dal.SliderDAO;
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Album;
 import model.Slider;
+import model.User;
 
 /**
  *
