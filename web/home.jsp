@@ -11,6 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Slider"%>
 <%@page import="model.Album"%>
+<c:set var="user" scope="page" value="${sessionScope.user}" />
 <!DOCTYPE html>
 <html>
     <head>
@@ -80,7 +81,6 @@
                         <li><a class="fab fa-twitter" href="#"> </a></li>
                         <li><a class="fab fa-youtube" href="#"></a></li>
                         <li class="login">Đăng nhập</li>
-                            <c:set var="user" scope="page" value="${sessionScope.user}" />
                             <c:if test="${user != null}">
                             <li>
                                 <div class="user"> 
@@ -90,7 +90,7 @@
                                             <div class="option-item view-info">
                                                 <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
                                                 <div class="user__info"> 
-                                                    <div class="user__name heading">Nguyen Van Long </div>
+                                                    <div class="user__name heading">${user.fullname} </div>
                                                     <div class="subtitle">See your profile</div>
                                                 </div>
                                             </div>
@@ -99,12 +99,12 @@
                                             </div>
                                             <form action="./sign-out">
                                                 <input type="text" name="url" value="./home" hidden>
-                                                <label for="user__sign-out">
+                                                <label for="user__sign-out--mobile">
                                                     <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
                                                         <div class="heading">Log Out</div>
                                                     </div>
                                                 </label>
-                                                <input type="submit" hidden id="user__sign-out">
+                                                <input type="submit" hidden id="user__sign-out--mobile">
                                             </form>
                                         </div>
                                     </div>
@@ -144,7 +144,7 @@
                                                 <div class="option-item view-info">
                                                     <div class="user__avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
                                                     <div class="user__info"> 
-                                                        <div class="user__name heading">Nguyen Van Long </div>
+                                                        <div class="user__name heading">${user.fullname} </div>
                                                         <div class="subtitle">See your profile</div>
                                                     </div>
                                                 </div>
@@ -153,12 +153,12 @@
                                                 </div>
                                                 <form action="./sign-out">
                                                     <input type="text" name="url" value="./home" hidden>
-                                                    <label for="user__sign-out">
+                                                    <label for="user__sign-out--pc">
                                                         <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
                                                             <div class="heading">Log Out</div>
                                                         </div>
                                                     </label>
-                                                    <input type="submit" hidden id="user__sign-out">
+                                                    <input type="submit" hidden id="user__sign-out--pc">
                                                 </form>
                                             </div>
                                         </div>
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="player__content">
                                     <div class="player__info">
-                                        <p class="player__date">${slider.album.t_create}</p>
+                                        <p class="player__date">${slider.album.t_createString}</p>
                                         <h1 class="player__name song-name">${slider.album.name}</h1>
                                         <p class="player__text"><span class="player__author">${slider.album.author} | </span><span class="player__category">${slider.album.category} | </span><span class="player_duration">00:${slider.album.duration}</span></p>
                                     </div>

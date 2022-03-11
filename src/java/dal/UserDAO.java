@@ -23,7 +23,7 @@ public class UserDAO extends BaseDAO<User> {
         ArrayList<User> users = new ArrayList<>();
         try {
             String sql = "SELECT id, username, password, first_name, last_name, "
-                    + "avatar, rold_ID, t_create, t_lastOnline, email\n"
+                    + "avatar, role_ID, t_create, t_lastOnline, email\n"
                     + "FROM Users";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -47,6 +47,34 @@ public class UserDAO extends BaseDAO<User> {
         } catch (Exception e) {
         }
         return users;
+    }
+    
+    public User getAccountByUsername(String username) {
+        User u = new User();
+        try {
+            String sql = "SELECT id, username, password, first_name, last_name, avatar, role_ID, t_create, t_lastOnline, email\n"
+                    + "From Users\n"
+                    + "WHERE [username] = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, username);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                u.setId(rs.getInt("id"));
+                u.setUsername(rs.getString("username"));
+                u.setPassword(rs.getString("password"));
+                u.setFirs_name(rs.getString("first_name"));
+                u.setLast_name(rs.getString("last_name"));
+                u.setAvatar(rs.getString("avatar"));
+                u.setRole_id(rs.getInt("role_ID"));
+                u.setT_create(rs.getTimestamp("t_create"));
+                u.setT_lastOnline(rs.getTimestamp("t_lastOnline"));
+                u.setEmail(rs.getString("email"));
+                return u;
+            }
+        } catch (Exception e) {
+            System.out.println("Error");
+        }
+        return null;
     }
 
     public User getAccountByUsernameAndPassword(String username, String password) {
@@ -118,6 +146,21 @@ public class UserDAO extends BaseDAO<User> {
             Timestamp now = new Timestamp(nowDate.getTime());
             PreparedStatement st = connection.prepareCall(sql);
             st.setTimestamp(1, now);
+            st.setInt(2, id);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+    
+    public void updateStatus(int id, boolean status) {
+        try {
+            String sql = "UPDATE Users\n"
+                    + "SET status = ?\n"
+                    + "WHERE id = ?";
+            java.util.Date nowDate = new java.util.Date();
+            Timestamp now = new Timestamp(nowDate.getTime());
+            PreparedStatement st = connection.prepareCall(sql);
+            st.setBoolean(1, status);
             st.setInt(2, id);
             st.executeUpdate();
         } catch (Exception e) {

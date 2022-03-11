@@ -6,13 +6,16 @@
 package model;
 
 import java.sql.Timestamp;
-import java.util.Objects;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  *
  * @author dclon
  */
 public class Album {
+
     private int id;
     private String name;
     private String author;
@@ -22,11 +25,14 @@ public class Album {
     private String path;
     private Timestamp t_create;
     private Timestamp t_lastUpdate;
+    private int total_liked;
+    private boolean liked;
 
     public Album() {
+        this.liked = false;
     }
 
-    public Album(String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate) {
+    public Album(String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate, int like) {
         this.name = name;
         this.author = author;
         this.category_id = category_id;
@@ -35,9 +41,10 @@ public class Album {
         this.path = path;
         this.t_create = t_create;
         this.t_lastUpdate = t_lastUpdate;
+        this.total_liked = like;
     }
 
-    public Album(int id, String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate) {
+    public Album(int id, String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate, int like) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -47,6 +54,7 @@ public class Album {
         this.path = path;
         this.t_create = t_create;
         this.t_lastUpdate = t_lastUpdate;
+        this.total_liked = like;
     }
 
     public int getId() {
@@ -76,14 +84,14 @@ public class Album {
     public int getCategory_id() {
         return category_id;
     }
-    
-    public String getCategory(){
-        switch(category_id){
-            case 1: 
+
+    public String getCategory() {
+        switch (category_id) {
+            case 1:
                 return "Vpop";
-            case 2: 
+            case 2:
                 return "US-UK";
-            case 3: 
+            case 3:
                 return "Lofi";
         }
         return null;
@@ -104,7 +112,7 @@ public class Album {
     public String getImage() {
         return image;
     }
-    
+
     public void setImage(String image) {
         image = image.replace('\\', '/');
         this.image = image;
@@ -122,6 +130,12 @@ public class Album {
         return t_create;
     }
 
+    public String getT_createString() {
+        SimpleDateFormat fm = new SimpleDateFormat("MMMM dd, yyyy ", Locale.US);
+        String sDate = fm.format(t_create);
+        return sDate;
+    }
+
     public void setT_create(Timestamp t_create) {
         this.t_create = t_create;
     }
@@ -133,7 +147,25 @@ public class Album {
     public void setT_lastUpdate(Timestamp t_lastUpdate) {
         this.t_lastUpdate = t_lastUpdate;
     }
+
+    public int getTotal_liked() {
+        return total_liked;
+    }
+
+    public void setTotal_liked(int total_liked) {
+        this.total_liked = total_liked;
+    }
+
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
     
     
-   
+
+  
+
 }

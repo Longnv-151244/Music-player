@@ -96,12 +96,12 @@
                                                 </div>
                                                 <form action="./sign-out">
                                                     <input type="text" name="url" value="./lofi" hidden>
-                                                    <label for="user__sign-out">
+                                                    <label for="user__sign-out--mobile">
                                                         <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
                                                             <div class="heading">Log Out</div>
                                                         </div>
                                                     </label>
-                                                    <input type="submit" hidden id="user__sign-out">
+                                                    <input type="submit" hidden id="user__sign-out--mobile">
                                                 </form>
                                             </div>
                                         </div>
@@ -150,12 +150,12 @@
                                                     </div>
                                                     <form action="./sign-out">
                                                         <input type="text" name="url" value="./lofi" hidden>
-                                                        <label for="user__sign-out">
+                                                        <label for="user__sign-out--pc">
                                                             <div class="option-item logout"><i class="fas fa-sign-out-alt icon"></i>
                                                                 <div class="heading">Log Out</div>
                                                             </div>
                                                         </label>
-                                                        <input type="submit" hidden id="user__sign-out">
+                                                        <input type="submit" hidden id="user__sign-out--pc">
                                                     </form>
                                                 </div>
                                             </div>
@@ -230,7 +230,7 @@
                         </div>
                         <div class="playlist__content">
                             <div class="playlist_grouptab"><span class="watting_list__name active">Danh sách phát</span><span
-                                    class="love_list__name">Danh sách Playlist</span></div>
+                                    class="love_list__name">Playlist của tôi</span></div>
                             <div class="watting_list tab__container-list active">
                                 <div class="play-list scroll-overflow">
                                     <c:forEach var="song" items="${requestScope.albums}">
@@ -259,14 +259,33 @@
                                     <div class="login__content active"><img src="./img/core-img/google_logo.png" alt=""><span>Đăng
                                             nhập</span></div>
                                 </div>
-                                <div class="play-list scroll-overflow"></div>
+                                <div class="play-list scroll-overflow">
+                                    <c:forEach var="song" items="${requestScope.albums}">
+                                        <div class="song-item" data-path="${song.path}">
+                                            <div class="song-content">
+                                                <div class="song-img bg-img" style="background-image: url('${song.image}');">
+                                                    <div class="song-img--hover"><i class="fas fa-play"></i></div>
+                                                </div>
+                                                <div class="song-info">
+                                                    <h2 class="song-name">${song.name}</h2>
+                                                    <div class="song-author">${song.author}</div>
+                                                </div>
+                                            </div>
+                                            <div class="song-duration">${song.duration}</div>
+                                            <div class="song-option">
+                                                <div class="option like"><i class ="far fa-heart"></i></div>
+                                                <div class="option download"><i class="fas fa-download"></i></div>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <section id="toast"></section>
-            <c:if test="${user != null}">
+                <c:if test="${user != null}">
                 <section class="bg-overlay" id="user">
                     <div class="user-container">
                         <div class="user-content">

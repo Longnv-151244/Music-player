@@ -12,27 +12,28 @@ import java.sql.Timestamp;
  * @author dclon
  */
 public class History {
+
     private int id;
     private int user_ID;
+    private String user_name;
     private int album_ID;
+    private String album_name;
     private Timestamp t_lastUpdate;
     private int action_ID;
 
     public History() {
     }
 
-    public History(int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
+    public History(int user_ID, int album_ID, int action_ID) {
         this.user_ID = user_ID;
         this.album_ID = album_ID;
-        this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }
-
-    public History(int id, int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
+    
+    public History(int id, int user_ID, int album_ID, int action_ID) {
         this.id = id;
         this.user_ID = user_ID;
         this.album_ID = album_ID;
-        this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }
 
@@ -52,12 +53,28 @@ public class History {
         this.user_ID = user_ID;
     }
 
+    public String getUser_name() {
+        return user_name;
+    }
+
+    public void setUser_name(String user_name) {
+        this.user_name = user_name;
+    }
+
     public int getAlbum_ID() {
         return album_ID;
     }
 
     public void setAlbum_ID(int album_ID) {
         this.album_ID = album_ID;
+    }
+
+    public String getAlbum_name() {
+        return album_name;
+    }
+
+    public void setAlbum_name(String album_name) {
+        this.album_name = album_name;
     }
 
     public Timestamp getT_lastUpdate() {
@@ -75,6 +92,6 @@ public class History {
     public void setAction_ID(int action_ID) {
         this.action_ID = action_ID;
     }
-    
-    
+
+
 }

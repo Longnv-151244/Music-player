@@ -5,12 +5,22 @@
  */
 package controller;
 
+import dal.ActionDAO;
+import dal.AlbumDAO;
+import dal.CategoryDAO;
+import dal.HistoryDAO;
+import dal.UserDAO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Action;
+import model.Album;
+import model.Category;
+import model.History;
+import model.User;
 
 /**
  *
@@ -29,6 +39,28 @@ public class AdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CategoryDAO cd = new CategoryDAO();
+        ArrayList<Category> cl = cd.getAll();
+        AlbumDAO ad = new AlbumDAO();
+        ArrayList<Album> albums_Vpop = ad.getAlbumsOfCategory(1);
+        ad.setLiked(albums_Vpop);
+        ArrayList<Album> albums_USUK = ad.getAlbumsOfCategory(2);
+        ad.setLiked(albums_USUK);
+        ArrayList<Album> albums_Lofi = ad.getAlbumsOfCategory(3);
+        ad.setLiked(albums_Lofi);
+        ActionDAO actionDAO = new ActionDAO();
+        ArrayList<Action> actions = actionDAO.getAll();
+        HistoryDAO hd = new HistoryDAO();
+        ArrayList<History> historys = hd.getAll();
+        UserDAO ud = new UserDAO();
+        ArrayList<User> users = ud.getAll();
+        request.setAttribute("categories", cl);
+        request.setAttribute("albums_Vpop", albums_Vpop);
+        request.setAttribute("albums_USUK", albums_USUK);
+        request.setAttribute("albums_Lofi", albums_Lofi);
+        request.setAttribute("actions", actions);
+        request.setAttribute("historys", historys);
+        request.setAttribute("users", users);
         request.getRequestDispatcher("admin.jsp").forward(request, response);
     }
 

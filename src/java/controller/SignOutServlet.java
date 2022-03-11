@@ -5,13 +5,16 @@
  */
 package controller;
 
+import dal.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
@@ -31,10 +34,24 @@ public class SignOutServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.removeAttribute("user");
-//        session.invalidate();
-        String url_Request = request.getParameter("url");
-        response.sendRedirect(url_Request);
+        Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            for (Cookie cooky : cookies) {
+                cooky.setValue(null);
+                cooky.setMaxAge(0);
+                response.addCookie(cooky);
+            }
+        }
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            UserDAO ud = new UserDAO();
+            ud.updateStatus(u.getId(), false);
+        }
+        session.invalidate();
+        String url = request.getParameter("url");
+        request.setAttribute("url", url);
+        response.sendRedirect(url);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

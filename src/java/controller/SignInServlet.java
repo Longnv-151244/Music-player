@@ -42,7 +42,7 @@ public class SignInServlet extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cooky : cookies) {
-                if (cooky.getName().equals("mess_login")) {
+                if (cooky.getName().equals("mess_login-user")) {
                     cooky.setMaxAge(0);
                 }
                 if (cooky.getName().equals("username")) {
@@ -50,21 +50,21 @@ public class SignInServlet extends HttpServlet {
                 }
             }
         }
-        Cookie c_mess_login = new Cookie("mess_login", "success");
-        c_mess_login.setMaxAge(3600);
-        response.addCookie(c_mess_login);
+        Cookie c_mess_login = new Cookie("mess_login-user", "success");
         if (user != null) // login successfully!
         {
             Cookie c_user = new Cookie("username", username);
-            c_mess_login.setMaxAge(3600);
             c_user.setMaxAge(3600 * 3);
             response.addCookie(c_user);
             ud.updateT_lastOnline(user.getId());
+            ud.updateStatus(user.getId(), true);
             session.setAttribute("user", user);
         } else //login fail
         {
             c_mess_login.setValue("fail");
         }
+        c_mess_login.setMaxAge(3600);
+        response.addCookie(c_mess_login);
         response.sendRedirect(url_Request);
     }
 

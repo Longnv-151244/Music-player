@@ -17,6 +17,7 @@ create table Users(
 	t_create smalldatetime not null,
 	t_lastOnline smalldatetime,
 	email varchar(64) not null,
+	[status] BIT NOT NULL DEFAULT 0,
 )
 GO
 SET IDENTITY_INSERT Users OFF
@@ -45,14 +46,14 @@ GO
 SET IDENTITY_INSERT Albums OFF
 GO
 
-create table [like](
+create table [liked](
 	id int primary key identity(1,1),
 	[user_ID] int references Users(id) not null,
 	[album_ID] int references Albums(id) not null,
 	t_lastUpdate smalldatetime not null
 )
 GO
-SET IDENTITY_INSERT [like] OFF
+SET IDENTITY_INSERT [liked] OFF
 GO
 
 create table [Action](
@@ -92,3 +93,13 @@ create table Slider(
 GO
 SET IDENTITY_INSERT history_Album OFF
 GO
+
+create table [Message](
+	id int primary key identity(1,1),
+	name varchar(32),
+	describe nvarchar(255)
+)
+GO
+SET IDENTITY_INSERT [Message] OFF
+GO
+

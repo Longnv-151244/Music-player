@@ -26,6 +26,7 @@ public class User {
     private Timestamp t_create;
     private Timestamp t_lastOnline;
     private String email;
+    private boolean online;
 
     public User() {
     }
@@ -103,6 +104,10 @@ public class User {
         this.last_name = last_name;
     }
 
+    public String getFullname() {
+        return firs_name + " " + last_name;
+    }
+
     public String getAvatar() {
         return avatar;
     }
@@ -148,4 +153,14 @@ public class User {
         Timestamp now = new Timestamp(nowDate.getTime());
         return now;
     }
+
+    public boolean isOnline() {
+        return online;
+    }
+
+    public void setOnline(boolean online) {
+        this.online = online;
+    }
+    
+    
 }

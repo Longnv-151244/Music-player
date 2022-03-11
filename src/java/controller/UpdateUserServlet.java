@@ -42,7 +42,7 @@ public class UpdateUserServlet extends HttpServlet {
             throws ServletException, IOException {
         String id = request.getParameter("id");
         String url = request.getContextPath() + request.getParameter("url");
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         String first_name = request.getParameter("first-name");
         String last_name = request.getParameter("last-name");
@@ -51,14 +51,14 @@ public class UpdateUserServlet extends HttpServlet {
         String verify_password = request.getParameter("verify-password");
         String email = request.getParameter("email");
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-//        out.println(u.getEmail());
-//        out.println(u.getFirs_name());
         Boolean flag = true;
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cooky : cookies) {
                 if (cooky.getName().equals("mess_update-user")) {
+                    cooky.setMaxAge(0);
+                }
+                if (cooky.getName().equals("username")) {
                     cooky.setMaxAge(0);
                 }
             }

@@ -73,7 +73,7 @@ values
 (N'Runaway',N'AURORA',3,'04:08','./img/song-img/lofi/runaway.jpg','./song-mp3/lofi/runaway.mp3','2022-02-22 13:25:00'),
 (N'The Girl Ive Never Met',N'Gustixa',3,'04:33','./img/song-img/lofi/the-girl-ive-never-met.jpg','./song-mp3/lofi/the-girl-ive-never-met.mp3','2019-06-20 13:25:00'),
 (N'Surrender',N'Natalie Taylor',3,'03:39','./img/song-img/lofi/surrender.jpg','./song-mp3/lofi/surrender.mp3','2019-10-19 13:25:00')
-insert into [like]([user_ID], [album_ID], t_lastUpdate)
+insert into [liked]([user_ID], [album_ID], t_lastUpdate)
 values 
 (1,1,'2022-02-22 13:25:00')
 
@@ -135,3 +135,12 @@ values
 (51,'Listen Now', 'Listen to deep, lyrical V-Pop songs together!'),
 (53,'Discover Today','Discover today with upbeat US-UK music!'),
 (55,'Subscribe Today','Sign up to follow the gentle lofi music, relax after work!')
+
+insert into [Message](name, describe)
+values
+('login_1','Login successfull!'),
+('login_2','Username or password is invalid!'),
+('login_3','User is not authorized to access this site!'),
+('update_user_1','Update successfull!'),
+('update_user_2','Password is invalid!'),
+('update_user_3','New-password is not same the verify-password!')

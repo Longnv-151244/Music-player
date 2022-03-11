@@ -30,13 +30,29 @@ public class ActionDAO extends BaseDAO<Action> {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Action a = new Action();
-                a.setId(rs.getInt("id"));
+                int id = rs.getInt("id");
+                a.setId(id);
                 a.setName(rs.getString("name"));
+                a.setTotal_Activity(getTotal_Activity(id));
                 actions.add(a);
             }
         } catch (SQLException ex) {
             Logger.getLogger(RoleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return actions;
+    }
+
+    public int getTotal_Activity(int action_ID) {
+        try {
+            String sql = "SELECT COUNT(*) AS total_Activity\n"
+                    + "FROM history_Album JOIN [Action] ON history_Album.action_ID = [Action].id AND [Action].id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, action_ID);
+            ResultSet rs = st.executeQuery();
+            rs.next();
+            return rs.getInt("total_Activity");
+        } catch (Exception e) {
+        }
+        return 0;
     }
 }

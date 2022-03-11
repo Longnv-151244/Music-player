@@ -18,20 +18,25 @@ import model.History;
  * @author dclon
  */
 public class HistoryDAO extends BaseDAO<History> {
-
+    
     @Override
     public ArrayList<History> getAll() {
         ArrayList<History> histories = new ArrayList<>();
         try {
-            String sql = "SELECT id, [user_ID], album_ID, t_lastUpdate, action_ID\n"
-                    + "FROM history_Album";
+            String sql = "SELECT history_Album.id, user_ID ,"
+                    + "(Users.[first_name] + ' ' + Users.last_name) as [user_name] , "
+                    + "album_ID, Albums.name as album_name , history_Album.t_lastUpdate, action_ID\n"
+                    + "FROM history_Album join Albums on history_Album.album_ID = Albums.id\n"
+                    + "join Users on history_Album.user_ID = Users.id";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 History h = new History();
                 h.setId(rs.getInt("id"));
                 h.setUser_ID(rs.getInt("user_ID"));
+                h.setUser_name(rs.getString("user_name"));
                 h.setAlbum_ID(rs.getInt("album_ID"));
+                h.setAlbum_name(rs.getString("album_name"));
                 h.setT_lastUpdate(rs.getTimestamp("t_lastUpdate"));
                 h.setAction_ID(rs.getInt("action_ID"));
                 histories.add(h);
@@ -41,5 +46,5 @@ public class HistoryDAO extends BaseDAO<History> {
         }
         return histories;
     }
-
+    
 }

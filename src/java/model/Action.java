@@ -12,7 +12,8 @@ package model;
 public class Action {
     private int id;
     private String name;
-
+    private int total_Activity;
+    
     public Action() {
     }
 
@@ -40,6 +41,13 @@ public class Action {
     public void setName(String name) {
         this.name = name;
     }
-    
+
+    public int getTotal_Activity() {
+        return total_Activity;
+    }
+
+    public void setTotal_Activity(int total_Activity) {
+        this.total_Activity = total_Activity;
+    }
     
 }
