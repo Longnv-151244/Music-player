@@ -77,6 +77,50 @@ public class AlbumDAO extends BaseDAO<Album> {
         return albums;
     }
 
+    public Album getAlbumByID(int id) {
+        try {
+            String sql = "SELECT id, name, author, category_ID, duration, image, path, t_create, t_lastUpdate\n"
+                    + "FROM Albums\n"
+                    + "WHERE id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Album a = new Album();
+                a.setId(rs.getInt("id"));
+                a.setName(rs.getString("name"));
+                a.setAuthor(rs.getString("author"));
+                a.setCategory_id(rs.getInt("category_ID"));
+                a.setDuration(rs.getString("duration"));
+                a.setImage(rs.getString("image"));
+                a.setPath(rs.getString("path"));
+                a.setT_create(rs.getTimestamp("t_create"));
+                a.setT_lastUpdate(rs.getTimestamp("t_lastUpdate"));
+                return a;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RoleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
+    public int getIDByNameAndT_create(Album a) {
+        try {
+            String sql = "SELECT id\n"
+                    + "FROM Albums\n"
+                    + "WHERE [name] = ? and t_create = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, a.getName());
+            st.setTimestamp(2, a.getT_create());
+            ResultSet rs = st.executeQuery();
+            rs.next();
+            return rs.getInt("id");
+        } catch (SQLException ex) {
+            Logger.getLogger(RoleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return -1;
+    }
+
     public ArrayList<Album> getAlbumsOfCategory(int category_ID) {
         ArrayList<Album> albums = new ArrayList<>();
         try {
@@ -137,8 +181,8 @@ public class AlbumDAO extends BaseDAO<Album> {
         }
         return albums;
     }
-    
-    public void setLiked(int id,int total_Like, ArrayList<Album> albums){        
+
+    public void setLiked(int id, int total_Like, ArrayList<Album> albums) {
         for (int i = 0; i < albums.size(); i++) {
             if (albums.get(i).getId() == id) {
                 albums.get(i).setTotal_liked(total_Like);
@@ -162,6 +206,54 @@ public class AlbumDAO extends BaseDAO<Album> {
                 }
             } catch (Exception e) {
             }
+        } catch (Exception e) {
+        }
+    }
+
+    public void inserAlbum(Album a) {
+        try {
+            String sql = "INSERT into Albums(name, author, category_ID, duration, image, path, t_create, t_lastUpdate)\n"
+                    + "VALUES(?,?,?,?,?,?,?,?)";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, a.getName());
+            st.setString(2, a.getAuthor());
+            st.setInt(3, a.getCategory_id());
+            st.setString(4, a.getDuration());
+            st.setString(5, a.getImage());
+            st.setString(6, a.getPath());
+            st.setTimestamp(7, a.getT_create());
+            st.setTimestamp(8, a.getT_lastUpdate());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void updateAlbum(Album a) {
+        try {
+            String sql = "UPDATE Albums\n"
+                    + "SET name=?,author=?,category_ID=?,duration=?,[image]=?,[path]=?,t_lastUpdate=?\n"
+                    + "WHERE id=?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setString(1, a.getName());
+            st.setString(2, a.getAuthor());
+            st.setInt(3, a.getCategory_id());
+            st.setString(4, a.getDuration());
+            st.setString(5, a.getImage());
+            st.setString(6, a.getPath());
+            st.setTimestamp(7, a.getT_lastUpdate());
+            st.setInt(8, a.getId());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void deleteAlbum(int id) {
+        try {
+            String sql = "DELETE FROM Albums\n"
+                    + "WHERE id=?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
         } catch (Exception e) {
         }
     }

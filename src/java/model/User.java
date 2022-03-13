@@ -149,9 +149,7 @@ public class User {
     }
 
     public Timestamp getT_now() {
-        Date nowDate = new Date();
-        Timestamp now = new Timestamp(nowDate.getTime());
-        return now;
+        return MyMethod.getT_now();
     }
 
     public boolean isOnline() {

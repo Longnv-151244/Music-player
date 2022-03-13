@@ -8,7 +8,7 @@ package dal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import model.Method;
+import model.MyMethod;
 import model.Slider;
 
 /**
@@ -25,11 +25,11 @@ public class SliderDAO extends BaseDAO<Slider> {
                     + "FROM Slider ";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            Method md = new Method();
             while (rs.next()) {
+                AlbumDAO ad = new AlbumDAO();
                 Slider s = new Slider();
                 s.setId(rs.getInt("id"));
-                s.setAlbum(md.getAlbumByID(rs.getInt("album_ID")));
+                s.setAlbum(ad.getAlbumByID(rs.getInt("album_ID")));
                 s.setHeading(rs.getString("heading"));
                 s.setText(rs.getString("text"));
                 sliders.add(s);

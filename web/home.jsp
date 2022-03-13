@@ -1,17 +1,16 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
 <%-- 
     Document   : home
     Created on : 02-03-2022, 00:01:15
     Author     : dclon
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Slider"%>
-<%@page import="model.Album"%>
 <c:set var="user" scope="page" value="${sessionScope.user}" />
+<c:set var="sliders" scope="page" value="${requestScope.sliders}" />
+<c:set var="albums_Vpop" scope="page" value="${requestScope.albums_Vpop}" />
+<c:set var="albums_USUK" scope="page" value="${requestScope.albums_USUK}" />
+<c:set var="albums_Lofi" scope="page" value="${requestScope.albums_Lofi}" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -174,7 +173,7 @@
         </section>
         <section id="slider">
             <% int index = -1; %>
-            <c:forEach var="slider" items="${requestScope.sliders}">
+            <c:forEach var="slider" items="${sliders}">
                 <% index++; %>
                 <div class="slider__item bg-overlay bg-img slider__item-<%=index %> <% if (index == 1) { %> active <% } %>" style="background-image: url('${slider.album.image}');">
                     <div class="container">
@@ -246,7 +245,7 @@
                             <div class="container__slide hide-on-mobile">
                                 <div class="container__slide-show">
                                     <% index = 0;%>
-                                    <c:forEach var="album" items="${requestScope.albums_Vpop}">
+                                    <c:forEach var="album" items="${albums_Vpop}">
                                         <% index++;%>
                                         <div class="container__slide-item <% switch(index){
                                                 case 1: %>first<% break;
@@ -262,7 +261,7 @@
                             </div>
                             <div class="tab__container-list">
                                 <div class="play-list scroll-overflow">
-                                    <c:forEach var="album" items="${requestScope.albums_Vpop}">
+                                    <c:forEach var="album" items="${albums_Vpop}">
                                         <div class="song-item" data-path="${album.path}">
                                             <div class="song-content">
                                                 <div class="song-img bg-img" style="background-image: url('${album.image}');">
@@ -296,7 +295,7 @@
                             <div class="container__slide hide-on-mobile">
                                 <div class="container__slide-show">
                                     <% index = 0;%>
-                                    <c:forEach var="album" items="${requestScope.albums_USUK}">
+                                    <c:forEach var="album" items="${albums_USUK}">
                                         <% index++;%>
                                         <div class="container__slide-item <% switch(index){
                                                 case 1: %>first<% break;
@@ -312,7 +311,7 @@
                             </div>
                             <div class="tab__container-list">
                                 <div class="play-list scroll-overflow"> 
-                                    <c:forEach var="album" items="${requestScope.albums_USUK}">
+                                    <c:forEach var="album" items="${albums_USUK}">
                                         <div class="song-item" data-path="${album.path}">
                                             <div class="song-content">
                                                 <div class="song-img bg-img" style="background-image: url('${album.image}');">
@@ -346,7 +345,7 @@
                             <div class="container__slide hide-on-mobile">
                                 <div class="container__slide-show">
                                     <% index = 0;%>
-                                    <c:forEach var="album" items="${requestScope.albums_Lofi}">
+                                    <c:forEach var="album" items="${albums_Lofi}">
                                         <% index++;%>
                                         <div class="container__slide-item <% switch(index){
                                                 case 1: %>first<% break;
@@ -362,7 +361,7 @@
                             </div>
                             <div class="tab__container-list">
                                 <div class="play-list scroll-overflow">
-                                    <c:forEach var="album" items="${requestScope.albums_Lofi}">
+                                    <c:forEach var="album" items="${albums_Lofi}">
                                         <div class="song-item" data-path="${album.path}">
                                             <div class="song-content">
                                                 <div class="song-img bg-img" style="background-image: url('${album.image}');">
@@ -446,7 +445,7 @@
             <section class="bg-overlay" id="user">
                 <div class="user-container">
                     <div class="user-content">
-                        <form action="./update/user?id=${user.id}" method="POST">
+                        <form action="./user/update?id=${user.id}" method="POST">
                             <input type="text" name="url" value="/home" hidden>
                             <div class="user__base-info"> 
                                 <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>

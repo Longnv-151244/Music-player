@@ -4,8 +4,11 @@
     Created on : 02-03-2022, 00:05:57
     Author     : dclon
 --%>
-<%@page import="model.Album"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<c:set var="user" scope="page" value="${sessionScope.user}" />
+<c:set var="albums" scope="page" value="${requestScope.albums}" />
+<c:set var="bgs" scope="page" value="${requestScope.bgs}" />
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,7 +79,6 @@
                             <li><a class="fab fa-twitter" href="#"> </a></li>
                             <li><a class="fab fa-youtube" href="#"></a></li>
                             <li class="login">Đăng nhập</li>
-                                <c:set var="user" scope="page" value="${sessionScope.user}" />
                                 <c:if test="${user != null}">
                                 <li>
                                     <div class="user"> 
@@ -176,7 +178,7 @@
                             <div class="settingBg__content">
                                 <h2 class="settingBg__heading">Setup BackGround</h2>
                                 <div class="settingBg__list-item">
-                                    <c:forEach var="bg" items="${requestScope.bgs}">
+                                    <c:forEach var="bg" items="${bgs}">
                                         <div class="bg-item bg-img" style="background-image: url(${bg.path});"></div>
                                     </c:forEach>
                                 </div>
@@ -232,7 +234,7 @@
                                     class="love_list__name">Playlist của tôi</span></div>
                             <div class="watting_list tab__container-list active">
                                 <div class="play-list scroll-overflow">
-                                    <c:forEach var="song" items="${requestScope.albums}">
+                                    <c:forEach var="song" items="${albums}">
                                         <div class="song-item" data-path="${song.path}">
                                             <div class="song-content">
                                                 <div class="song-img bg-img" style="background-image: url('${song.image}');">
@@ -259,7 +261,7 @@
                                             nhập</span></div>
                                 </div>
                                 <div class="play-list scroll-overflow">
-                                    <c:forEach var="song" items="${requestScope.albums}">
+                                    <c:forEach var="song" items="${albums}">
                                         <div class="song-item" data-path="${song.path}">
                                             <div class="song-content">
                                                 <div class="song-img bg-img" style="background-image: url('${song.image}');">
@@ -288,7 +290,7 @@
                 <section class="bg-overlay" id="user">
                     <div class="user-container">
                         <div class="user-content">
-                            <form action="./update/user?id=${user.id}" method="POST">
+                            <form action="./user/update?id=${user.id}" method="POST">
                                 <input type="text" name="url" value="/vpop" hidden>
                                 <div class="user__base-info"> 
                                     <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>

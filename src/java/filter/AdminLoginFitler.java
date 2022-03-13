@@ -116,13 +116,14 @@ public class AdminLoginFitler implements Filter {
             for (Cookie cooky : cookies) {
                 if (cooky.getName().equals("username")) {
                     username = cooky.getValue();
-                    cooky.setValue("");
-                    cooky.setMaxAge(0);
-                    response.addCookie(cooky);
+                    continue;
                 }
-                if (cooky.getName().equals("mess_login-admin")) {
-                    cooky.setMaxAge(0);
+                if (cooky.getName().equals("user_ID")) {
+                    continue;
                 }
+                cooky.setValue(null);
+                cooky.setMaxAge(0);
+                response.addCookie(cooky);
             }
         }
         UserDAO ad = new UserDAO();
@@ -141,9 +142,11 @@ public class AdminLoginFitler implements Filter {
                     Cookie c_user = new Cookie("username", username);
                     c_user.setMaxAge(3600 * 3);
                     response.addCookie(c_user);
+                    Cookie c_user_ID = new Cookie("user_ID", String.valueOf(user.getId()));
+                    c_user_ID.setMaxAge(3600 * 3);
+                    response.addCookie(c_user_ID);
                 }
                 c_message_login_admin.setValue("login_1");
-                response.addCookie(c_message_login_admin);
                 chain.doFilter(req, res);//sends request to next resource 
             } else {
                 c_message_login_admin.setValue("login_3");

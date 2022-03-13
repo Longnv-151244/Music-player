@@ -34,8 +34,23 @@ const userIconSummit = $("#user .user__icon-summit");
 const btnCreateHistory = $("#admin__history .option .btn-create");
 const btnCreateUser = $("#admin__user .option .btn-create");
 
+const audio = $("#audio");
+
+const play = Array.from($$(".control .play"));
+const pause = Array.from($$(".control .pause"));
+
+const optionEditCategory = Array.from(
+  $$(".admin_edit-container select option")
+);
+const optionCreateCategory = Array.from(
+  $$(".admin_create-container select option")
+);
+
 const app = {
+  isAudio: false,
+  category: ["Vpop", "US-UK", "Lofi"],
   handleEvent: function () {
+    const _this = this;
     // Event for admin action
     function showAdminContainer() {
       admin_action.classList.add("active");
@@ -47,13 +62,82 @@ const app = {
       child_action.forEach((element) => {
         element.classList.remove("active");
       });
+      audio.src = "";
+      _this.isAudio = false;
+      pauseAudio();
     }
 
-    function showView() {
-      container_view.classList.add("active");
+    function showView(_this) {
+      const song_item = _this.parentElement;
+      const promiseAudio = new Promise(function (resolve) {
+        audio.src = song_item.dataset.path;
+        resolve();
+      });
+      promiseAudio
+        .then(() => {
+          setTimeout(() => {
+            $(".view_item-info .item-duration .value").innerText = formatTime(
+              audio.duration
+            );
+          }, 100);
+          $(".view_item-info .item-name .value").innerText =
+            song_item.querySelector(".name").innerText;
+          $(".view_item-info .item-author .value").innerText =
+            song_item.dataset.author;
+          $(
+            ".view_item-img"
+          ).style.backgroundImage = `url("${song_item.dataset.image}")`;
+          $(".view_item-info .item-path .value").innerText =
+            song_item.dataset.path;
+          const t_create = song_item.dataset.t_create;
+          const dateT_create = new Date(t_create);
+          $(".view_item-info .item-t-create .value").value =
+            dateT_create.format("isoDate");
+          const t_lastUpdate = song_item.querySelector(".timeUpdate").innerText;
+          const dateT_lastUpdate = new Date(t_lastUpdate);
+          $(".view_item-info .item-t-lastUpdate .value").value =
+            dateT_lastUpdate.format("isoDateTime", true);
+        })
+        .then(() => {
+          container_view.classList.add("active");
+        });
     }
-    function showEdit() {
-      container_edit.classList.add("active");
+    function showEdit(_this) {
+      const song_item = _this.parentElement.parentElement;
+      const promiseAudio = new Promise(function (resolve) {
+        audio.src = song_item.dataset.path;
+        resolve();
+      });
+      promiseAudio
+        .then(() => {
+          setTimeout(() => {
+            $(".edit_item-info .item-duration .value").value = formatTime(
+              audio.duration
+            );
+          }, 100);
+          $(".edit_item-info .item-id").value =
+            song_item.querySelector(".id").innerText;
+          $(".edit_item-info .item-name .value").value =
+            song_item.querySelector(".name").innerText;
+          $(".edit_item-info .item-author .value").value =
+            song_item.dataset.author;
+          $(
+            ".edit_item-img"
+          ).style.backgroundImage = `url("${song_item.dataset.image}")`;
+          $("#edit_image-value").innerText = song_item.dataset.image;
+          $("#edit_audio-value").innerText = song_item.dataset.path;
+          const t_create = song_item.dataset.t_create;
+          const dateT_create = new Date(t_create);
+          $(".edit_item-info .item-t-create .value").value =
+            dateT_create.format("isoDate");
+          const t_lastUpdate = song_item.querySelector(".timeUpdate").innerText;
+          const dateT_lastUpdate = new Date(t_lastUpdate);
+          $(".edit_item-info .item-t-lastUpdate .value").value =
+            dateT_lastUpdate.format("isoDateTime", true);
+        })
+        .then(() => {
+          container_edit.classList.add("active");
+        });
     }
     function showCreate() {
       container_create.classList.add("active");
@@ -62,7 +146,7 @@ const app = {
     btn_view.forEach((element) => {
       element.onclick = function () {
         showAdminContainer();
-        showView();
+        showView(this);
       };
     });
     btn_create.forEach((element) => {
@@ -76,7 +160,7 @@ const app = {
     btn_edit.forEach((element) => {
       element.onclick = function () {
         showAdminContainer();
-        showEdit();
+        showEdit(this);
       };
     });
 
@@ -97,6 +181,22 @@ const app = {
       });
       tabContainer[index].classList.add("active");
       tabNameContainer[index].classList.add("active");
+      if (index <= 2) {
+        $(".view_item-info .item-category .value").innerText =
+          _this.category[index];
+        resertOption();
+        optionEditCategory[index].setAttribute("selected", "");
+        optionCreateCategory[index].setAttribute("selected", "");
+      }
+    }
+
+    function resertOption() {
+      optionCreateCategory.forEach((element) => {
+        element.removeAttribute("selected");
+      });
+      optionEditCategory.forEach((element) => {
+        element.removeAttribute("selected");
+      });
     }
 
     tabName.forEach((element, index) => {
@@ -191,6 +291,113 @@ const app = {
       }
     }
 
+    function handleImageUpload(event, nodeValue, nodeDisplay) {
+      const reader = new FileReader();
+      const files = event.target.files;
+      nodeValue.innerText = files[0].name;
+      reader.readAsDataURL(files[0]);
+      reader.addEventListener("load", (event) => {
+        // Lấy chuỗi Binary
+        const url = event.target.result;
+        nodeDisplay.style.backgroundImage = `url('${url}')`;
+      });
+    }
+
+    function handleAudioUpload(event, nodeValue, audio) {
+      const reader = new FileReader();
+      const files = event.target.files;
+      nodeValue.innerText = files[0].name;
+      reader.readAsDataURL(files[0]);
+      reader.addEventListener("load", (event) => {
+        // Lấy chuỗi Binary
+        const url = event.target.result;
+        audio.src = url;
+      });
+    }
+
+    function formatTime(seconds) {
+      minutes = Math.floor(seconds / 60);
+      minutes = minutes >= 10 ? minutes : "0" + minutes;
+      seconds = Math.floor(seconds % 60);
+      seconds = seconds >= 10 ? seconds : "0" + seconds;
+      return minutes + ":" + seconds;
+    }
+
+    // Xu ly su kien create
+    $("#create_image").onchange = function (event) {
+      const nodeValue = $("#create_image-value");
+      const nodeDisplay = $(".create_item-img");
+      handleImageUpload(event, nodeValue, nodeDisplay);
+    };
+
+    $("#create_audio").onchange = function (event) {
+      const nodeValue = $("#create_audio-value");
+      pauseAudio();
+      handleAudioUpload(event, nodeValue, audio);
+      _this.isAudio = true;
+    };
+
+    $("#create_duration").onclick = function () {
+      if (_this.isAudio) {
+        this.value = formatTime(audio.duration);
+      }
+    };
+
+    // Xu ly su kien edit
+    $("#edit_image").onchange = function (event) {
+      const nodeValue = $("#edit_image-value");
+      const nodeDisplay = $(".edit_item-img");
+      handleImageUpload(event, nodeValue, nodeDisplay);
+    };
+
+    $("#edit_audio").onchange = function (event) {
+      const nodeValue = $("#edit_audio-value");
+      pauseAudio();
+      handleAudioUpload(event, nodeValue, audio);
+      _this.isAudio = true;
+    };
+
+    $("#edit_duration").onclick = function () {
+      if (_this.isAudio) {
+        this.value = formatTime(audio.duration);
+      }
+    };
+
+    function playAudio() {
+      play.forEach((element) => {
+        element.classList.remove("active");
+      });
+      pause.forEach((element) => {
+        if (!element.classList.contains("active")) {
+          element.classList.add("active");
+        }
+      });
+    }
+    function pauseAudio() {
+      pause.forEach((element) => {
+        element.classList.remove("active");
+      });
+      play.forEach((element) => {
+        if (!element.classList.contains("active")) {
+          element.classList.add("active");
+        }
+      });
+    }
+    pause.forEach((element, index) => {
+      element.addEventListener("click", function () {
+        pauseAudio();
+        audio.pause();
+      });
+    });
+    play.forEach((element, index) => {
+      element.onclick = function () {
+        if (_this.isAudio || index !== 2) {
+          playAudio();
+          audio.play();
+        }
+      };
+    });
+
     userIconSetting.forEach((element, index) => {
       if (element !== usernameIconSetting && element !== t_createIconSetting) {
         element.addEventListener("click", function () {
@@ -205,7 +412,17 @@ const app = {
       });
     });
   },
+
+  setDefaultApp: function () {
+    this.setVolumeDefault();
+  },
+
+  setVolumeDefault: function () {
+    audio.volume = 0.2;
+  },
+
   start: function () {
+    this.setDefaultApp();
     this.handleEvent();
   },
 };

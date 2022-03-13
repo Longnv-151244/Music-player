@@ -6,6 +6,8 @@
 package model;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 /**
  *
@@ -24,16 +26,18 @@ public class History {
     public History() {
     }
 
-    public History(int user_ID, int album_ID, int action_ID) {
+    public History(int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
         this.user_ID = user_ID;
         this.album_ID = album_ID;
+        this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }
     
-    public History(int id, int user_ID, int album_ID, int action_ID) {
+    public History(int id, int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
         this.id = id;
         this.user_ID = user_ID;
         this.album_ID = album_ID;
+        this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }
 
@@ -92,6 +96,11 @@ public class History {
     public void setAction_ID(int action_ID) {
         this.action_ID = action_ID;
     }
-
+    
+    public String getT_lastUpdateStringMore() {
+        SimpleDateFormat fm = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss", Locale.US);
+        String sDate = fm.format(t_lastUpdate);
+        return sDate;
+    }
 
 }

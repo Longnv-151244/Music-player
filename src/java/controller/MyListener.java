@@ -25,9 +25,9 @@ public class MyListener implements HttpSessionListener {
 
     @Override
     public void sessionDestroyed(HttpSessionEvent event) {
-        HttpSession session = event.getSession();
-        User u = (User) session.getAttribute("user");
-        UserDAO ud = new UserDAO();
-        ud.updateStatus(u.getId(), false);
+//        HttpSession session = event.getSession();
+//        User u = (User) session.getAttribute("user");
+//        UserDAO ud = new UserDAO();
+//        ud.updateStatus(u.getId(), false);
     }
 }

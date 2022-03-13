@@ -18,7 +18,7 @@ import model.History;
  * @author dclon
  */
 public class HistoryDAO extends BaseDAO<History> {
-    
+
     @Override
     public ArrayList<History> getAll() {
         ArrayList<History> histories = new ArrayList<>();
@@ -46,5 +46,19 @@ public class HistoryDAO extends BaseDAO<History> {
         }
         return histories;
     }
-    
+
+    public void insertHistory(History h) {
+        try {
+            String sql = "INSERT INTO history_Album([user_ID], [album_ID], t_lastUpdate, [action_ID])\n"
+                    + "VALUES(?,?,?,?)";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, h.getUser_ID());
+            st.setInt(2, h.getAlbum_ID());
+            st.setTimestamp(3, h.getT_lastUpdate());
+            st.setInt(4, h.getAction_ID());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
 }

@@ -6,7 +6,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AdminLoginFitler</filter-name>
-        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/admin</url-pattern>
     </filter-mapping>
     <listener>
         <description>ServletContextListener</description>
@@ -52,6 +52,18 @@
         <servlet-name>DeleteCookieServlet</servlet-name>
         <servlet-class>controller.DeleteCookieServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateAlbumServlet</servlet-name>
+        <servlet-class>controller.CreateAlbumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateAlbumServlet</servlet-name>
+        <servlet-class>controller.UpdateAlbumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAlbumServlet</servlet-name>
+        <servlet-class>controller.DeleteAlbumServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/sign-in</url-pattern>
@@ -89,11 +101,23 @@
     </welcome-file-list>
     <servlet-mapping>
         <servlet-name>UpdateUserServlet</servlet-name>
-        <url-pattern>/update/user</url-pattern>
+        <url-pattern>/user/update</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteCookieServlet</servlet-name>
         <url-pattern>/delete-cookie</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateAlbumServlet</servlet-name>
+        <url-pattern>/admin/create/album</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateAlbumServlet</servlet-name>
+        <url-pattern>/admin/update/album</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAlbumServlet</servlet-name>
+        <url-pattern>/admin/delete/album</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

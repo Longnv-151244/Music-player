@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.MyMethod;
 import model.User;
 
 /**
@@ -31,13 +32,6 @@ public class UpdateUserServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    public boolean checkInput(String input) {
-        if (input == null || input.trim().length() == 0) {
-            return false;
-        }
-        return true;
-    }
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
@@ -52,22 +46,13 @@ public class UpdateUserServlet extends HttpServlet {
         String email = request.getParameter("email");
         response.setContentType("text/html;charset=UTF-8");
         Boolean flag = true;
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cooky : cookies) {
-                if (cooky.getName().equals("mess_update-user")) {
-                    cooky.setMaxAge(0);
-                }
-                if (cooky.getName().equals("username")) {
-                    cooky.setMaxAge(0);
-                }
-            }
-        }
+        MyMethod.removeCooky(request, response, "mess_update-user");
+        MyMethod.removeCooky(request, response, "username");
         Cookie c_message_update_user = new Cookie("mess_update-user", "success");
-        if (checkInput(old_password)) {
+        if (MyMethod.checkInput(old_password)) {
             if (old_password.equals(u.getPassword())) {
                 if (new_password.equals(verify_password)) {
-                    if (checkInput(new_password)) {
+                    if (MyMethod.checkInput(new_password)) {
                         u.setPassword(new_password);
                     } else {
                         flag = false;
@@ -83,13 +68,13 @@ public class UpdateUserServlet extends HttpServlet {
         }
         c_message_update_user.setMaxAge(3600);
         response.addCookie(c_message_update_user);
-        if (checkInput(first_name) && flag) {
+        if (MyMethod.checkInput(first_name) && flag) {
             u.setFirs_name(first_name);
         }
-        if (checkInput(last_name) && flag) {
+        if (MyMethod.checkInput(last_name) && flag) {
             u.setLast_name(last_name);
         }
-        if (checkInput(email) && flag) {
+        if (MyMethod.checkInput(email) && flag) {
             u.setEmail(email);
         }
         UserDAO ud = new UserDAO();

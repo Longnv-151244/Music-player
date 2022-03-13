@@ -32,7 +32,7 @@ public class Album {
         this.liked = false;
     }
 
-    public Album(String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate, int like) {
+    public Album(String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate) {
         this.name = name;
         this.author = author;
         this.category_id = category_id;
@@ -41,7 +41,6 @@ public class Album {
         this.path = path;
         this.t_create = t_create;
         this.t_lastUpdate = t_lastUpdate;
-        this.total_liked = like;
     }
 
     public Album(int id, String name, String author, int category_id, String duration, String image, String path, Timestamp t_create, Timestamp t_lastUpdate, int like) {
@@ -114,7 +113,6 @@ public class Album {
     }
 
     public void setImage(String image) {
-        image = image.replace('\\', '/');
         this.image = image;
     }
 
@@ -133,6 +131,12 @@ public class Album {
     public String getT_createString() {
         SimpleDateFormat fm = new SimpleDateFormat("MMMM dd, yyyy ", Locale.US);
         String sDate = fm.format(t_create);
+        return sDate;
+    }
+    
+    public String getT_lastUpdateStringMore() {
+        SimpleDateFormat fm = new SimpleDateFormat("MMM dd, yyyy hh:mm:ss", Locale.US);
+        String sDate = fm.format(t_lastUpdate);
         return sDate;
     }
 

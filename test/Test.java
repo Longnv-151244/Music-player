@@ -19,7 +19,10 @@ import model.User;
 public class Test {
 
     public static void main(String[] args) {
-//        AlbumDAO ad = new AlbumDAO();
+        AlbumDAO ad = new AlbumDAO();
+        Album a = ad.getAlbumByID(9);
+        int id = ad.getIDByNameAndT_create(a);
+        System.out.println(id);
 //        ArrayList<Album> al = ad.getAll();
 //        ad.setLiked(al);
 //        for (int i = 0; i < al.size(); i++) {
@@ -28,24 +31,7 @@ public class Test {
 //            System.out.println(al.get(i).getTotal_liked());
 //        }
 
-        CategoryDAO cd = new CategoryDAO();
-        ArrayList<Category> cl = cd.getAll();
-        for (int i = 0; i < cl.size(); i++) {
-            System.out.println(cl.get(i).getId());
-            System.out.println(cl.get(i).getName());
-            System.out.println(cl.get(i).getTotal_Album());
-            System.out.println(cl.get(i).getTotal_Liked());
-            System.out.println(cl.get(i).getTotal_User());
-            System.out.println("--------------------------");
-        }
         
-        UserDAO ud = new UserDAO();
-        ArrayList<User> users = ud.getAll();
-        for (int i = 0; i < users.size(); i++) {
-            User get = users.get(i);
-            System.out.println(get.getUsername());
-            
-        }
 
 //        int liked_id = 3;
 //        String i = String.valueOf(liked_id);

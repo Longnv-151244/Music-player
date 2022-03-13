@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.MyMethod;
 import model.User;
 
 /**
@@ -39,17 +40,23 @@ public class SignInServlet extends HttpServlet {
         UserDAO ud = new UserDAO();
         User user = ud.getAccountByUsernameAndPassword(username, password);
         HttpSession session = request.getSession();
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cooky : cookies) {
-                if (cooky.getName().equals("mess_login-user")) {
-                    cooky.setMaxAge(0);
-                }
-                if (cooky.getName().equals("username")) {
-                    cooky.setMaxAge(0);
-                }
-            }
-        }
+        MyMethod.removeCooky(request, response, "mess_login-user");
+        MyMethod.removeCooky(request, response, "username");
+//        Cookie[] cookies = request.getCookies();
+//        if (cookies != null) {
+//            for (Cookie cooky : cookies) {
+//                if (cooky.getName().equals("mess_login-user")) {
+//                    cooky.setValue(null);
+//                    cooky.setMaxAge(0);
+//                    response.addCookie(cooky);
+//                }
+//                if (cooky.getName().equals("username")) {
+//                    cooky.setValue(null);
+//                    cooky.setMaxAge(0);
+//                    response.addCookie(cooky);
+//                }
+//            }
+//        }
         Cookie c_mess_login = new Cookie("mess_login-user", "success");
         if (user != null) // login successfully!
         {
