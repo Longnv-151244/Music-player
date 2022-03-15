@@ -13,6 +13,7 @@ import java.lang.reflect.Method;
 import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,6 +46,7 @@ public class UpdateAlbumServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getContextPath() + "/admin";
         int album_ID = Integer.parseInt(request.getParameter("id"));
         AlbumDAO ad = new AlbumDAO();
         Album a = ad.getAlbumByID(album_ID);
@@ -66,16 +68,19 @@ public class UpdateAlbumServlet extends HttpServlet {
         if (audioFile.getSize() != 0) {
             String p_AddressUploadAudio = "C:/Users/dclon/OneDrive/Desktop/Web_design/Music-player_PRJ301/web/song-mp3/" + MyMethod.getFolder(category_ID) + "/";
             String edit_audio = MyMethod.getUpload(audioFile, edit_name, p_AddressUploadAudio);
-            a.setPath(edit_author);
+            a.setPath(edit_audio);
         }
         Timestamp t_lastUpdate = MyMethod.getT_now();
         a.setT_lastUpdate(t_lastUpdate);
         ad.updateAlbum(a);
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
-        History h = new History(user_ID, album_ID, t_lastUpdate, 3);
+        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        History h = new History(user_ID, username, album_ID, edit_name, t_lastUpdate, 3);
         HistoryDAO hd = new HistoryDAO();
         hd.insertHistory(h);
-        String url = request.getContextPath() + "/admin";
+        Cookie c = MyMethod.createCooky("isAccess", "true", 1);
+        c.setPath(url);
+        response.addCookie(c);
         response.sendRedirect(url);
     }
 

@@ -18,7 +18,7 @@ import model.Like;
  * @author dclon
  */
 public class LikeDAO extends BaseDAO<Like> {
-    
+
     @Override
     public ArrayList<Like> getAll() {
         ArrayList<Like> likes = new ArrayList<>();
@@ -39,5 +39,31 @@ public class LikeDAO extends BaseDAO<Like> {
             Logger.getLogger(RoleDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return likes;
+    }
+
+    public void insertLike(Like l) {
+        try {
+            String sql = "insert into [liked]([user_ID], [album_ID], t_lastUpdate)\n"
+                    + "values \n"
+                    + "(?,?,?)";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, l.getUser_ID());
+            st.setInt(2, l.getAlbum_ID());
+            st.setTimestamp(3, l.getT_lastUpdate());
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
+    public void removeLike(int user_ID, int album_ID) {
+        try {
+            String sql = "DELETE FROM liked\n"
+                    + "WHERE user_ID = ? and album_ID = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, user_ID);
+            st.setInt(2, album_ID);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
     }
 }

@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -120,7 +121,7 @@ public class MyMethod {
             }
         }
     }
-    
+
     public static String getValueCooky(HttpServletRequest request, HttpServletResponse response, String cooky_name) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
@@ -131,5 +132,32 @@ public class MyMethod {
             }
         }
         return null;
+    }
+
+    public static Cookie createCooky(String cooky_name, String cooky_value, int maxAge) {
+        Cookie cookie = new Cookie(cooky_name, cooky_value);
+        cookie.setMaxAge(maxAge);
+        return cookie;
+    }
+
+    public static String getTimeAgo(Timestamp t_now, Timestamp t_lastOnline) {
+        long durationInMillis = t_now.getTime() - t_lastOnline.getTime();
+        int second = (int) (durationInMillis / 1000);
+        int minute = second / 60;
+        int hour = minute / 60;
+        int day = hour / 24;
+        int week = day / 7;
+        if (week >= 1) {
+            return String.format("%d week ago", week);
+        }
+        else if (day >= 1) {
+            return String.format("%d day ago", day % 7);
+        } else if (hour >= 1) {
+            return String.format("%d hour ago", hour % 24);
+        } else if (minute >= 1) {
+            return String.format("%d minute ago", minute % 60);
+        } else {
+            return String.format("%d second ago", second % 60);
+        }
     }
 }

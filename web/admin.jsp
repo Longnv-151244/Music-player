@@ -118,20 +118,20 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <div class="sort-select">
-                                    <select>
-                                        <option value="default">Sort by:</option>
-                                        <option value="id">Sort by ID</option>
-                                        <option value="a-z">Name: A - Z</option>
-                                        <option value="z-a">Name: Z - A</option>
-                                        <option value="time">Time Update</option>
-                                        <option value="like">Most Like</option>
-                                    </select>
-                                </div>
+                                <!--                                <div class="sort-select">
+                                                                    <select>
+                                                                        <option value="default">Sort by:</option>
+                                                                        <option value="id">Sort by ID</option>
+                                                                        <option value="a-z">Name: A - Z</option>
+                                                                        <option value="z-a">Name: Z - A</option>
+                                                                        <option value="time">Time Update</option>
+                                                                        <option value="like">Most Like</option>
+                                                                    </select>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
-                            <table>
+                            <table class="table">
                                 <thead> 
                                     <tr>
                                         <th class="id">ID</th>
@@ -188,16 +188,16 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <div class="sort-select">
-                                    <select>
-                                        <option value="default">Sort by:</option>
-                                        <option value="id">Sort by ID</option>
-                                        <option value="a-z">Name: A - Z</option>
-                                        <option value="z-a">Name: Z - A</option>
-                                        <option value="time">Time Update</option>
-                                        <option value="like">Most Like</option>
-                                    </select>
-                                </div>
+                                <!--                                <div class="sort-select">
+                                                                    <select>
+                                                                        <option value="default">Sort by:</option>
+                                                                        <option value="id">Sort by ID</option>
+                                                                        <option value="a-z">Name: A - Z</option>
+                                                                        <option value="z-a">Name: Z - A</option>
+                                                                        <option value="time">Time Update</option>
+                                                                        <option value="like">Most Like</option>
+                                                                    </select>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -258,16 +258,16 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <div class="sort-select">
-                                    <select>
-                                        <option value="default">Sort by:</option>
-                                        <option value="id">Sort by ID</option>
-                                        <option value="a-z">Name: A - Z</option>
-                                        <option value="z-a">Name: Z - A</option>
-                                        <option value="time">Time Update</option>
-                                        <option value="like">Most Like</option>
-                                    </select>
-                                </div>
+                                <!--                                <div class="sort-select">
+                                                                    <select>
+                                                                        <option value="default">Sort by:</option>
+                                                                        <option value="id">Sort by ID</option>
+                                                                        <option value="a-z">Name: A - Z</option>
+                                                                        <option value="z-a">Name: Z - A</option>
+                                                                        <option value="time">Time Update</option>
+                                                                        <option value="like">Most Like</option>
+                                                                    </select>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -328,16 +328,16 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <div class="sort-select">
-                                    <select>
-                                        <option value="default">Sort by:</option>
-                                        <option value="id">Sort by ID</option>
-                                        <option value="a-z">Name: A - Z</option>
-                                        <option value="z-a">Name: Z - A</option>
-                                        <option value="time">Time Update</option>
-                                        <option value="like">Most Like</option>
-                                    </select>
-                                </div>
+                                <!--                                <div class="sort-select">
+                                                                    <select>
+                                                                        <option value="default">Sort by:</option>
+                                                                        <option value="id">Sort by ID</option>
+                                                                        <option value="a-z">Name: A - Z</option>
+                                                                        <option value="z-a">Name: Z - A</option>
+                                                                        <option value="time">Time Update</option>
+                                                                        <option value="like">Most Like</option>
+                                                                    </select>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -393,14 +393,14 @@
                             </div>
                             <div class="overview__item">
                                 <div class="overview__item-info">
-                                    <div class="overview__item-value">55</div>
+                                    <div class="overview__item-value">1</div>
                                     <div class="overview__item-unit">Online</div>
                                 </div>
                                 <div class="overview__item-icon"><i class="fas fa-toggle-on"></i></div>
                             </div>
                             <div class="overview__item">
                                 <div class="overview__item-info">
-                                    <div class="overview__item-value">55</div>
+                                    <div class="overview__item-value">${users.size() - 1}</div>
                                     <div class="overview__item-unit">Offline</div>
                                 </div>
                                 <div class="overview__item-icon"><i class="fas fa-toggle-off"></i></div>
@@ -410,16 +410,16 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <div class="sort-select">
-                                    <select>
-                                        <option value="default">Sort by:</option>
-                                        <option value="id">Sort by ID</option>
-                                        <option value="a-z">Name: A - Z</option>
-                                        <option value="z-a">Name: Z - A</option>
-                                        <option value="time">Time Update</option>
-                                        <option value="like">Most Like</option>
-                                    </select>
-                                </div>
+                                <!--                                <div class="sort-select">
+                                                                    <select>
+                                                                        <option value="default">Sort by:</option>
+                                                                        <option value="id">Sort by ID</option>
+                                                                        <option value="a-z">Name: A - Z</option>
+                                                                        <option value="z-a">Name: Z - A</option>
+                                                                        <option value="time">Time Update</option>
+                                                                        <option value="like">Most Like</option>
+                                                                    </select>
+                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -439,7 +439,7 @@
                                             <td class="id">${u.id}</td>
                                             <td class="name user_name">${u.username}</td>
                                             <td class="name name_mail">${u.email}</td>
-                                            <td class="timeUpdate">3 minute ago</td>
+                                            <td class="timeUpdate">${u.timeAgo}</td>
                                             <td class="action"> 
                                                 <div class="update-view"> <i class="fas fa-comment-alt-edit icon"></i></div>
                                                 <div class="delete-view"> <i class="far fa-trash-alt icon"></i></div>
@@ -673,6 +673,7 @@
                 </div>
             </div>
         </section>
+        <section id="toast"></section>
         <script>
             function deleteAlbum(id) {
                 const check = confirm(
@@ -683,7 +684,7 @@
                 }
             }
         </script>
-        <script src="./js/dateFormat.js"></script>                    
+        <script src="./js/dateFormat.js"></script>  
         <script src="./js/admin_app.js"></script>
     </body>
 </html>

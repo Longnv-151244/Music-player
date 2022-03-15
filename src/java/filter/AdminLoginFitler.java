@@ -21,6 +21,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.MyMethod;
 import model.User;
 
 /**
@@ -112,13 +113,18 @@ public class AdminLoginFitler implements Filter {
         String username = null;
         String password = null;
         String remeber = request.getParameter("remember");
+        boolean isRemeber = false;
+        boolean isAccess = false;
         if (cookies != null) {
             for (Cookie cooky : cookies) {
                 if (cooky.getName().equals("username")) {
                     username = cooky.getValue();
-                    continue;
                 }
-                if (cooky.getName().equals("user_ID")) {
+                if (cooky.getName().equals("isAccess")) {
+                    isAccess = true;
+                }
+                if (cooky.getName().equals("isRemeber")) {
+                    isRemeber = true;
                     continue;
                 }
                 cooky.setValue(null);
@@ -126,27 +132,31 @@ public class AdminLoginFitler implements Filter {
                 response.addCookie(cooky);
             }
         }
-        UserDAO ad = new UserDAO();
-        User user = ad.getAccountByUsername(username);
+        UserDAO ud = new UserDAO();
+        User user = null;
+        if (isRemeber || isAccess) {
+            user = ud.getAccountByUsername(username);
+        }
         Cookie c_message_login_admin = new Cookie("mess_login-admin", "");
         if (user == null || user.getRole_id() == 1) {
             username = request.getParameter("username");
             password = request.getParameter("password");
-            user = ad.getAccountByUsernameAndPassword(username, password);
+            user = ud.getAccountByUsernameAndPassword(username, password);
         }
         if (user != null) {
             if (user.getRole_id() != 1) {
                 req.setAttribute("user", user);
                 session.setAttribute("user", user);
+                Cookie c_username = MyMethod.createCooky("username", username, 3600 * 3);
+                response.addCookie(c_username);
+                Cookie c_userID = MyMethod.createCooky("user_ID", String.valueOf(user.getId()), 3600 * 3);
+                response.addCookie(c_userID);
                 if (remeber != null) {
-                    Cookie c_user = new Cookie("username", username);
-                    c_user.setMaxAge(3600 * 3);
-                    response.addCookie(c_user);
-                    Cookie c_user_ID = new Cookie("user_ID", String.valueOf(user.getId()));
-                    c_user_ID.setMaxAge(3600 * 3);
-                    response.addCookie(c_user_ID);
+                    Cookie c_isRemeber = MyMethod.createCooky("isRemeber", "true", 3600);
+                    response.addCookie(c_isRemeber);
                 }
                 c_message_login_admin.setValue("login_1");
+                ud.updateT_lastOnline(user.getId());
                 chain.doFilter(req, res);//sends request to next resource 
             } else {
                 c_message_login_admin.setValue("login_3");

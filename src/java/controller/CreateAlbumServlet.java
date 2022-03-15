@@ -15,6 +15,7 @@ import java.text.Normalizer;
 import java.util.regex.Pattern;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -47,6 +48,7 @@ public class CreateAlbumServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getContextPath() + "/admin";
         String create_name = MyMethod.formatNVarchar(request.getParameter("create_name"));
         String create_author = MyMethod.formatNVarchar(request.getParameter("create_author"));
         int category_ID = Integer.parseInt(request.getParameter("create_category"));
@@ -64,10 +66,13 @@ public class CreateAlbumServlet extends HttpServlet {
         ad.inserAlbum(a);
         int album_ID = ad.getIDByNameAndT_create(a);
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
-        History h = new History(user_ID, album_ID, t_lastUpdate, 2);
+        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        History h = new History(user_ID, username, album_ID, create_name, t_lastUpdate, 2);
         HistoryDAO hd = new HistoryDAO();
         hd.insertHistory(h);
-        String url = request.getContextPath() + "/admin";
+        Cookie c = MyMethod.createCooky("isAccess", "true", 1);
+        c.setPath(url);
+        response.addCookie(c);
         response.sendRedirect(url);
     }
 

@@ -1,4 +1,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : home
     Created on : 02-03-2022, 00:01:15
@@ -19,7 +24,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>JSP Page</title>
         <link rel="stylesheet" href="./css/app.css">
-        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css" type="text/css">
     </head>
     <body> 
         <section class="bg-overlay" id="login">
@@ -213,7 +218,7 @@
                                         <div class="option like"><i class="fas fa-heart"> <span>Like</span></i></div>
                                         <div class="div">
                                             <div class="option share"> <i class="fas fa-share-alt"> <span>Share</span></i></div>
-                                            <div class="option download"><i class="fas fa-download"> <span>Download</span></i></div>
+                                            <div class="option download"><c:if test="${user != null}"><a href="${slider.album.path}" download></c:if><i class="fas fa-download"> <span>Download</span></i></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -283,10 +288,10 @@
                                                 </div>
                                             </div>
                                             <div class="song-option"> 
-                                                <div class="option addList"> <i class="fas fa-plus"></i></div>
-                                                <div class="option like"> <i class="far fa-heart"></i></div>
+                                                <div class="option download"><c:if test="${user != null}"><a href="${album.path}" download></c:if><i class="fal fa-arrow-alt-to-bottom"></i></a></div>
+                                                <div <c:if test="${user != null}"> data-user_id="${user.id}" data-album_id="${album.id}"</c:if> class="option like <c:if test="${album.liked == true}">active</c:if>"> <i class="fas fa-heart"></i></div>
+                                                </div>
                                             </div>
-                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -333,10 +338,10 @@
                                                 </div>
                                             </div>
                                             <div class="song-option"> 
-                                                <div class="option addList"> <i class="fas fa-plus"></i></div>
-                                                <div class="option like"> <i class="far fa-heart"></i></div>
+                                                <div class="option download"><c:if test="${user != null}"><a href="${album.path}" download></c:if><i class="fal fa-arrow-alt-to-bottom"></i></a></div>
+                                                <div <c:if test="${user != null}"> data-user_id="${user.id}" data-album_id="${album.id}"</c:if> class="option like <c:if test="${album.liked == true}">active</c:if>"> <i class="fas fa-heart"></i></div>
+                                                </div>
                                             </div>
-                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -383,10 +388,10 @@
                                                 </div>
                                             </div>
                                             <div class="song-option"> 
-                                                <div class="option addList"> <i class="fas fa-plus"></i></div>
-                                                <div class="option like"> <i class="far fa-heart"></i></div>
+                                                <div class="option download"><c:if test="${user != null}"><a href="${album.path}" download></c:if><i class="fal fa-arrow-alt-to-bottom"></i></a></div>
+                                                <div <c:if test="${user != null}"> data-user_id="${user.id}" data-album_id="${album.id}"</c:if> class="option like <c:if test="${album.liked == true}">active</c:if>"> <i class="fas fa-heart"></i></div>
+                                                </div>
                                             </div>
-                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -507,5 +512,8 @@
         <audio id="audio" src="">    </audio>
         <script src="./node_modules/jarallax/dist/jarallax.min.js"></script>
         <script src="./js/app.js"></script>
+        <script src="./js/jquery-3.2.1.min.js"></script>
+        <script src="./js/handle_ajax.js"></script>
+        <script src="./js/handle_toast.js"></script>
     </body>
 </html>

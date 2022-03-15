@@ -81,9 +81,13 @@ public class CategoryDAO extends BaseDAO<Category> {
 
     public int getTotal_User(int category_ID) {
         try {
-            String sql = "SELECT count(*) AS total_User\n"
-                    + "FROM Albums join liked ON Albums.id = liked.album_ID and Albums.category_ID = ?\n"
-                    + "GROUP BY liked.user_ID";
+            String sql = "WITH t AS (\n"
+                    + "	SELECT user_ID, COUNT(liked.id) as totalLiked\n"
+                    + "	FROM Albums join liked ON Albums.id = liked.album_ID and Albums.category_ID = ?\n"
+                    + "	GROUP BY liked.user_ID\n"
+                    + ")\n"
+                    + "SELECT COUNT(*) AS total_User\n"
+                    + "FROM t";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, category_ID);
             ResultSet rs = st.executeQuery();

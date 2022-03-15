@@ -66,8 +66,10 @@ GO
 
 create table history_Album(
 	id int primary key identity(1,1),
-	[user_ID] int references Users(id) not null,
-	[album_ID] int references Albums(id) not null,
+	[user_ID] int not null,
+	[user_name] varchar(32) not null,
+	[album_ID] int not null,
+	[album_name] nvarchar(64) not null,
 	t_lastUpdate smalldatetime not null,
 	[action_ID] int references [Action](id) not null
 )

@@ -8,13 +8,17 @@ package controller;
 import dal.AlbumDAO;
 import dal.SliderDAO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Album;
+import model.MyMethod;
 import model.Slider;
+import model.User;
 
 /**
  *
@@ -37,12 +41,23 @@ public class HomeServlet extends HttpServlet {
         ArrayList<Slider> sliders = sd.getAll();
         request.setAttribute("sliders", sliders);
         AlbumDAO ad = new AlbumDAO();
-        ArrayList<Album> albums_Vpop = ad.getAlbumsOfCategory(1);
-        request.setAttribute("albums_Vpop", albums_Vpop);
-        ArrayList<Album> albums_USUK = ad.getAlbumsOfCategory(2);
-        request.setAttribute("albums_USUK", albums_USUK);
-        ArrayList<Album> albums_Lofi = ad.getAlbumsOfCategory(3);
-        request.setAttribute("albums_Lofi", albums_Lofi);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            ArrayList<Album> albums_Vpop = ad.getAlbumsOfCategoryWithUser(1, u.getId());
+            request.setAttribute("albums_Vpop", albums_Vpop);
+            ArrayList<Album> albums_USUK = ad.getAlbumsOfCategoryWithUser(2, u.getId());
+            request.setAttribute("albums_USUK", albums_USUK);
+            ArrayList<Album> albums_Lofi = ad.getAlbumsOfCategoryWithUser(3, u.getId());
+            request.setAttribute("albums_Lofi", albums_Lofi);
+        } else {
+            ArrayList<Album> albums_Vpop = ad.getAlbumsOfCategory(1);
+            request.setAttribute("albums_Vpop", albums_Vpop);
+            ArrayList<Album> albums_USUK = ad.getAlbumsOfCategory(2);
+            request.setAttribute("albums_USUK", albums_USUK);
+            ArrayList<Album> albums_Lofi = ad.getAlbumsOfCategory(3);
+            request.setAttribute("albums_Lofi", albums_Lofi);
+        }
         request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 

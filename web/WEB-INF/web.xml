@@ -64,6 +64,14 @@
         <servlet-name>DeleteAlbumServlet</servlet-name>
         <servlet-class>controller.DeleteAlbumServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateLikedAlbumServlet</servlet-name>
+        <servlet-class>controller.CreateLikedAlbumServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveLikedAlbum</servlet-name>
+        <servlet-class>controller.RemoveLikedAlbum</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SignInServlet</servlet-name>
         <url-pattern>/sign-in</url-pattern>
@@ -118,6 +126,14 @@
     <servlet-mapping>
         <servlet-name>DeleteAlbumServlet</servlet-name>
         <url-pattern>/admin/delete/album</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateLikedAlbumServlet</servlet-name>
+        <url-pattern>/create-liked</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveLikedAlbum</servlet-name>
+        <url-pattern>/remove-liked</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

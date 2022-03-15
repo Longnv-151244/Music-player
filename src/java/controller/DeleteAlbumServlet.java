@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Timestamp;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -34,14 +35,19 @@ public class DeleteAlbumServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getContextPath() + "/admin";
         int album_id = Integer.parseInt(request.getParameter("id"));
         AlbumDAO ad = new AlbumDAO();
+        String album_name = ad.getAlbumByID(album_id).getName();
         ad.deleteAlbum(album_id);
-        String url = request.getContextPath() + "/admin";
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
         Timestamp t_lastUpdate = MyMethod.getT_now();
-        History h = new History(user_ID, album_id, t_lastUpdate, 4);
+        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        History h = new History(user_ID, username, album_id, album_name, t_lastUpdate, 4);
         HistoryDAO hd = new HistoryDAO();
+        Cookie c = MyMethod.createCooky("isAccess", "true", 1);
+        c.setPath(url);
+        response.addCookie(c);
         hd.insertHistory(h);
         response.sendRedirect(url);
     }

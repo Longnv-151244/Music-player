@@ -423,7 +423,7 @@ ul li {
 
 #header {
   position: fixed;
-  z-index: 999;
+  z-index: 33;
   width: 100%;
   left: 0;
   top: 0;
@@ -880,6 +880,9 @@ ul li {
 .tab__container-list .play-list .song-item .song-option > * {
   cursor: pointer;
 }
+.tab__container-list .play-list .song-item .song-option > *.active {
+  color: #f55656;
+}
 .tab__container-list .play-list .song-item.active, .tab__container-list .play-list .song-item:hover {
   background: #ebebeb;
 }
@@ -1103,7 +1106,7 @@ ul li {
 
 #user {
   position: fixed;
-  z-index: 999;
+  z-index: 55;
   width: 100vw;
   height: 100vh;
   left: 0;
@@ -1247,7 +1250,7 @@ ul li {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 9999;
+  z-index: 55;
   display: none;
 }
 #login.active {
@@ -1345,36 +1348,36 @@ ul li {
 
 #toast {
   position: fixed;
-  z-index: 888;
+  z-index: 66;
   right: 20px;
-  top: 120px;
+  top: 100px;
 }
 #toast .toast {
   animation: backInRight 0.3s ease, fadeOut 1s linear 4s;
 }
 #toast .toast.toast--success .toast__container {
-  border-left: 5px solid #00c24e;
+  border-left: 8px solid #00c24e;
 }
 #toast .toast.toast--success .toast__container .toast__heading,
 #toast .toast.toast--success .toast__container .toast__icon {
   color: #00c24e;
 }
 #toast .toast.toast--info .toast__container {
-  border-left: 5px solid #3881e0;
+  border-left: 8px solid #3881e0;
 }
 #toast .toast.toast--info .toast__container .toast__heading,
 #toast .toast.toast--info .toast__container .toast__icon {
   color: #3881e0;
 }
 #toast .toast.toast--warning .toast__container {
-  border-left: 5px solid #ffbb33;
+  border-left: 8px solid #ffbb33;
 }
 #toast .toast.toast--warning .toast__container .toast__heading,
 #toast .toast.toast--warning .toast__container .toast__icon {
   color: #ffbb33;
 }
 #toast .toast.toast--error .toast__container {
-  border-left: 5px solid #ff4444;
+  border-left: 8px solid #ff4444;
 }
 #toast .toast.toast--error .toast__container .toast__heading,
 #toast .toast.toast--error .toast__container .toast__icon {
@@ -1390,7 +1393,8 @@ ul li {
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: relative;
-  background-color: #ffffff;
+  background-color: #ebebeb;
+  border-radius: 5px;
 }
 @media only screen and (max-width:767px) {
   #toast .toast__container {
@@ -1408,7 +1412,7 @@ ul li {
   cursor: pointer;
 }
 #toast .toast__container .toast__content .toast__heading {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 5px;
 }
 #toast .toast__container .toast__content .toast__text {
@@ -1953,23 +1957,11 @@ ul li {
   border-radius: 5px;
   border: 0px;
   height: 100%;
-  margin-right: 30px;
+  margin-right: 100px;
   background: linear-gradient(to left, #f27121, #e94057, #8a2387);
 }
 .admin__container .admin__content .admin__content-header .btn-create .icon {
   margin-left: 20px;
-}
-.admin__container .admin__content .admin__content-header .sort-select {
-  float: right;
-  margin-right: 50px;
-}
-.admin__container .admin__content .admin__content-header .sort-select select {
-  cursor: pointer;
-  height: 43px;
-  padding: 5px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 700;
 }
 .admin__container .admin__content .admin__content-main table {
   width: 100%;
@@ -2051,7 +2043,7 @@ ul li {
 
 #admin_action {
   position: fixed;
-  z-index: 888;
+  z-index: 44;
   width: 100vw;
   height: 100vh;
   left: 0;

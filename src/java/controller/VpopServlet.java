@@ -13,8 +13,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Album;
 import model.Background;
+import model.MyMethod;
+import model.User;
 
 /**
  *
@@ -35,8 +38,15 @@ public class VpopServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         AlbumDAO ad = new AlbumDAO();
-        ArrayList<Album> albums = ad.getAlbumsOfCategory(1);
-        request.setAttribute("albums", albums);
+        HttpSession session = request.getSession();
+        User u = (User) session.getAttribute("user");
+        if (u != null) {
+            ArrayList<Album> albums = ad.getAlbumsOfCategoryWithUser(1, 1);
+            request.setAttribute("albums", albums);
+        } else {
+            ArrayList<Album> albums = ad.getAlbumsOfCategory(1);
+            request.setAttribute("albums", albums);
+        }
         BackgroundDAO bd = new BackgroundDAO();
         ArrayList<Background> bgs = bd.getAll();
         request.setAttribute("bgs", bgs);

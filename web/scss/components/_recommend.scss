@@ -237,6 +237,9 @@
         }
         & > * {
           cursor: pointer;
+          &.active {
+            color: $primary;
+          }
         }
       }
       &.active,

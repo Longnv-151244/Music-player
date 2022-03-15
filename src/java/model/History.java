@@ -26,17 +26,21 @@ public class History {
     public History() {
     }
 
-    public History(int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
+    public History(int user_ID, String user_name, int album_ID, String album_name, Timestamp t_lastUpdate, int action_ID) {
         this.user_ID = user_ID;
+        this.user_name = user_name;
         this.album_ID = album_ID;
+        this.album_name = album_name;
         this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }
-    
-    public History(int id, int user_ID, int album_ID, Timestamp t_lastUpdate, int action_ID) {
+
+    public History(int id, int user_ID, String user_name, int album_ID, String album_name, Timestamp t_lastUpdate, int action_ID) {
         this.id = id;
         this.user_ID = user_ID;
+        this.user_name = user_name;
         this.album_ID = album_ID;
+        this.album_name = album_name;
         this.t_lastUpdate = t_lastUpdate;
         this.action_ID = action_ID;
     }

@@ -77,9 +77,9 @@ insert into [liked]([user_ID], [album_ID], t_lastUpdate)
 values 
 (1,1,'2022-02-22 13:25:00')
 
-insert into history_Album([user_ID], [album_ID], t_lastUpdate, [action_ID])
+insert into history_Album([user_ID],[user_name], [album_ID],[album_name], t_lastUpdate, [action_ID])
 values
-(1,1,'2022-02-22 14:39:00',3)
+(1,'',1,'','2022-02-22 14:39:00',3)
 
 insert into Background(name, path)
 values 

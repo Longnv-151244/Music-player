@@ -23,11 +23,8 @@ public class HistoryDAO extends BaseDAO<History> {
     public ArrayList<History> getAll() {
         ArrayList<History> histories = new ArrayList<>();
         try {
-            String sql = "SELECT history_Album.id, user_ID ,"
-                    + "(Users.[first_name] + ' ' + Users.last_name) as [user_name] , "
-                    + "album_ID, Albums.name as album_name , history_Album.t_lastUpdate, action_ID\n"
-                    + "FROM history_Album join Albums on history_Album.album_ID = Albums.id\n"
-                    + "join Users on history_Album.user_ID = Users.id";
+            String sql = "SELECT id, user_ID, user_name, album_ID, album_name, t_lastUpdate, action_ID\n"
+                    + "FROM history_Album";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
@@ -49,13 +46,16 @@ public class HistoryDAO extends BaseDAO<History> {
 
     public void insertHistory(History h) {
         try {
-            String sql = "INSERT INTO history_Album([user_ID], [album_ID], t_lastUpdate, [action_ID])\n"
-                    + "VALUES(?,?,?,?)";
+            String sql = "INSERT into history_Album([user_ID],[user_name], [album_ID],[album_name], t_lastUpdate, [action_ID])\n"
+                    + "VALUES\n"
+                    + "(?,?,?,?,?,?)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, h.getUser_ID());
-            st.setInt(2, h.getAlbum_ID());
-            st.setTimestamp(3, h.getT_lastUpdate());
-            st.setInt(4, h.getAction_ID());
+            st.setString(2, h.getUser_name());
+            st.setInt(3, h.getAlbum_ID());
+            st.setString(4, h.getAlbum_name());
+            st.setTimestamp(5, h.getT_lastUpdate());
+            st.setInt(6, h.getAction_ID());
             st.executeUpdate();
         } catch (Exception e) {
         }

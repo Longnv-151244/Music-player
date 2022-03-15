@@ -157,12 +157,12 @@ public class AlbumDAO extends BaseDAO<Album> {
                     + "FROM Albums LEFT JOIN liked ON Albums.id = liked.album_ID AND liked.user_ID = ?\n"
                     + "WHERE category_ID = ?";
             PreparedStatement st = connection.prepareStatement(sql);
-            st.setInt(1, category_ID);
-            st.setInt(2, user_ID);
+            st.setInt(1, user_ID);
+            st.setInt(2, category_ID);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 Album a = new Album();
-                a.setId(rs.getInt("id"));
+                a.setId(rs.getInt("album_ID"));
                 a.setName(rs.getString("name"));
                 a.setAuthor(rs.getString("author"));
                 a.setCategory_id(rs.getInt("category_ID"));
@@ -198,13 +198,10 @@ public class AlbumDAO extends BaseDAO<Album> {
                     + "GROUP BY Albums.id";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            try {
-                if (rs.next()) {
-                    int album_ID = rs.getInt("id");
-                    int total_Like = rs.getInt("total_Like");
-                    setLiked(album_ID, total_Like, albums);
-                }
-            } catch (Exception e) {
+            while (rs.next()) {
+                int album_ID = rs.getInt("id");
+                int total_Like = rs.getInt("total_Like");
+                setLiked(album_ID, total_Like, albums);
             }
         } catch (Exception e) {
         }

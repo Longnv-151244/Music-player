@@ -47,8 +47,8 @@ public class UpdateUserServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Boolean flag = true;
         MyMethod.removeCooky(request, response, "mess_update-user");
-        MyMethod.removeCooky(request, response, "username");
-        Cookie c_message_update_user = new Cookie("mess_update-user", "success");
+//        MyMethod.removeCooky(request, response, "username");
+        Cookie c_message_update_user = new Cookie("mess_update-user", "update_user_1");
         if (MyMethod.checkInput(old_password)) {
             if (old_password.equals(u.getPassword())) {
                 if (new_password.equals(verify_password)) {
@@ -59,14 +59,15 @@ public class UpdateUserServlet extends HttpServlet {
                     }
                 } else {
                     flag = false;
-                    c_message_update_user.setValue("pass != verify");
+                    c_message_update_user.setValue("update_user_3");
                 }
             } else {
                 flag = false;
-                c_message_update_user.setValue("pass invalid");
+                c_message_update_user.setValue("update_user_2");
             }
         }
-        c_message_update_user.setMaxAge(3600);
+        c_message_update_user.setMaxAge(1);      
+        c_message_update_user.setPath(url);
         response.addCookie(c_message_update_user);
         if (MyMethod.checkInput(first_name) && flag) {
             u.setFirs_name(first_name);

@@ -141,25 +141,25 @@
         border-radius: 5px;
         border: 0px;
         height: 100%;
-        margin-right: 30px;
+        margin-right: 100px;
         background: $primary_linear;
         .icon {
           margin-left: 20px;
         }
       }
-      .sort-select {
-        float: right;
-        margin-right: 50px;
-        select {
-          cursor: pointer;
-          height: 43px;
-          padding: 5px;
-          border-radius: 10px;
-          font-size: 16px;
-          font-weight: 700;
-          // margin-top: -5px;
-        }
-      }
+      // .sort-select {
+      //   float: right;
+      //   margin-right: 50px;
+      //   select {
+      //     cursor: pointer;
+      //     height: 43px;
+      //     padding: 5px;
+      //     border-radius: 10px;
+      //     font-size: 16px;
+      //     font-weight: 700;
+      //     // margin-top: -5px;
+      //   }
+      // }
     }
     .admin__content-main {
       table {

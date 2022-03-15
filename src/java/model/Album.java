@@ -163,6 +163,10 @@ public class Album {
     public boolean isLiked() {
         return liked;
     }
+    
+    public boolean getLiked() {
+        return liked;
+    }
 
     public void setLiked(boolean liked) {
         this.liked = liked;

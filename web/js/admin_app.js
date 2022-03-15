@@ -45,10 +45,19 @@ const optionEditCategory = Array.from(
 const optionCreateCategory = Array.from(
   $$(".admin_create-container select option")
 );
+// const stringCookies = document.cookie;
+// const arrayCookies = stringCookies.split(";");
 
 const app = {
   isAudio: false,
   category: ["Vpop", "US-UK", "Lofi"],
+  // cookies: arrayCookies.map((cooky) => {
+  //   return {
+  //     name: cooky.split("=")[0],
+  //     value: cooky.split("=")[1],
+  //   };
+  // }),
+
   handleEvent: function () {
     const _this = this;
     // Event for admin action

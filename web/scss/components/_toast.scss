@@ -1,13 +1,13 @@
 #toast {
   position: fixed;
-  z-index: 888;
+  z-index: 66;
   right: 20px;
-  top: 120px;
+  top: 100px;
   .toast {
     animation: backInRight 0.3s ease, fadeOut 1s linear 4s;
     &.toast--success {
       .toast__container {
-        border-left: 5px solid $success;
+        border-left: 8px solid $success;
         .toast__heading,
         .toast__icon {
           color: $success;
@@ -16,7 +16,7 @@
     }
     &.toast--info {
       .toast__container {
-        border-left: 5px solid $info;
+        border-left: 8px solid $info;
         .toast__heading,
         .toast__icon {
           color: $info;
@@ -25,7 +25,7 @@
     }
     &.toast--warning {
       .toast__container {
-        border-left: 5px solid $warning;
+        border-left: 8px solid $warning;
         .toast__heading,
         .toast__icon {
           color: $warning;
@@ -34,7 +34,7 @@
     }
     &.toast--error {
       .toast__container {
-        border-left: 5px solid $error;
+        border-left: 8px solid $error;
         .toast__heading,
         .toast__icon {
           color: $error;
@@ -52,7 +52,8 @@
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     position: relative;
-    background-color: $white;
+    background-color: $border;
+    border-radius: 5px;
     @media #{$breakpoint-mobile} {
       width: 70vw;
     }
@@ -68,7 +69,7 @@
     }
     .toast__content {
       .toast__heading {
-        font-size: 24px;
+        font-size: 22px;
         margin-bottom: 5px;
       }
       .toast__text {

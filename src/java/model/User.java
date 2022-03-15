@@ -36,6 +36,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.t_create = getT_now();
+        this.t_lastOnline = getT_now();
         this.role_id = 1;
     }
 
@@ -138,6 +139,10 @@ public class User {
 
     public void setT_lastOnline(Timestamp t_lastOnline) {
         this.t_lastOnline = t_lastOnline;
+    }
+    
+    public String getTimeAgo(){
+        return MyMethod.getTimeAgo(MyMethod.getT_now(), t_lastOnline);
     }
 
     public String getEmail() {

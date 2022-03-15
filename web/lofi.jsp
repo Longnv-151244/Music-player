@@ -248,10 +248,10 @@
                                             </div>
                                             <div class="song-duration">${song.duration}</div>
                                             <div class="song-option">
-                                                <div class="option like"><i class ="far fa-heart"></i></div>
-                                                <div class="option download"><i class="fas fa-download"></i></div>
+                                                <div <c:if test="${user != null}"> data-user_id="${user.id}" data-album_id="${song.id}"</c:if> class="option like <c:if test="${song.liked == true}">active</c:if>"> <i class ="fas fa-heart"></i></div>
+                                                    <div class="option download"><i class="fas fa-download"></i></div>
+                                                </div>
                                             </div>
-                                        </div>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -263,22 +263,24 @@
                                 </div>
                                 <div class="play-list scroll-overflow">
                                     <c:forEach var="song" items="${albums}">
-                                        <div class="song-item" data-path="${song.path}">
-                                            <div class="song-content">
-                                                <div class="song-img bg-img" style="background-image: url('${song.image}');">
-                                                    <div class="song-img--hover"><i class="fas fa-play"></i></div>
+                                        <c:if test="${song.liked == true}">
+                                            <div class="song-item" data-path="${song.path}">
+                                                <div class="song-content">
+                                                    <div class="song-img bg-img" style="background-image: url('${song.image}');">
+                                                        <div class="song-img--hover"><i class="fas fa-play"></i></div>
+                                                    </div>
+                                                    <div class="song-info">
+                                                        <h2 class="song-name">${song.name}</h2>
+                                                        <div class="song-author">${song.author}</div>
+                                                    </div>
                                                 </div>
-                                                <div class="song-info">
-                                                    <h2 class="song-name">${song.name}</h2>
-                                                    <div class="song-author">${song.author}</div>
+                                                <div class="song-duration">${song.duration}</div>
+                                                <div class="song-option">
+                                                    <div <c:if test="${user != null}"> data-user_id="${user.id}" data-album_id="${song.id}"</c:if> class="option like active"><i class ="fas fa-heart"></i></div>
+                                                        <div class="option download"><i class="fas fa-download"></i></div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="song-duration">${song.duration}</div>
-                                            <div class="song-option">
-                                                <div class="option like"><i class ="far fa-heart"></i></div>
-                                                <div class="option download"><i class="fas fa-download"></i></div>
-                                            </div>
-                                        </div>
+                                        </c:if>
                                     </c:forEach>
                                 </div>
                             </div>
@@ -351,6 +353,9 @@
             </c:if>
             <audio id="audio" src=""> </audio>
             <script src="./js/music_app.js"></script>
+            <script src="./js/jquery-3.2.1.min.js"></script>
+            <script src="./js/handle_ajax.js"></script>
+            <script src="./js/handle_toast.js"></script>
         </section>
     </body>
 </html>

@@ -20,23 +20,18 @@ public class Test {
 
     public static void main(String[] args) {
         AlbumDAO ad = new AlbumDAO();
-        Album a = ad.getAlbumByID(9);
-        int id = ad.getIDByNameAndT_create(a);
-        System.out.println(id);
-//        ArrayList<Album> al = ad.getAll();
-//        ad.setLiked(al);
-//        for (int i = 0; i < al.size(); i++) {
-//            System.out.print(al.get(i).getName());
-//            System.out.print(" - ");
-//            System.out.println(al.get(i).getTotal_liked());
+        ArrayList<Album> albums_Vpop = ad.getAlbumsOfCategory(1);
+//        for (int i = 0; i < albums_Vpop.size(); i++) {
+//            System.out.println(albums_Vpop.get(0).getTotal_liked());
 //        }
-
-        
+        ad.setLiked(albums_Vpop);
+        for (int i = 0; i < albums_Vpop.size(); i++) {
+            System.out.println(albums_Vpop.get(i).getTotal_liked());
+        }
 
 //        int liked_id = 3;
 //        String i = String.valueOf(liked_id);
 //        System.out.println(i == null);
-
 //        System.out.println(String.valueOf(2));
     }
 }
