@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%-- 
     Document   : admin
     Created on : 02-03-2022, 00:07:48
@@ -118,16 +119,6 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <!--                                <div class="sort-select">
-                                                                    <select>
-                                                                        <option value="default">Sort by:</option>
-                                                                        <option value="id">Sort by ID</option>
-                                                                        <option value="a-z">Name: A - Z</option>
-                                                                        <option value="z-a">Name: Z - A</option>
-                                                                        <option value="time">Time Update</option>
-                                                                        <option value="like">Most Like</option>
-                                                                    </select>
-                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -188,16 +179,6 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <!--                                <div class="sort-select">
-                                                                    <select>
-                                                                        <option value="default">Sort by:</option>
-                                                                        <option value="id">Sort by ID</option>
-                                                                        <option value="a-z">Name: A - Z</option>
-                                                                        <option value="z-a">Name: Z - A</option>
-                                                                        <option value="time">Time Update</option>
-                                                                        <option value="like">Most Like</option>
-                                                                    </select>
-                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -258,16 +239,6 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <!--                                <div class="sort-select">
-                                                                    <select>
-                                                                        <option value="default">Sort by:</option>
-                                                                        <option value="id">Sort by ID</option>
-                                                                        <option value="a-z">Name: A - Z</option>
-                                                                        <option value="z-a">Name: Z - A</option>
-                                                                        <option value="time">Time Update</option>
-                                                                        <option value="like">Most Like</option>
-                                                                    </select>
-                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -328,16 +299,6 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <!--                                <div class="sort-select">
-                                                                    <select>
-                                                                        <option value="default">Sort by:</option>
-                                                                        <option value="id">Sort by ID</option>
-                                                                        <option value="a-z">Name: A - Z</option>
-                                                                        <option value="z-a">Name: Z - A</option>
-                                                                        <option value="time">Time Update</option>
-                                                                        <option value="like">Most Like</option>
-                                                                    </select>
-                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -410,16 +371,6 @@
                             <h1>All playlist</h1>
                             <div class="option">
                                 <div class="btn btn-create">Create<i class="fas fa-plus icon"></i></div>
-                                <!--                                <div class="sort-select">
-                                                                    <select>
-                                                                        <option value="default">Sort by:</option>
-                                                                        <option value="id">Sort by ID</option>
-                                                                        <option value="a-z">Name: A - Z</option>
-                                                                        <option value="z-a">Name: Z - A</option>
-                                                                        <option value="time">Time Update</option>
-                                                                        <option value="like">Most Like</option>
-                                                                    </select>
-                                                                </div>-->
                             </div>
                         </div>
                         <div class="admin__content-main"> 
@@ -429,6 +380,7 @@
                                         <th class="id">ID</th>
                                         <th class="name">Username</th>
                                         <th class="name">Mail</th>
+                                        <th class="name">Role</th>
                                         <th class="timeUpdate">Last Online</th>
                                         <th class="action">Action</th>
                                     </tr>
@@ -438,253 +390,247 @@
                                         <tr>
                                             <td class="id">${u.id}</td>
                                             <td class="name user_name">${u.username}</td>
-                                            <td class="name name_mail">${u.email}</td>
+                                            <td class="name email user_mail">${u.email}</td>
+                                            <td class="name role user_role">${u.role_name}</td>
                                             <td class="timeUpdate">${u.timeAgo}</td>
                                             <td class="action"> 
-                                                <div class="update-view"> <i class="fas fa-comment-alt-edit icon"></i></div>
-                                                <div class="delete-view"> <i class="far fa-trash-alt icon"></i></div>
+                                                <a id="edit_role" <c:if test="${user.role_id == 3 && u.role_id == 1}">href="./admin/up-admin?id=${u.id}"</c:if>>
+                                                    <div class="btn btn_edit--role <c:if test="${user.role_id == 3 && u.role_id == 1}">active</c:if>">Set Admin</div>
+                                                </a>
                                             </td>
                                         </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
+                                </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </section>
+            </div>
         </section>
-        <section class="bg-overlay" id="admin_action">
-            <div class="admin_action-container">
-                <div class="admin_action-content admin_view-container">
-                    <div class="view_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
-                        <div class="control bg-overlay"> 
-                            <div class="play active"> <i class="fad fa-play-circle"></i></div>
-                            <div class="pause"><i class="fas fa-pause-circle"></i></div>
-                        </div>
+    </section>
+    <section class="bg-overlay" id="admin_action">
+        <div class="admin_action-container">
+            <div class="admin_action-content admin_view-container">
+                <div class="view_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
+                    <div class="control bg-overlay"> 
+                        <div class="play active"> <i class="fad fa-play-circle"></i></div>
+                        <div class="pause"><i class="fas fa-pause-circle"></i></div>
                     </div>
-                    <div class="view_item-info"> 
+                </div>
+                <div class="view_item-info"> 
+                    <div class="item-name">
+                        <div class="title"> <i class="fas fa-album icon"></i><span>Name: </span></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="item-author">
+                        <div class="title"> <i class="fas fa-at icon"></i><span>Author: </span></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="item-category"> 
+                        <div class="title"> <i class="far fa-betamax icon"></i><span>Category: </span></div>
+                        <div class="value">Vpop</div>
+                    </div>
+                    <div class="item-duration">
+                        <div class="title"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></div>
+                        <div class="value"></div>
+                    </div>
+                    <div class="item-path"> 
+                        <div class="title"> <i class="fas fa-location-arrow icon"></i><span>Path: </span></div>
+                        <div class="value" id="view_audio-value"></div>
+                    </div>
+                    <div class="item-t-create"> 
+                        <div class="title"> <i class="fad fa-calendar-plus icon"></i><span>Time create: </span></div>
+                        <input class="value" type="date" disabled value="">
+                    </div>
+                    <div class="item-t-lastUpdate">
+                        <div class="title"> <i class="far fa-calendar-edit icon"></i><span>Time last update</span></div>
+                        <input class="value" type="datetime-local" disabled value="">
+                    </div>
+                </div>
+            </div>
+            <div class="admin_action-content admin_edit-container">
+                <div class="edit_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
+                    <div class="control bg-overlay"> 
+                        <div class="play active"> <i class="fad fa-play-circle"></i></div>
+                        <div class="pause"><i class="fas fa-pause-circle"></i></div>
+                    </div>
+                </div>
+                <form action="./admin/update/album" enctype="multipart/form-data" method="POST">
+                    <div class="edit_item-info"> 
+                        <input type="text" class="item-id" name="id" value="" hidden="">
                         <div class="item-name">
-                            <div class="title"> <i class="fas fa-album icon"></i><span>Name: </span></div>
-                            <div class="value"></div>
+                            <label class="title" for="edit_name"> <i class="fas fa-album icon"></i><span>Name: </span></label>
+                            <input class="value" type="text" name="edit_name" value="" id="edit_name">
                         </div>
                         <div class="item-author">
-                            <div class="title"> <i class="fas fa-at icon"></i><span>Author: </span></div>
-                            <div class="value"></div>
+                            <label class="title" for="edit_author"> <i class="fas fa-at icon"></i><span>Author: </span></label>
+                            <input class="value" type="text" name="edit_author" value="" id="edit_author">
                         </div>
                         <div class="item-category"> 
-                            <div class="title"> <i class="far fa-betamax icon"></i><span>Category: </span></div>
-                            <div class="value">Vpop</div>
+                            <label class="title" for="edit_category"> <i class="far fa-betamax icon"></i><span>Category: </span></label>
+                            <select class="value" name="edit_category" id="edit_category">
+                                <option value="1">Vpop</option>
+                                <option value="2">US-UK</option>
+                                <option value="3">Lofi</option>
+                            </select>
                         </div>
                         <div class="item-duration">
-                            <div class="title"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></div>
-                            <div class="value"></div>
+                            <label class="title" for="edit_duration"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></label>
+                            <input class="value" type="text" name="edit_duration" value="" readonly id="edit_duration">
+                        </div>
+                        <div class="item-image">
+                            <label class="title" for="edit_image"> <i class="fas fa-image icon"></i><span>Image: </span>
+                                <label for="edit_image">Click to edit image</label>
+                                <input type="file" name="edit_image" hidden accept="image/*" id="edit_image">
+                            </label>
+                            <div class="value" id="edit_image-value"></div>
                         </div>
                         <div class="item-path"> 
-                            <div class="title"> <i class="fas fa-location-arrow icon"></i><span>Path: </span></div>
-                            <div class="value" id="view_audio-value"></div>
+                            <label class="title" for="edit_audio"> <i class="fas fa-location-arrow icon"></i><span>Path: </span>
+                                <label for="edit_audio">Click to edit path</label>
+                                <input type="file" name="edit_audio" hidden accept="audio/*" id="edit_audio">
+                            </label>
+                            <div class="value" id="edit_audio-value"></div>
                         </div>
                         <div class="item-t-create"> 
-                            <div class="title"> <i class="fad fa-calendar-plus icon"></i><span>Time create: </span></div>
-                            <input class="value" type="date" disabled value="">
+                            <label class="title" for="edit_t-create"> <i class="fad fa-calendar-plus icon"></i><span>Time create: </span></label>
+                            <input class="value" type="date" name="edit_t-create" disabled value="" id="edit_t-create">
                         </div>
                         <div class="item-t-lastUpdate">
-                            <div class="title"> <i class="far fa-calendar-edit icon"></i><span>Time last update</span></div>
-                            <input class="value" type="datetime-local" disabled value="">
+                            <label class="title" for="edit_t-lastUpdate"> <i class="far fa-calendar-edit icon"></i><span>Time last update</span></label>
+                            <input class="value" type="datetime-local" name="edit_t-lastUpdate" disabled value="" id="edit_t-lastUpdate">
+                        </div>
+                        <div class="item-summit"> 
+                            <label for="edit_summit"><i class="fas fa-check-circle icon-summit"></i></label>
+                            <input type="submit" hidden id="edit_summit">
                         </div>
                     </div>
-                </div>
-                <div class="admin_action-content admin_edit-container">
-                    <div class="edit_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
-                        <div class="control bg-overlay"> 
-                            <div class="play active"> <i class="fad fa-play-circle"></i></div>
-                            <div class="pause"><i class="fas fa-pause-circle"></i></div>
-                        </div>
-                    </div>
-                    <form action="./admin/update/album" enctype="multipart/form-data" method="POST">
-                        <div class="edit_item-info"> 
-                            <input type="text" class="item-id" name="id" value="" hidden="">
-                            <div class="item-name">
-                                <label class="title" for="edit_name"> <i class="fas fa-album icon"></i><span>Name: </span></label>
-                                <input class="value" type="text" name="edit_name" value="" id="edit_name">
-                            </div>
-                            <div class="item-author">
-                                <label class="title" for="edit_author"> <i class="fas fa-at icon"></i><span>Author: </span></label>
-                                <input class="value" type="text" name="edit_author" value="" id="edit_author">
-                            </div>
-                            <div class="item-category"> 
-                                <label class="title" for="edit_category"> <i class="far fa-betamax icon"></i><span>Category: </span></label>
-                                <select class="value" name="edit_category" id="edit_category">
-                                    <option value="1">Vpop</option>
-                                    <option value="2">US-UK</option>
-                                    <option value="3">Lofi</option>
-                                </select>
-                            </div>
-                            <div class="item-duration">
-                                <label class="title" for="edit_duration"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></label>
-                                <input class="value" type="text" name="edit_duration" value="" readonly id="edit_duration">
-                            </div>
-                            <div class="item-image">
-                                <label class="title" for="edit_image"> <i class="fas fa-image icon"></i><span>Image: </span>
-                                    <label for="edit_image">Click to edit image</label>
-                                    <input type="file" name="edit_image" hidden accept="image/*" id="edit_image">
-                                </label>
-                                <div class="value" id="edit_image-value"></div>
-                            </div>
-                            <div class="item-path"> 
-                                <label class="title" for="edit_audio"> <i class="fas fa-location-arrow icon"></i><span>Path: </span>
-                                    <label for="edit_audio">Click to edit path</label>
-                                    <input type="file" name="edit_audio" hidden accept="audio/*" id="edit_audio">
-                                </label>
-                                <div class="value" id="edit_audio-value"></div>
-                            </div>
-                            <div class="item-t-create"> 
-                                <label class="title" for="edit_t-create"> <i class="fad fa-calendar-plus icon"></i><span>Time create: </span></label>
-                                <input class="value" type="date" name="edit_t-create" disabled value="" id="edit_t-create">
-                            </div>
-                            <div class="item-t-lastUpdate">
-                                <label class="title" for="edit_t-lastUpdate"> <i class="far fa-calendar-edit icon"></i><span>Time last update</span></label>
-                                <input class="value" type="datetime-local" name="edit_t-lastUpdate" disabled value="" id="edit_t-lastUpdate">
-                            </div>
-                            <div class="item-summit"> 
-                                <label for="edit_summit"><i class="fas fa-check-circle icon-summit"></i></label>
-                                <input type="submit" hidden id="edit_summit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="admin_action-content admin_create-container">
-                    <div class="create_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
-                        <div class="control bg-overlay"> 
-                            <div class="play active"> <i class="fad fa-play-circle"></i></div>
-                            <div class="pause"><i class="fas fa-pause-circle"></i></div>
-                        </div>
-                    </div>
-                    <form action="./admin/create/album" enctype="multipart/form-data" method="POST">
-                        <div class="create_item-info"> 
-                            <div class="item-name">
-                                <label class="title" for="create_name"> <i class="fas fa-album icon"></i><span>Name: </span></label>
-                                <input class="value" type="text" name="create_name" value="" id="create_name">
-                            </div>
-                            <div class="item-author">
-                                <label class="title" for="create_author"> <i class="fas fa-at icon"></i><span>Author: </span></label>
-                                <input class="value" type="text" name="create_author" value="" id="create_author">
-                            </div>
-                            <div class="item-category"> 
-                                <label class="title" for="create_category"> <i class="far fa-betamax icon"></i><span>Category: </span></label>
-                                <select class="value" name="create_category" id="create_category">
-                                    <option value="1">Vpop</option>
-                                    <option value="2">US-UK</option>
-                                    <option value="3">Lofi</option>
-                                </select>
-                            </div>
-                            <div class="item-duration">
-                                <label class="title" for="create_duration"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></label>
-                                <input class="value" type="text" name="create_duration" value="" readonly id="create_duration">
-                            </div>
-                            <div class="item-image">
-                                <label class="title" for="create_image"> <i class="fas fa-image icon"></i><span>Image: </span>
-                                    <label for="create_image">Click to choose image</label>
-                                    <input type="file" name="create_image" hidden accept="image/*" id="create_image">
-                                </label>
-                                <div class="value" id="create_image-value"> </div>
-                            </div>
-                            <div class="item-path"> 
-                                <label class="title" for="create_audio"> <i class="fas fa-location-arrow icon"></i><span>Path: </span>
-                                    <label for="create_audio">Click to choose path</label>
-                                    <input type="file" name="create_audio" hidden accept="audio/*" id="create_audio">
-                                </label>
-                                <div class="value" id="create_audio-value"> </div>
-                            </div>
-                            <!--                        <div class="item-t-create"> 
-                                                        <label class="title" for="create_t-create"> <i class="fad fa-calendar-plus icon"></i><span>Time create: </span></label>
-                                                        <input class="value" type="date" name="create_t-create" value="" id="create_t-create">
-                                                    </div>
-                                                    <div class="item-t-lastUpdate">
-                                                        <label class="title" for="create_t-lastUpdate"> <i class="far fa-calendar-create icon"></i><span>Time last update</span></label>
-                                                        <input class="value" type="datetime-local" name="create_t-lastUpdate" value="" id="create_t-lastUpdate">
-                                                    </div>-->
-                            <div class="item-summit"> 
-                                <label for="create_summit"><i class="fas fa-plus-circle icon-summit"></i></label>
-                                <input type="submit" hidden id="create_summit">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <audio id="audio" src=""></audio>
+                </form>
             </div>
-        </section>
-        <section class="bg-overlay" id="user">
-            <div class="user-container">
-                <div class="user-content">
-                    <form action="./user/update?id=${user.id}" method="POST">
-                        <input type="text" name="url" value="/admin" hidden>
-                        <div class="user__base-info"> 
-                            <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
-                            <div class="user__fullname"> 
-                                <div class="first_name"> 
-                                    <div class="title">First name: </div>
-                                    <div class="value"> <span class="active">${user.firs_name}</span>
-                                        <input class="edit_value" type="text" name="first-name" value="${user.firs_name}" placeholder="First-name ...">
-                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
-                                </div>
-                                <div class="last_name"> 
-                                    <div class="title">Last name: </div>
-                                    <div class="value"> <span class="active">${user.last_name}</span>
-                                        <input class="edit_value" type="text" name="last-name" value="${user.last_name}" placeholder="Last-name ...">
-                                    </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user__more-info">
-                            <div class="user_username">
-                                <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                <div class="value"> 
-                                    <div class="edit_value"></div><span class="active">${user.username}</span>
-                                </div>
-                            </div>
-                            <div class="user_password">
-                                <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                <div class="value"> <span class="active">********</span>
-                                    <div class="edit_password edit_value">
-                                        <input type="password" name="old-password" placeholder="Mật khẩu cũ">
-                                        <input type="password" name="new-password" placeholder="Mật khẩu mới">
-                                        <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="user_email"> 
-                                <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                <div class="value"> <span class="active">${user.email}</span>
-                                    <input class="edit_value" type="email" name="email" value="${user.email}" placeholder="Email ....">
-                                </div>
-                            </div>
-                            <div class="user_time-create">
-                                <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
-                                <div class="value"> 
-                                    <div class="edit_value"></div><span class="active">${user.t_create}</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="user__icon-summit"> 
-                            <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
-                            <input type="submit" hidden id="user__edit_summit">
-                        </div>
-                    </form>
+            <div class="admin_action-content admin_create-container">
+                <div class="create_item-img bg-img" style="background-image: url('./img/core-img/img-default.jpg');">
+                    <div class="control bg-overlay"> 
+                        <div class="play active"> <i class="fad fa-play-circle"></i></div>
+                        <div class="pause"><i class="fas fa-pause-circle"></i></div>
+                    </div>
                 </div>
+                <form action="./admin/create/album" enctype="multipart/form-data" method="POST">
+                    <div class="create_item-info"> 
+                        <div class="item-name">
+                            <label class="title" for="create_name"> <i class="fas fa-album icon"></i><span>Name: </span></label>
+                            <input class="value" type="text" name="create_name" value="" id="create_name">
+                        </div>
+                        <div class="item-author">
+                            <label class="title" for="create_author"> <i class="fas fa-at icon"></i><span>Author: </span></label>
+                            <input class="value" type="text" name="create_author" value="" id="create_author">
+                        </div>
+                        <div class="item-category"> 
+                            <label class="title" for="create_category"> <i class="far fa-betamax icon"></i><span>Category: </span></label>
+                            <select class="value" name="create_category" id="create_category">
+                                <option value="1">Vpop</option>
+                                <option value="2">US-UK</option>
+                                <option value="3">Lofi</option>
+                            </select>
+                        </div>
+                        <div class="item-duration">
+                            <label class="title" for="create_duration"> <i class="fad fa-hourglass-start icon"></i><span>Duration: </span></label>
+                            <input class="value" type="text" name="create_duration" value="" readonly id="create_duration">
+                        </div>
+                        <div class="item-image">
+                            <label class="title" for="create_image"> <i class="fas fa-image icon"></i><span>Image: </span>
+                                <label for="create_image">Click to choose image</label>
+                                <input type="file" name="create_image" hidden accept="image/*" id="create_image">
+                            </label>
+                            <div class="value" id="create_image-value"> </div>
+                        </div>
+                        <div class="item-path"> 
+                            <label class="title" for="create_audio"> <i class="fas fa-location-arrow icon"></i><span>Path: </span>
+                                <label for="create_audio">Click to choose path</label>
+                                <input type="file" name="create_audio" hidden accept="audio/*" id="create_audio">
+                            </label>
+                            <div class="value" id="create_audio-value"> </div>
+                        </div>
+                        <div class="item-summit"> 
+                            <label for="create_summit"><i class="fas fa-plus-circle icon-summit"></i></label>
+                            <input type="submit" hidden id="create_summit">
+                        </div>
+                    </div>
+                </form>
             </div>
-        </section>
-        <section id="toast"></section>
-        <script>
-            function deleteAlbum(id) {
-                const check = confirm(
-                        "Are you sure you want to remove Album ID = " + id + " ?"
-                        );
-                if (check === true) {
-                    window.location.href = "./admin/delete/album?id=" + id;
-                }
+            <audio id="audio" src=""></audio>
+        </div>
+    </section>
+    <section class="bg-overlay" id="user">
+        <div class="user-container">
+            <div class="user-content">
+                <form action="./user/update?id=${user.id}" method="POST">
+                    <input type="text" name="url" value="/admin" hidden>
+                    <div class="user__base-info"> 
+                        <div class="user_avatar bg-img" style="background-image: url('./img/core-img/avatar-default-1.jpg');"></div>
+                        <div class="user__fullname"> 
+                            <div class="first_name"> 
+                                <div class="title">First name: </div>
+                                <div class="value"> <span class="active">${user.firs_name}</span>
+                                    <input class="edit_value" type="text" name="first-name" value="${user.firs_name}" placeholder="First-name ...">
+                                </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                            </div>
+                            <div class="last_name"> 
+                                <div class="title">Last name: </div>
+                                <div class="value"> <span class="active">${user.last_name}</span>
+                                    <input class="edit_value" type="text" name="last-name" value="${user.last_name}" placeholder="Last-name ...">
+                                </div><i class="fas fa-edit icon-setting active"> </i><i class="fal fa-window-close icon-setting-close"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__more-info">
+                        <div class="user_username">
+                            <div class="title"> <i class="fas fa-user icon"></i><span>Username: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> 
+                                <div class="edit_value"></div><span class="active">${user.username}</span>
+                            </div>
+                        </div>
+                        <div class="user_password">
+                            <div class="title"> <i class="fas fa-key icon"></i><span>Password: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> <span class="active">********</span>
+                                <div class="edit_password edit_value">
+                                    <input type="password" name="old-password" placeholder="Mật khẩu cũ">
+                                    <input type="password" name="new-password" placeholder="Mật khẩu mới">
+                                    <input type="password" name="verify-password" placeholder="Nhập lại mật khẩu mới">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user_email"> 
+                            <div class="title"> <i class="fas fa-envelope-open icon"></i><span>Email: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> <span class="active">${user.email}</span>
+                                <input class="edit_value" type="email" name="email" value="${user.email}" placeholder="Email ....">
+                            </div>
+                        </div>
+                        <div class="user_time-create">
+                            <div class="title"> <i class="fas fa-calendar-star icon"></i><span>Time create: </span><i class="fas fa-edit icon-setting active"></i><i class="fal fa-window-close icon-setting-close"></i></div>
+                            <div class="value"> 
+                                <div class="edit_value"></div><span class="active">${user.t_create}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user__icon-summit"> 
+                        <label for="user__edit_summit"><i class="fas fa-check-circle edit-summit"></i></label>
+                        <input type="submit" hidden id="user__edit_summit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section id="toast"></section>
+    <script>
+        function deleteAlbum(id) {
+            const check = confirm(
+                    "Are you sure you want to remove Album ID = " + id + " ?"
+                    );
+            if (check === true) {
+                window.location.href = "./admin/delete/album?id=" + id;
             }
-        </script>
-        <script src="./js/dateFormat.js"></script>  
-        <script src="./js/admin_app.js"></script>
-    </body>
+        }
+    </script>
+    <script src="./js/dateFormat.js"></script>  
+    <script src="./js/admin_app.js"></script>
+</body>
 </html>

@@ -120,6 +120,10 @@ public class User {
     public int getRole_id() {
         return role_id;
     }
+    
+    public String getRole_name() {
+        return MyMethod.getRole_name(role_id);
+    }
 
     public void setRole_id(int role_id) {
         this.role_id = role_id;

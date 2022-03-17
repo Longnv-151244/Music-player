@@ -147,19 +147,6 @@
           margin-left: 20px;
         }
       }
-      // .sort-select {
-      //   float: right;
-      //   margin-right: 50px;
-      //   select {
-      //     cursor: pointer;
-      //     height: 43px;
-      //     padding: 5px;
-      //     border-radius: 10px;
-      //     font-size: 16px;
-      //     font-weight: 700;
-      //     // margin-top: -5px;
-      //   }
-      // }
     }
     .admin__content-main {
       table {
@@ -226,6 +213,8 @@
               cursor: auto;
               margin-left: 10px;
             }
+            .email,
+            .role,
             .timeUpdate {
               font-size: 14px;
               color: $text;
@@ -239,9 +228,26 @@
     }
     #admin__user,
     #admin__history {
+      .btn_edit--role,
       .btn-create,
       .icon {
         cursor: not-allowed;
+      }
+    }
+    #admin__user {
+      .admin__content-main {
+        .action {
+          width: 20% !important;
+          .btn_edit--role {
+            border-radius: 5px;
+            border: 0px;
+            background: linear-gradient(to right, #159957, #155799);
+            font-size: 12px;
+            &.active {
+              cursor: pointer !important;
+            }
+          }
+        }
       }
     }
   }

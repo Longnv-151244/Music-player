@@ -48,7 +48,7 @@ public class UserDAO extends BaseDAO<User> {
         }
         return users;
     }
-    
+
     public User getAccountByUsername(String username) {
         User u = new User();
         try {
@@ -137,6 +137,18 @@ public class UserDAO extends BaseDAO<User> {
         }
     }
 
+    public void updateUserToAdmin(int id) {
+        try {
+            String sql = "UPDATE Users\n"
+                    + "set role_ID = 2\n"
+                    + "where id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            st.executeUpdate();
+        } catch (Exception e) {
+        }
+    }
+
     public void updateT_lastOnline(int id) {
         try {
             String sql = "UPDATE Users\n"
@@ -151,7 +163,7 @@ public class UserDAO extends BaseDAO<User> {
         } catch (Exception e) {
         }
     }
-    
+
     public void updateStatus(int id, boolean status) {
         try {
             String sql = "UPDATE Users\n"

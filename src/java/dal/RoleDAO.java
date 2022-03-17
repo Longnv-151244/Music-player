@@ -39,4 +39,20 @@ public class RoleDAO extends BaseDAO<Role> {
         return roles;
     }
 
+    public String getRoleName(int role_ID) {
+        try {
+            String sql = "select name\n"
+                    + "FROM Roles\n"
+                    + "WHERE id = ?";
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, role_ID);
+            ResultSet rs = st.executeQuery();
+            rs.next();
+            return rs.getString("name");
+        } catch (SQLException ex) {
+            Logger.getLogger(RoleDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }

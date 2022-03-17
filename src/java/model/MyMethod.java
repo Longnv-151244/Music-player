@@ -5,12 +5,14 @@
  */
 package model;
 
+import dal.RoleDAO;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Timestamp;
 import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Pattern;
 import javax.servlet.http.Cookie;
@@ -77,6 +79,11 @@ public class MyMethod {
         }
         return null;
     }
+    
+    public static String getRole_name(int role_ID) {
+        RoleDAO rd = new RoleDAO();
+        return rd.getRoleName(role_ID);
+    }
 
     public static Timestamp getT_now() {
         Date nowDate = new Date();
@@ -141,7 +148,7 @@ public class MyMethod {
     }
 
     public static String getTimeAgo(Timestamp t_now, Timestamp t_lastOnline) {
-        long durationInMillis = t_now.getTime() - t_lastOnline.getTime();
+        long durationInMillis = Math.abs(t_now.getTime() - t_lastOnline.getTime());
         int second = (int) (durationInMillis / 1000);
         int minute = second / 60;
         int hour = minute / 60;

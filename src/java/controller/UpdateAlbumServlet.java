@@ -74,7 +74,7 @@ public class UpdateAlbumServlet extends HttpServlet {
         a.setT_lastUpdate(t_lastUpdate);
         ad.updateAlbum(a);
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
-        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        String username = MyMethod.getValueCooky(request, response, "username");
         History h = new History(user_ID, username, album_ID, edit_name, t_lastUpdate, 3);
         HistoryDAO hd = new HistoryDAO();
         hd.insertHistory(h);

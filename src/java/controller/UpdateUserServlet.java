@@ -34,10 +34,15 @@ public class UpdateUserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        UserDAO ud = new UserDAO();
         String id = request.getParameter("id");
         String url = request.getContextPath() + request.getParameter("url");
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
+        if (url.contains("/admin")) {
+            String username = MyMethod.getValueCooky(request, response, "username");
+            u = ud.getAccountByUsername(username);
+        }
         String first_name = request.getParameter("first-name");
         String last_name = request.getParameter("last-name");
         String old_password = request.getParameter("old-password");
@@ -66,7 +71,7 @@ public class UpdateUserServlet extends HttpServlet {
                 c_message_update_user.setValue("update_user_2");
             }
         }
-        c_message_update_user.setMaxAge(1);      
+        c_message_update_user.setMaxAge(1);
         c_message_update_user.setPath(url);
         response.addCookie(c_message_update_user);
         if (MyMethod.checkInput(first_name) && flag) {
@@ -78,8 +83,13 @@ public class UpdateUserServlet extends HttpServlet {
         if (MyMethod.checkInput(email) && flag) {
             u.setEmail(email);
         }
-        UserDAO ud = new UserDAO();
+        
         ud.updateUser(u);
+        if (url.contains("/admin")) {
+            Cookie c = MyMethod.createCooky("isAccess", "true", 1);
+            c.setPath(url);
+            response.addCookie(c);
+        }
         response.sendRedirect(url);
     }
 

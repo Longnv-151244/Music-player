@@ -2027,6 +2027,8 @@ ul li {
   cursor: auto;
   margin-left: 10px;
 }
+.admin__container .admin__content .admin__content-main table tbody tr .email,
+.admin__container .admin__content .admin__content-main table tbody tr .role,
 .admin__container .admin__content .admin__content-main table tbody tr .timeUpdate {
   font-size: 14px;
   color: #666666;
@@ -2034,11 +2036,25 @@ ul li {
 .admin__container .admin__content .admin__content-main table tbody tr .action .icon {
   margin: 0 5px;
 }
+.admin__container .admin__content #admin__user .btn_edit--role,
 .admin__container .admin__content #admin__user .btn-create,
 .admin__container .admin__content #admin__user .icon,
+.admin__container .admin__content #admin__history .btn_edit--role,
 .admin__container .admin__content #admin__history .btn-create,
 .admin__container .admin__content #admin__history .icon {
   cursor: not-allowed;
+}
+.admin__container .admin__content #admin__user .admin__content-main .action {
+  width: 20% !important;
+}
+.admin__container .admin__content #admin__user .admin__content-main .action .btn_edit--role {
+  border-radius: 5px;
+  border: 0px;
+  background: linear-gradient(to right, #159957, #155799);
+  font-size: 12px;
+}
+.admin__container .admin__content #admin__user .admin__content-main .action .btn_edit--role.active {
+  cursor: pointer !important;
 }
 
 #admin_action {

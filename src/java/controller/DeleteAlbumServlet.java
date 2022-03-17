@@ -42,7 +42,7 @@ public class DeleteAlbumServlet extends HttpServlet {
         ad.deleteAlbum(album_id);
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
         Timestamp t_lastUpdate = MyMethod.getT_now();
-        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        String username = MyMethod.getValueCooky(request, response, "username");
         History h = new History(user_ID, username, album_id, album_name, t_lastUpdate, 4);
         HistoryDAO hd = new HistoryDAO();
         Cookie c = MyMethod.createCooky("isAccess", "true", 1);

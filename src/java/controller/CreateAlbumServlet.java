@@ -66,7 +66,7 @@ public class CreateAlbumServlet extends HttpServlet {
         ad.inserAlbum(a);
         int album_ID = ad.getIDByNameAndT_create(a);
         int user_ID = Integer.parseInt(MyMethod.getValueCooky(request, response, "user_ID"));
-        String username = MyMethod.getValueCooky(request, response, "user_ID");
+        String username = MyMethod.getValueCooky(request, response, "username");
         History h = new History(user_ID, username, album_ID, create_name, t_lastUpdate, 2);
         HistoryDAO hd = new HistoryDAO();
         hd.insertHistory(h);
