@@ -171,9 +171,5 @@ public class Album {
     public void setLiked(boolean liked) {
         this.liked = liked;
     }
-    
-    
-
-  
 
 }

@@ -5,8 +5,8 @@ const stringCookies = document.cookie;
 const arrayCookies = stringCookies.split(";");
 const cookies = arrayCookies.map((cooky) => {
   return {
-    name: cooky.split("=")[0].trim(),
-    value: cooky.split("=")[1].trim(),
+    name: cooky.split("=")[0],
+    value: cooky.split("=")[1],
   };
 });
 

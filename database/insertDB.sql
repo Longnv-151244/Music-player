@@ -11,7 +11,7 @@ insert into Users(username, [password], role_ID, t_create, email)
 values 
 ('user_1','admin123',1,'2022-02-22 13:25:00','user_1@gmail.com'),
 ('admin_1','admin123',2,'2022-02-22 13:25:00','admin_1@gmail.com'),
-('admin_manager_1','admin123',2,'2022-02-22 13:25:00','admin_manager_1@gmail.com')
+('admin_manager_1','admin123',3,'2022-02-22 13:25:00','admin_manager_1@gmail.com')
 
 insert into Albums(name, author, category_ID, duration, image, path, t_create)
 values
@@ -79,7 +79,7 @@ values
 
 insert into history_Album([user_ID],[user_name], [album_ID],[album_name], t_lastUpdate, [action_ID])
 values
-(1,'',1,'','2022-02-22 14:39:00',3)
+(2,'admin_1',1,N'Đế vương','2022-02-22 14:39:00',3)
 
 insert into Background(name, path)
 values 
@@ -123,9 +123,6 @@ values
 ('Bg-38','./img/bg-gif/gif-38.gif'),
 ('Bg-39','./img/bg-gif/gif-39.gif'),
 ('Bg-40','./img/bg-gif/gif-40.gif')
-
-SELECT id, name, path
-FROM Background
 
 insert into Slider([album_ID], heading, text)
 values

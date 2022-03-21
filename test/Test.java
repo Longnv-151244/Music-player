@@ -1,6 +1,9 @@
 
+import dal.AlbumDAO;
 import dal.HistoryDAO;
+import dal.LikeDAO;
 import java.util.ArrayList;
+import model.Album;
 import model.History;
 
 /*
@@ -15,11 +18,5 @@ import model.History;
 public class Test {
 
     public static void main(String[] args) {
-        HistoryDAO hd = new HistoryDAO();
-        ArrayList<History> hl = hd.getAll();
-        for (int i = 0; i < hl.size(); i++) {
-            History get = hl.get(i);
-            System.out.println(get.getUser_name());
-        }
     }
 }

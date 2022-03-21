@@ -41,7 +41,7 @@ public class VpopServlet extends HttpServlet {
         HttpSession session = request.getSession();
         User u = (User) session.getAttribute("user");
         if (u != null) {
-            ArrayList<Album> albums = ad.getAlbumsOfCategoryWithUser(1, 1);
+            ArrayList<Album> albums = ad.getAlbumsOfCategoryWithUser(1, u.getId());
             request.setAttribute("albums", albums);
         } else {
             ArrayList<Album> albums = ad.getAlbumsOfCategory(1);

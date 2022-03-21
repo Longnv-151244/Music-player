@@ -29,7 +29,7 @@ const volumeHight = Array.from($$(".volume--hight"));
 const mobileToggle = Array.from($$(".mobile-toggle"));
 const songSlider = Array.from($$(".slider__player"));
 
-const user = $("#user");
+var user = $("#user");
 const userIconOption = Array.from($$(".user .fas.fa-caret-down.icon"));
 const userOption = Array.from($$(".user .user__option"));
 
