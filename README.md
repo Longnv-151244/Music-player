@@ -37,7 +37,7 @@ Music Player (Project PRJ301)
 
 [![Home Page Screen Shot][home-screenshot]](https://iili.io/NapqIs.png)
 
-### Stream Muic Page
+### Stream Music Page
 
 [![Stream Muic Page Screen Shot][stream-screenshot]](https://iili.io/NapqIs.png)
 
