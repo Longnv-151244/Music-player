@@ -1,0 +1,254 @@
+#admin_main {
+  display: inline-flex;
+  width: 100vw;
+  height: 100vh;
+}
+.admin__sidebar {
+  // display: none;
+  width: 300px;
+  height: 100%;
+  background: $primary;
+  .logo {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .sidebar__main {
+    color: $border;
+    font-size: 20px;
+    .sidebar__tab {
+      padding: 10px 20px;
+      margin-left: 30px;
+      margin-bottom: 10px;
+      &.active {
+        background: $border;
+        color: $text;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        // margin:
+      }
+      & > .active {
+        color: $primary !important;
+        border-bottom: 3px solid $primary !important;
+        display: block !important;
+      }
+      .sidebar__tab-name {
+        .icon {
+          font-size: 22px;
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        width: fit-content;
+        cursor: pointer;
+      }
+      .sidebar__tab-child {
+        margin-top: 10px;
+        margin-left: 40px;
+        font-size: 16px;
+        width: fit-content;
+        cursor: pointer;
+        display: none;
+      }
+    }
+  }
+}
+
+.admin__container {
+  left: 300px;
+  width: calc(100vw - 300px);
+  height: 80px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  .admin__header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    .admin__toggle {
+      font-size: 24px;
+      font-weight: 700;
+      cursor: pointer;
+      & > * {
+        margin-right: 20px;
+      }
+    }
+
+    .header__search {
+      form {
+        input {
+          padding: 10px 20px;
+          border-radius: 20px;
+          width: 300px;
+          border: 3px solid $border;
+        }
+      }
+    }
+    .header__user {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+  .admin__content {
+    & > * {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+    .admin__content-overview {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .overview__item {
+        & > * {
+          display: inline-block;
+        }
+        margin-top: 40px;
+        width: 200px;
+        padding: 20px 20px;
+        background: $border;
+        border-radius: 10px;
+        .overview__item-info {
+          margin-left: 30px;
+          .overview__item-value {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 10px;
+          }
+          .overview__item-unit {
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: $text;
+          }
+        }
+        .overview__item-icon {
+          float: right;
+          color: $primary;
+          font-size: 50px;
+        }
+      }
+    }
+    .admin__content-header {
+      margin-top: 30px;
+      margin-left: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      .btn-create {
+        border-radius: 5px;
+        border: 0px;
+        height: 100%;
+        margin-right: 100px;
+        background: $primary_linear;
+        .icon {
+          margin-left: 20px;
+        }
+      }
+    }
+    .admin__content-main {
+      table {
+        width: 100%;
+        & > * {
+          tr {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            .id {
+              width: 5%;
+            }
+            .name {
+              width: 20%;
+            }
+            .like {
+              width: 10%;
+            }
+            .timeUpdate {
+              width: 20%;
+            }
+            .view {
+              width: 10%;
+            }
+            .action {
+              width: 10%;
+              & > * {
+                display: inline-block;
+              }
+            }
+          }
+        }
+        thead tr {
+          margin-left: 40px;
+          margin-right: 40px;
+          color: $primary;
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        tbody {
+          margin-left: 40px;
+          margin-right: 40px;
+          height: calc(100vh - 380px);
+          tr {
+            padding-bottom: 15px;
+            padding-top: 15px;
+            border-bottom: 3px solid $text;
+            font-size: 16px;
+            opacity: 0.8;
+            &:hover {
+              font-size: 18px;
+              background-color: $border;
+              box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+                rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+              opacity: 1;
+            }
+            .icon {
+              cursor: pointer;
+              color: $primary;
+            }
+            .like .icon {
+              cursor: auto;
+              margin-left: 10px;
+            }
+            .email,
+            .role,
+            .timeUpdate {
+              font-size: 14px;
+              color: $text;
+            }
+            .action .icon {
+              margin: 0 5px;
+            }
+          }
+        }
+      }
+    }
+    #admin__user,
+    #admin__history {
+      .btn_edit--role,
+      .btn-create,
+      .icon {
+        cursor: not-allowed;
+      }
+    }
+    #admin__user {
+      .admin__content-main {
+        .action {
+          width: 20% !important;
+          .btn_edit--role {
+            border-radius: 5px;
+            border: 0px;
+            background: linear-gradient(to right, #159957, #155799);
+            font-size: 12px;
+            &.active {
+              cursor: pointer !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

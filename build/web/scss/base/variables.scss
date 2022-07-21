@@ -1,0 +1,54 @@
+// Heading Color
+$heading: #232323;
+
+// Text Color
+$text: #666666;
+
+// Gray Background
+$bg-gray: #f4f4f4;
+
+// Primary Color
+$primary: #f55656;
+
+// White Color
+$white: #ffffff;
+
+// Dark Color
+$dark: #000000;
+$dark_light: rgba(0, 0, 0, 0.8);
+$darkslategray: #343434;
+
+// Border Color
+$border: #ebebeb;
+
+// Hover Color
+$hover: #f55656;
+
+// Secondary Color
+$secondary: #a6a6a6;
+
+// Backgound linear gradient
+$primary_linear: linear-gradient(to left, #f27121, #e94057, #8a2387);
+
+// Color toast
+// Success
+$success: #00c24e;
+// Info
+$info: #3881e0;
+// Warning
+$warning: #ffbb33;
+// Error
+$error: #ff4444;
+
+// Fonts
+$fonts: "Space Grotesk", sans-serif;
+$base-font-size: 18px;
+$base-font-weight: 600;
+$font-size-heading: 50px;
+
+$scale-rate-second: calc(240 / 300);
+$scale-rate-third: calc(210 / 300);
+$offset-x-second: calc(
+  0px - ((300px - (300px * $scale-rate-second)) / 2 + 20px)
+);
+$offset-x-third: calc(0px - ((300px - (300px * $scale-rate-third)) / 2 + 40px));

@@ -1,0 +1,260 @@
+#recommend {
+  margin-top: 15rem;
+  h1 {
+    font-size: $font-size-heading;
+    @media #{$breakpoint-mobile} {
+      font-size: 30px;
+    }
+  }
+  .line {
+    width: 15rem;
+    border-bottom: 5px solid $primary;
+  }
+  .group-tab__name {
+    margin: 30px 0;
+    text-align: center;
+    h3 {
+      display: inline-block;
+      margin: 0 6rem;
+      cursor: pointer;
+      @media #{$breakpoint-mobile} {
+        margin: 0 3rem;
+      }
+      &.active {
+        border-bottom: 3px solid $primary;
+      }
+    }
+  }
+  .group-tab__content {
+    .tab__container {
+      width: 100%;
+      height: 300px;
+
+      @media #{$breakpoint-mobile} {
+        height: 200px;
+      }
+
+      .tab__heading {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        .btn-group {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 3rem;
+          i span {
+            font-size: 10px;
+            margin-left: 10px;
+          }
+          .btn {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
+              rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+          }
+          @media #{$breakpoint-mobile} {
+            .btn--second {
+              display: none;
+            }
+          }
+        }
+      }
+
+      .tab__content {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        display: none;
+        &.active {
+          display: flex;
+        }
+        // Slider
+        .container__slide {
+          width: 350px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          padding-right: 20px;
+          justify-content: flex-end;
+
+          @media #{$breakpoint-table} {
+            display: none;
+          }
+
+          @media #{$breakpoint-mobile} {
+            display: none;
+          }
+
+          .container__slide-show {
+            width: 387px;
+            height: 324px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            transform-style: preserve-3d;
+            position: relative;
+
+            .container__slide-item {
+              width: 300px;
+              height: 300px;
+              position: absolute;
+              transition: all 0.9s;
+              backface-visibility: hidden;
+              will-change: transform, opacity;
+              transform: perspective(1px) translateZ(0);
+              &.first {
+                opacity: 1;
+                transform: translate3d(0, 0, 80px) scale(1, 1);
+              }
+
+              &.second {
+                opacity: 0.7;
+                transform: translate3d($offset-x-second, 0, 60px)
+                  scale($scale-rate-second, $scale-rate-second);
+              }
+
+              &.third {
+                opacity: 0.9;
+                transform: translate3d($offset-x-third, 0, 20px)
+                  scale($scale-rate-third, $scale-rate-third);
+              }
+
+              &.fourth {
+                opacity: 0.1;
+                transform: translate3d($offset-x-third, 0, 0)
+                  scale($scale-rate-third, $scale-rate-third);
+              }
+              .container__slide-img {
+                width: 100%;
+                padding-top: 100%;
+                border-radius: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.tab__container-list {
+  flex-grow: 1;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 1rem;
+  @media #{$breakpoint-mobile} {
+    margin-left: 0rem;
+  }
+  .play-list {
+    flex: 1;
+    font-weight: 500;
+    .song-item {
+      display: grid;
+      grid-template-columns: 3fr 1fr 1fr;
+      font-size: 1.2rem !important;
+      border-bottom: 3px solid $border;
+      &.active {
+        grid-template-columns: 2fr 5fr 1fr;
+        .song-duration {
+          display: none;
+        }
+        .player__content {
+          display: block;
+        }
+      }
+      .song-content {
+        display: flex;
+        align-items: center;
+        position: relative;
+        .song-img {
+          width: 7rem;
+          min-width: 7rem;
+          height: 6rem;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &--hover {
+            color: $primary;
+            font-size: 30px;
+            margin: 0 auto;
+            display: none;
+            cursor: pointer;
+          }
+          img {
+            border-radius: 10px;
+            object-fit: cover;
+            max-height: 100%;
+            z-index: 1;
+          }
+          @media #{$breakpoint-mobile} {
+            display: none;
+          }
+        }
+        .song-info {
+          margin-left: 2rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          .song-name {
+            font-size: 1.5rem;
+            color: $primary;
+            cursor: pointer;
+          }
+          @media #{$breakpoint-mobile} {
+            margin-left: 0;
+          }
+        }
+      }
+      .player__content {
+        padding: 1rem 0;
+        .player__control {
+          border-bottom: none;
+          span {
+            font-size: 1.2rem;
+          }
+        }
+        display: none;
+      }
+      .song-duration {
+        display: flex;
+        align-items: center;
+      }
+      .song-option {
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 3rem;
+        margin-right: 4rem;
+        @media #{$breakpoint-mobile} {
+          margin-right: 0;
+          gap: 2rem;
+        }
+        & > * {
+          cursor: pointer;
+          &.active {
+            color: $primary;
+          }
+        }
+      }
+      &.active,
+      &:hover {
+        background: $border;
+        .song-img {
+          opacity: 0.8;
+          &--hover {
+            display: block;
+          }
+        }
+        .sidebarTime--bg {
+          border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+      }
+    }
+  }
+}

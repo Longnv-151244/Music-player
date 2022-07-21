@@ -1,0 +1,58 @@
+/* :: 1.0 Reboot CSS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $fonts;
+  font-weight: $base-font-weight;
+  font-size: $base-font-size;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $fonts;
+  color: $heading;
+  line-height: 1.4;
+  font-weight: $base-font-weight;
+}
+
+a,
+a:active,
+a:focus,
+a:hover {
+  color: $heading;
+  text-decoration: none;
+  @include transition-duration(500ms);
+  outline: none;
+}
+
+li {
+  list-style: none;
+}
+
+p {
+  line-height: 1.9;
+  // color: $text;
+  font-weight: $base-font-weight;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin: 0;
+    padding: 0;
+  }
+}
