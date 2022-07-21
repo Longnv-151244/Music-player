@@ -1,6 +1,4 @@
-# Project Title
-
-Music Player (Project PRJ301)
+# Music Player (Project PRJ301)
 
 ## Description
 
